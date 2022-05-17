@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Starting with a single regression tree &#8212; Lorenz 1996 two time-scale model for learning machine learning</title>
+    <title>Random Forest &#8212; Lorenz 1996 two time-scale model for learning machine learning</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -166,7 +166,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Starting with a single regression tree
+   Random Forest
   </a>
  </li>
 </ul>
@@ -290,64 +290,64 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#starting-with-a-single-regression-tree">
    Starting with a single regression tree
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#offline-training-fitting-and-testing">
      Offline training / fitting and testing
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fit-and-test-scores">
      Fit and test scores
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#overfitting">
      Overfitting
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#online-implementation-of-the-parameterization">
      Online implementation of the parameterization
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#multiple-features">
    Multiple features
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#random-forest-ensemble-of-decision-trees">
    Random Forest: ensemble of decision trees
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gradient-boosting">
    Gradient boosting
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#more-features-using-past-state">
    More features: using past state
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparison-with-nn-parameterization-based-on-yani-s-code">
    Comparison with NN parameterization (based on Yani’s code)
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#which-model-model-parameters-should-we-go-for">
    Which model / model parameters should we go for?
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#standard-machine-learning-approach-validation">
      Standard Machine Learning approach: validation
     </a>
@@ -364,7 +364,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Starting with a single regression tree</h1>
+                <h1>Random Forest</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -374,64 +374,64 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#starting-with-a-single-regression-tree">
    Starting with a single regression tree
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#offline-training-fitting-and-testing">
      Offline training / fitting and testing
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fit-and-test-scores">
      Fit and test scores
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#overfitting">
      Overfitting
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#online-implementation-of-the-parameterization">
      Online implementation of the parameterization
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#multiple-features">
    Multiple features
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#random-forest-ensemble-of-decision-trees">
    Random Forest: ensemble of decision trees
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gradient-boosting">
    Gradient boosting
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#more-features-using-past-state">
    More features: using past state
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparison-with-nn-parameterization-based-on-yani-s-code">
    Comparison with NN parameterization (based on Yani’s code)
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#which-model-model-parameters-should-we-go-for">
    Which model / model parameters should we go for?
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#standard-machine-learning-approach-validation">
      Standard Machine Learning approach: validation
     </a>
@@ -447,13 +447,13 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <p>In this notebook we present some basic application of random forest to
+  <div class="tex2jax_ignore mathjax_ignore section" id="random-forest">
+<h1>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook we present some basic application of random forest to
 the parameterization of the L96 model previously introduced.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> notebook
-
-<span class="kn">import</span> <span class="nn">L96_model</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">L96_model</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">sklearn</span>
@@ -509,10 +509,10 @@ the parameterization of the L96 model previously introduced.</p>
 </div>
 </div>
 <div class="section" id="starting-with-a-single-regression-tree">
-<h1>Starting with a single regression tree<a class="headerlink" href="#starting-with-a-single-regression-tree" title="Permalink to this headline">¶</a></h1>
+<h2>Starting with a single regression tree<a class="headerlink" href="#starting-with-a-single-regression-tree" title="Permalink to this headline">¶</a></h2>
 <p>We start with a very simple approach: we use a single value of the state as our feature (i.e. our feature is a scalar), and the subgrid tendency for the same large-scale variable as the target.</p>
 <div class="section" id="offline-training-fitting-and-testing">
-<h2>Offline training / fitting and testing<a class="headerlink" href="#offline-training-fitting-and-testing" title="Permalink to this headline">¶</a></h2>
+<h3>Offline training / fitting and testing<a class="headerlink" href="#offline-training-fitting-and-testing" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
@@ -578,7 +578,7 @@ the parameterization of the L96 model previously introduced.</p>
 </div>
 </div>
 <div class="section" id="fit-and-test-scores">
-<h2>Fit and test scores<a class="headerlink" href="#fit-and-test-scores" title="Permalink to this headline">¶</a></h2>
+<h3>Fit and test scores<a class="headerlink" href="#fit-and-test-scores" title="Permalink to this headline">¶</a></h3>
 <p>We can compute the $R^2$ score: $R^2 = 1 - \frac{\sum_{i}{(\hat{S}<em>i - S_i)^2}}{\sum</em>{i}{(S_i - S_\text{mean})^2}}$
 for both the training data (fit score) and test data.</p>
 <div class="cell docutils container">
@@ -603,7 +603,7 @@ for both the training data (fit score) and test data.</p>
 </div>
 </div>
 <div class="section" id="overfitting">
-<h2>Overfitting<a class="headerlink" href="#overfitting" title="Permalink to this headline">¶</a></h2>
+<h3>Overfitting<a class="headerlink" href="#overfitting" title="Permalink to this headline">¶</a></h3>
 <p>To illustrate what is meant by overfitting, we will increase the number of leaves, and store the fit loss and test loss for plotting</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -633,7 +633,7 @@ for both the training data (fit score) and test data.</p>
 </div>
 </div>
 <div class="section" id="online-implementation-of-the-parameterization">
-<h2>Online implementation of the parameterization<a class="headerlink" href="#online-implementation-of-the-parameterization" title="Permalink to this headline">¶</a></h2>
+<h3>Online implementation of the parameterization<a class="headerlink" href="#online-implementation-of-the-parameterization" title="Permalink to this headline">¶</a></h3>
 <p>Now let’s implement this as a parameterization for L96.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -755,7 +755,7 @@ for both the training data (fit score) and test data.</p>
 </div>
 </div>
 <div class="section" id="multiple-features">
-<h1>Multiple features<a class="headerlink" href="#multiple-features" title="Permalink to this headline">¶</a></h1>
+<h2>Multiple features<a class="headerlink" href="#multiple-features" title="Permalink to this headline">¶</a></h2>
 <p>In this section, we use the global state.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -864,7 +864,7 @@ for both the training data (fit score) and test data.</p>
 </div>
 </div>
 <div class="section" id="random-forest-ensemble-of-decision-trees">
-<h1>Random Forest: ensemble of decision trees<a class="headerlink" href="#random-forest-ensemble-of-decision-trees" title="Permalink to this headline">¶</a></h1>
+<h2>Random Forest: ensemble of decision trees<a class="headerlink" href="#random-forest-ensemble-of-decision-trees" title="Permalink to this headline">¶</a></h2>
 <p>Here we use a random forest instead of a single decision tree. The idea is simple: to avoid overfitting, one trains several decision trees on the same data.  The prediction of the random forest is then the average prediction of all decision trees within the ensemble.</p>
 <p>There are two main ways in which the fitted trees within the forest might differ:</p>
 <ul class="simple">
@@ -973,7 +973,7 @@ for both the training data (fit score) and test data.</p>
 </div>
 </div>
 <div class="section" id="gradient-boosting">
-<h1>Gradient boosting<a class="headerlink" href="#gradient-boosting" title="Permalink to this headline">¶</a></h1>
+<h2>Gradient boosting<a class="headerlink" href="#gradient-boosting" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
@@ -1005,7 +1005,7 @@ for both the training data (fit score) and test data.</p>
 </div>
 </div>
 <div class="section" id="more-features-using-past-state">
-<h1>More features: using past state<a class="headerlink" href="#more-features-using-past-state" title="Permalink to this headline">¶</a></h1>
+<h2>More features: using past state<a class="headerlink" href="#more-features-using-past-state" title="Permalink to this headline">¶</a></h2>
 <p>Here we further increase the complexity of our approach by incorporating past state into the features used to carry out our prediction.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1119,7 +1119,7 @@ for both the training data (fit score) and test data.</p>
 </div>
 </div>
 <div class="section" id="comparison-with-nn-parameterization-based-on-yani-s-code">
-<h1>Comparison with NN parameterization (based on Yani’s code)<a class="headerlink" href="#comparison-with-nn-parameterization-based-on-yani-s-code" title="Permalink to this headline">¶</a></h1>
+<h2>Comparison with NN parameterization (based on Yani’s code)<a class="headerlink" href="#comparison-with-nn-parameterization-based-on-yani-s-code" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
@@ -1212,9 +1212,9 @@ for both the training data (fit score) and test data.</p>
 </div>
 </div>
 <div class="section" id="which-model-model-parameters-should-we-go-for">
-<h1>Which model / model parameters should we go for?<a class="headerlink" href="#which-model-model-parameters-should-we-go-for" title="Permalink to this headline">¶</a></h1>
+<h2>Which model / model parameters should we go for?<a class="headerlink" href="#which-model-model-parameters-should-we-go-for" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="standard-machine-learning-approach-validation">
-<h2>Standard Machine Learning approach: validation<a class="headerlink" href="#standard-machine-learning-approach-validation" title="Permalink to this headline">¶</a></h2>
+<h3>Standard Machine Learning approach: validation<a class="headerlink" href="#standard-machine-learning-approach-validation" title="Permalink to this headline">¶</a></h3>
 <p>The Machine Learning approach to this problem is to separate the data into three data sets:</p>
 <ul class="simple">
 <li><p>training dataset</p></li>
@@ -1241,43 +1241,27 @@ for both the training data (fit score) and test data.</p>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">xy_train</span><span class="p">,</span> <span class="n">xy_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
     <span class="n">X_history</span><span class="p">,</span> <span class="n">closure</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The cells below are very slow to execute. Uncomment them to perform the parameter search.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># best_single_treeV2 = RandomizedSearchCV(</span>
+<span class="c1">#     single_treeV2, single_tree_params_dist, n_iter=10, verbose=True</span>
+<span class="c1"># )</span>
+<span class="c1"># best_rf = RandomizedSearchCV(rf, rf_params_dist, n_iter=20, verbose=True)</span>
 
-<span class="n">best_single_treeV2</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span>
-    <span class="n">single_treeV2</span><span class="p">,</span> <span class="n">single_tree_params_dist</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
-<span class="p">)</span>
-<span class="n">best_rf</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">rf</span><span class="p">,</span> <span class="n">rf_params_dist</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># best_single_treeV2.fit(X_train, xy_train)</span>
+<span class="c1"># best_rf.fit(X_train, xy_train)</span>
 
-<span class="n">best_single_treeV2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">xy_train</span><span class="p">)</span>
-<span class="n">best_rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">xy_train</span><span class="p">)</span>
+<span class="c1"># print(best_single_treeV2.best_score_)</span>
+<span class="c1"># print(best_single_treeV2.best_params_)</span>
+<span class="c1"># print(best_rf.best_params_)</span>
+<span class="c1"># print(best_rf.score(X_test, xy_test))</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_single_treeV2</span><span class="o">.</span><span class="n">best_score_</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_single_treeV2</span><span class="o">.</span><span class="n">best_params_</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_rf</span><span class="o">.</span><span class="n">best_params_</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_rf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">xy_test</span><span class="p">)</span>
-</pre></div>
 </div>
 </div>
 </div>
