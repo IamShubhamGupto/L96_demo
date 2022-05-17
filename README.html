@@ -286,6 +286,16 @@ const thebe_selector_output = ".output, .cell_output"
      Pre-commit
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pull-requests-and-feature-branches">
+     Pull Requests and Feature Branches
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#synchronizing-from-upstream">
+     Synchronizing from upstream
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -328,6 +338,16 @@ const thebe_selector_output = ".output, .cell_output"
      Pre-commit
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pull-requests-and-feature-branches">
+     Pull Requests and Feature Branches
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#synchronizing-from-upstream">
+     Synchronizing from upstream
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -367,6 +387,55 @@ In order to use pre-commit, run the following command in the repo top-level dire
 </pre></div>
 </div>
 <p>At this point, pre-commit will automatically be run every time you make a commit.</p>
+</div>
+<div class="section" id="pull-requests-and-feature-branches">
+<h3>Pull Requests and Feature Branches<a class="headerlink" href="#pull-requests-and-feature-branches" title="Permalink to this headline">¶</a></h3>
+<p>In order to contribute a PR, you should start from a new feature branch.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">my_new_feature</span>
+</pre></div>
+</div>
+<p>(Replace <code class="docutils literal notranslate"><span class="pre">my_new_feature</span></code> with a descriptive name of the feature you’re working on.)</p>
+<p>Make your changes and then make a new commit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">changed_file_1</span><span class="o">.</span><span class="n">ipynb</span> <span class="n">changed_file_2</span><span class="o">.</span><span class="n">ipynb</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;message about my new feature&quot;</span>
+</pre></div>
+</div>
+<p>You can also automatically commit changes to existing files as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">am</span> <span class="s2">&quot;message about my new feature&quot;</span>
+</pre></div>
+</div>
+<p>Then push your changes to your remote on GitHub (usually call <code class="docutils literal notranslate"><span class="pre">origin</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">my_new_feature</span> <span class="n">origin</span>
+</pre></div>
+</div>
+<p>Then navigate to https://github.com/m2lines/L96_demo to open your pull request.</p>
+</div>
+<div class="section" id="synchronizing-from-upstream">
+<h3>Synchronizing from upstream<a class="headerlink" href="#synchronizing-from-upstream" title="Permalink to this headline">¶</a></h3>
+<p>To synchronize your local branch with upstream changes, first make sure you have the upstream remote configured.
+To check your remotes, run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
+<span class="n">origin</span>	<span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">rabernat</span><span class="o">/</span><span class="n">L96_demo</span><span class="o">.</span><span class="n">git</span> <span class="p">(</span><span class="n">fetch</span><span class="p">)</span>
+<span class="n">origin</span>	<span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">rabernat</span><span class="o">/</span><span class="n">L96_demo</span><span class="o">.</span><span class="n">git</span> <span class="p">(</span><span class="n">push</span><span class="p">)</span>
+<span class="n">upstream</span>	<span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">m2lines</span><span class="o">/</span><span class="n">L96_demo</span><span class="o">.</span><span class="n">git</span> <span class="p">(</span><span class="n">fetch</span><span class="p">)</span>
+<span class="n">upstream</span>	<span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">m2lines</span><span class="o">/</span><span class="n">L96_demo</span><span class="o">.</span><span class="n">git</span> <span class="p">(</span><span class="n">push</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you don’t have <code class="docutils literal notranslate"><span class="pre">upstream</span></code>, you need to add it as follows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">upstream</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">m2lines</span><span class="o">/</span><span class="n">L96_demo</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Then, make sure you are on the main branch locally:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+</pre></div>
+</div>
+<p>And then run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span> <span class="n">upstream</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="n">upstream</span><span class="o">/</span><span class="n">main</span>
+</pre></div>
+</div>
+<p>Ideally you will not have any merge conflicts.
+You are now ready to make a new feature branch.</p>
 </div>
 </div>
 <div class="section" id="references">

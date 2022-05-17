@@ -432,8 +432,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="analog-for-the-real-world">
 <h2>Analog for the real world<a class="headerlink" href="#analog-for-the-real-world" title="Permalink to this headline">¶</a></h2>
 <p>Lorenz, 1996, two time-scale equations, with accurate time-stepping (RK4 with sufficiently small $\Delta t$):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-63476a3f-f124-4091-82e3-c73f07b2bceb">
-<span class="eqno">(1)<a class="headerlink" href="#equation-63476a3f-f124-4091-82e3-c73f07b2bceb" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c4cf5d69-e180-4c5e-9f66-e0b3dbee8cfa">
+<span class="eqno">(1)<a class="headerlink" href="#equation-c4cf5d69-e180-4c5e-9f66-e0b3dbee8cfa" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
@@ -446,8 +446,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="tex2jax_ignore mathjax_ignore section" id="analog-for-gcm">
 <h1>Analog for  GCM<a class="headerlink" href="#analog-for-gcm" title="Permalink to this headline">¶</a></h1>
 <p>Lorenz, 1996, one time-scale equation, with inaccurate time-stepping (Euler-forward with only-just stable $\Delta t$) and an unknown parameterization of “unresolved processes), $P(X_k)$:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-951da550-aec0-4ece-8df3-f3d8a2067fc9">
-<span class="eqno">(2)<a class="headerlink" href="#equation-951da550-aec0-4ece-8df3-f3d8a2067fc9" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-70d6ac06-b2b8-437f-90ab-c06ae0c51e6b">
+<span class="eqno">(2)<a class="headerlink" href="#equation-70d6ac06-b2b8-437f-90ab-c06ae0c51e6b" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - P\left( X_k \right)
 \end{align}\]</div>
@@ -516,8 +516,8 @@ Arnold et al., 2013, used $P(X_k)=b_0 + b_1 X_k + b_2 X_k^2 + b_3 X_k^3 + e_k$.<
 <div class="tex2jax_ignore mathjax_ignore section" id="the-parametization-p-x-k">
 <h1>The parametization $P(X_k)$<a class="headerlink" href="#the-parametization-p-x-k" title="Permalink to this headline">¶</a></h1>
 <p>With the “real world” in hand, we can “observe” the sub-grid forcing on the large scale.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-67404d00-f6c2-4c1e-90a1-b72a78e35a28">
-<span class="eqno">(3)<a class="headerlink" href="#equation-67404d00-f6c2-4c1e-90a1-b72a78e35a28" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3cb7951b-38f5-4316-9816-e02b30594f61">
+<span class="eqno">(3)<a class="headerlink" href="#equation-3cb7951b-38f5-4316-9816-e02b30594f61" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \underbrace{ 
 \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
@@ -580,8 +580,8 @@ Arnold et al., 2013, used $P(X_k)=b_0 + b_1 X_k + b_2 X_k^2 + b_3 X_k^3 + e_k$.<
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="the-model-gcm">
 <h1>The model “GCM”<a class="headerlink" href="#the-model-gcm" title="Permalink to this headline">¶</a></h1>
-<div class="amsmath math notranslate nohighlight" id="equation-1352eb28-98f6-4577-b939-1969fa7a3be7">
-<span class="eqno">(4)<a class="headerlink" href="#equation-1352eb28-98f6-4577-b939-1969fa7a3be7" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b2675bed-12f8-4a22-952b-05c445aa8ccf">
+<span class="eqno">(4)<a class="headerlink" href="#equation-b2675bed-12f8-4a22-952b-05c445aa8ccf" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= \underbrace{- X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F}_{\dot{X}\text{ from eq. (1) of Lorenz '96}} - P(X_k)
 \end{align}\]</div>

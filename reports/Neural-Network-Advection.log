@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-X_param, t = gcm(model.X, model.dt, n_steps)
-X_no_param, t = gcm_no_param(model.X, model.dt, n_steps)
-X_true, _, _ = model.run(model.dt, n_steps * model.dt, store=True)
+['WT = 1', '', 'torch.manual_seed(14)  # For reproducibility', 'nn_3l_loss5 = Net_ANN().double()', '']
+...
+['    validation_loss.append(test_model2(nn_3l_loss5, my_loss3, loader_test, optimizer))', 'plt.plot(train_loss, "b", label="training loss")', 'plt.plot(validation_loss, "r", label="validation loss")', '', 'plt.legend();']
 -------------------
 
