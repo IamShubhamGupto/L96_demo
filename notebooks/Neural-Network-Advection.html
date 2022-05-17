@@ -547,8 +547,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>We are only going to use the single equation model from <a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a>, or equation 3.1:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a7a9d026-0728-4f6c-a822-30bf0d808d9e">
-<span class="eqno">(18)<a class="headerlink" href="#equation-a7a9d026-0728-4f6c-a822-30bf0d808d9e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6be1b4cc-70c9-4442-81b6-310980b798f3">
+<span class="eqno">(18)<a class="headerlink" href="#equation-6be1b4cc-70c9-4442-81b6-310980b798f3" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 = - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F
 \end{align}\]</div>
@@ -557,19 +557,19 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="building-a-1d-and-2d-version-of-the-single-equation-l96-model">
 <h2>Building a 1d and 2d version of the single-equation L96 model:<a class="headerlink" href="#building-a-1d-and-2d-version-of-the-single-equation-l96-model" title="Permalink to this headline">¶</a></h2>
 <p>The ‘1d’ in time, or advectionless version of L96 reduces to:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c3960e97-5ee2-4f9c-b3a4-5c6c14e53b3e">
-<span class="eqno">(19)<a class="headerlink" href="#equation-c3960e97-5ee2-4f9c-b3a4-5c6c14e53b3e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8b62510a-4efa-47b5-af57-6413322f6dc9">
+<span class="eqno">(19)<a class="headerlink" href="#equation-8b62510a-4efa-47b5-af57-6413322f6dc9" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 = - X_k + F,
 \end{align}\]</div>
 <p>the steady state solution is simply:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b08210a3-98d7-4194-947c-03d221a719d5">
-<span class="eqno">(20)<a class="headerlink" href="#equation-b08210a3-98d7-4194-947c-03d221a719d5" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-33f72192-9498-4733-bd89-03d455f008fa">
+<span class="eqno">(20)<a class="headerlink" href="#equation-33f72192-9498-4733-bd89-03d455f008fa" title="Permalink to this equation">¶</a></span>\[\begin{align}
 X_k=F,
 \end{align}\]</div>
 <p>and the time-dependent solution is an exponential:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c1c6e6c9-3181-483a-9b38-9356fa6960ce">
-<span class="eqno">(21)<a class="headerlink" href="#equation-c1c6e6c9-3181-483a-9b38-9356fa6960ce" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-76a2fa00-0c20-4939-8d7a-b8ee14c5fae8">
+<span class="eqno">(21)<a class="headerlink" href="#equation-76a2fa00-0c20-4939-8d7a-b8ee14c5fae8" title="Permalink to this equation">¶</a></span>\[\begin{align}
 X_k
 = \left(F- (F-X_k^0)\exp(-t) \right).
 \end{align}\]</div>
@@ -721,15 +721,15 @@ X_k
 <p>We are going to track the momentum and energy of L96 via the following metrics:</p>
 <div class="section" id="momentum">
 <h3>Momentum:<a class="headerlink" href="#momentum" title="Permalink to this headline">¶</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-063751a1-4e02-43ef-a742-e1d2dc2ca655">
-<span class="eqno">(22)<a class="headerlink" href="#equation-063751a1-4e02-43ef-a742-e1d2dc2ca655" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9e1ed3aa-4738-45b7-ad53-895dbd35b1df">
+<span class="eqno">(22)<a class="headerlink" href="#equation-9e1ed3aa-4738-45b7-ad53-895dbd35b1df" title="Permalink to this equation">¶</a></span>\[\begin{align}
 p = \sum_k X_k
 \end{align}\]</div>
 </div>
 <div class="section" id="energy">
 <h3>Energy:<a class="headerlink" href="#energy" title="Permalink to this headline">¶</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-d2d6413b-f677-4ad0-88bd-0c386bad545f">
-<span class="eqno">(23)<a class="headerlink" href="#equation-d2d6413b-f677-4ad0-88bd-0c386bad545f" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f1610e06-4a15-43e4-a884-3f058fa69373">
+<span class="eqno">(23)<a class="headerlink" href="#equation-f1610e06-4a15-43e4-a884-3f058fa69373" title="Permalink to this equation">¶</a></span>\[\begin{align}
 e = \sum_k X_k^2
 \end{align}\]</div>
 <p>These metrics are chosen to track the system.  We are looking for a conservative property of the L96 system.  It turns out in the single equation form of the L96 problem one of these two metrics is conserved by the advection process, which is the energy like term.</p>
@@ -1042,7 +1042,7 @@ e = \sum_k X_k^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit (slope/bias):  [ 1.0036544 -0.0830191]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit (slope/bias):  [ 1.00353019 -0.08438995]
 </pre></div>
 </div>
 <img alt="../_images/Neural-Network-Advection_19_1.png" src="../_images/Neural-Network-Advection_19_1.png" />
@@ -1209,14 +1209,18 @@ e = \sum_k X_k^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4092/3080806922.py:3: RuntimeWarning: overflow encountered in multiply
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3997/3080806922.py:3: RuntimeWarning: overflow encountered in multiply
   param, -(np.roll(X, 2) - np.roll(X, -1) * np.roll(X, 1))
 /usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/numpy/lib/polynomial.py:771: RuntimeWarning: invalid value encountered in multiply
   y = y * x + p[i]
 </pre></div>
 </div>
-<img alt="../_images/Neural-Network-Advection_26_1.png" src="../_images/Neural-Network-Advection_26_1.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3997/2792372065.py:25: RuntimeWarning: overflow encountered in square
+  a.plot(TN, np.sum(XN**2, axis=1), label=LN, linewidth=2)
+</pre></div>
+</div>
 <img alt="../_images/Neural-Network-Advection_26_2.png" src="../_images/Neural-Network-Advection_26_2.png" />
+<img alt="../_images/Neural-Network-Advection_26_3.png" src="../_images/Neural-Network-Advection_26_3.png" />
 </div>
 </div>
 <p>Using the wrong feature gave us a very unstable model with advection that does not work.</p>
@@ -1245,7 +1249,7 @@ We are instead just going to throw the information from the advection scheme to 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f8fd88d40d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f39de4674d0&gt;
 </pre></div>
 </div>
 </div>
@@ -1313,10 +1317,10 @@ We are instead just going to throw the information from the advection scheme to 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Advection RMS: 28.584780267980975
-X RMS: 5.124495211318141
-Scaled Advection RMS: 0.28584780267980975
-Scaled X RMS: 0.5124495211318141
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Advection RMS: 28.17436886941596
+X RMS: 5.087442720167869
+Scaled Advection RMS: 0.28174368869415956
+Scaled X RMS: 0.5087442720167868
 N training data:  40000
 N testing data:  10000
 </pre></div>
@@ -1422,84 +1426,84 @@ N testing data:  10000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.028407811180176667
-validation loss: 0.028542281490978306
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.026117830986378793
+validation loss: 0.025901331572511337
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.015452449955507982
-validation loss: 0.015539632695388082
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.015493070463781244
+validation loss: 0.016286987651647735
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.012177743394271518
-validation loss: 0.012734597085045332
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01211111587142078
+validation loss: 0.01262762808312661
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.010448622092860228
-validation loss: 0.010876805064438824
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.011631059697828334
+validation loss: 0.012006408723215418
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.00986847304975443
-validation loss: 0.01015542325183414
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.011250239570155515
+validation loss: 0.011461782227536996
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.009990192060650504
-validation loss: 0.010388582240079667
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.010137714848470694
+validation loss: 0.010242977102890839
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.010736688204587034
-validation loss: 0.010988387230537536
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.010259680679255402
+validation loss: 0.010224468976480688
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.00863695193655813
-validation loss: 0.009041796462932565
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.009175330157938645
+validation loss: 0.009148923035414137
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.010223159999706263
-validation loss: 0.010489968682846745
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.00902025006808331
+validation loss: 0.008941117156774883
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008424364932800125
-validation loss: 0.00879656291455353
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.009666694002070491
+validation loss: 0.009354431111749988
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008533596325527968
-validation loss: 0.008986855594104223
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.009168590103907928
+validation loss: 0.009148504648435522
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007664146671065862
-validation loss: 0.007997865889287756
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008841630433052989
+validation loss: 0.008782576606559005
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008657251383189856
-validation loss: 0.00901392605626477
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.009397207773411706
+validation loss: 0.009312619249052603
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.009094950272292037
-validation loss: 0.009473810180249138
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.009653752275082916
+validation loss: 0.009592546635521504
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007050805547482592
-validation loss: 0.0073852501311351655
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008671554632793906
+validation loss: 0.008682493309303752
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007914951790546949
-validation loss: 0.008355414351605295
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008483523773237675
+validation loss: 0.00844053744529372
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008117043438347493
-validation loss: 0.007945972286933502
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008707323716875704
+validation loss: 0.008850425777347274
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007430859510117937
-validation loss: 0.007758141567501467
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008062093753710396
+validation loss: 0.008070097750602611
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007168584608408553
-validation loss: 0.007437510279670746
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008787239298542828
+validation loss: 0.008818023902462554
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008638767032483615
-validation loss: 0.008879348141845723
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.00792130811951279
+validation loss: 0.008083524625562612
 </pre></div>
 </div>
 <img alt="../_images/Neural-Network-Advection_34_20.png" src="../_images/Neural-Network-Advection_34_20.png" />
@@ -1540,7 +1544,7 @@ validation loss: 0.008879348141845723
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8fd89279a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f39de6ac970&gt;
 </pre></div>
 </div>
 <img alt="../_images/Neural-Network-Advection_35_1.png" src="../_images/Neural-Network-Advection_35_1.png" />
@@ -1672,10 +1676,10 @@ validation loss: 0.008879348141845723
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Advection RMS: 28.584780267980975
-X RMS: 5.124495211318141
-Scaled Advection RMS: 0.19471401702118857
-Scaled X RMS: 0.41317654578048024
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Advection RMS: 28.17436886941596
+X RMS: 5.087442720167869
+Scaled Advection RMS: 0.19065462987832388
+Scaled X RMS: 0.4103926909230413
 N training data:  40000
 N testing data:  10000
 </pre></div>
@@ -1736,87 +1740,87 @@ N testing data:  10000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.017783304130654515
-validation loss: 0.018050011499748882
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.017321228400228338
+validation loss: 0.017933732269300645
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.011292380426361973
-validation loss: 0.011266466989947838
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.011208964309314524
+validation loss: 0.011917422689233414
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008897009907218128
-validation loss: 0.009370644390300848
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.009045100927209906
+validation loss: 0.009621991054115073
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008246109861908848
-validation loss: 0.008648374152899558
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007948104141033498
+validation loss: 0.008365728969902026
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007600938967825187
-validation loss: 0.008081989726882385
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007538227185434494
+validation loss: 0.007885899397827623
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007904565612144084
-validation loss: 0.00842650256443066
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007128837189157261
+validation loss: 0.00741220852292414
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008069475123421228
-validation loss: 0.008367024133779061
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007454877723607513
+validation loss: 0.007859998478626777
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006353845554485885
-validation loss: 0.00665413822561819
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006691276837286926
+validation loss: 0.0071322835867148075
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006715476796473124
-validation loss: 0.006941478324200312
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006326046515687971
+validation loss: 0.006870777284470915
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006677293737976748
-validation loss: 0.006882281599867808
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006432409182707048
+validation loss: 0.006952982104175161
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006493901483306949
-validation loss: 0.006759811660114636
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006795318335882994
+validation loss: 0.007235189578679092
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006263819770182895
-validation loss: 0.006496929872537425
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.0062390811120723085
+validation loss: 0.006646047280136366
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.0060621361594780515
-validation loss: 0.0062925642532502294
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.0068761633902447526
+validation loss: 0.00737925347427295
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006249404813804908
-validation loss: 0.006431127990019869
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.005908328841891014
+validation loss: 0.006423988641692914
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006190089866616654
-validation loss: 0.006455967131725718
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006231538234767644
+validation loss: 0.006664387625395477
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.005667476984078662
-validation loss: 0.005885947887575455
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006292882014462863
+validation loss: 0.006766835850650077
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.005478574313795817
-validation loss: 0.005680406826090898
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008877470205592774
+validation loss: 0.009366460971201024
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.005777305187976531
-validation loss: 0.005924493015295958
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006123148629126353
+validation loss: 0.006618495603608454
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006406954583097868
-validation loss: 0.006601509537766749
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006450671514145963
+validation loss: 0.006882861211977155
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.005675353257691312
-validation loss: 0.005814732571177211
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006557187587031464
+validation loss: 0.007092987195149086
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8fd8b8dfa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f39db113250&gt;
 </pre></div>
 </div>
 <img alt="../_images/Neural-Network-Advection_39_21.png" src="../_images/Neural-Network-Advection_39_21.png" />
@@ -1864,8 +1868,20 @@ validation loss: 0.005814732571177211
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Neural-Network-Advection_41_0.png" src="../_images/Neural-Network-Advection_41_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3997/2792372065.py:25: RuntimeWarning: overflow encountered in square
+  a.plot(TN, np.sum(XN**2, axis=1), label=LN, linewidth=2)
+/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/numpy/core/fromnumeric.py:86: RuntimeWarning: overflow encountered in reduce
+  return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+/tmp/ipykernel_3997/2792372065.py:31: RuntimeWarning: overflow encountered in square
+  _Y.append(np.percentile(np.sum(XN[int(5 // dt) :] ** 2, axis=1), ii))
+/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/numpy/lib/function_base.py:4009: RuntimeWarning: invalid value encountered in subtract
+  diff_b_a = subtract(b, a)
+/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/matplotlib/axes/_base.py:2924: RuntimeWarning: overflow encountered in double_scalars
+  x0, x1 = inverse_trans.transform([x0t - delta, x1t + delta])
+</pre></div>
+</div>
 <img alt="../_images/Neural-Network-Advection_41_1.png" src="../_images/Neural-Network-Advection_41_1.png" />
+<img alt="../_images/Neural-Network-Advection_41_2.png" src="../_images/Neural-Network-Advection_41_2.png" />
 </div>
 </div>
 </div>
@@ -1965,124 +1981,124 @@ validation loss: 0.005814732571177211
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.07168407599037811
-validation loss: 0.07113548990970955
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.06920244152092271
+validation loss: 0.06935315619174988
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.06418452940992755
-validation loss: 0.06356138880381387
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.05839316526747076
+validation loss: 0.05953146815442969
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.05384160438178324
-validation loss: 0.05482401716495848
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.04684531002351709
+validation loss: 0.048535385139814306
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.04743303801700359
-validation loss: 0.048653144674482764
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.041675490695761166
+validation loss: 0.0437626110610057
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.043358194752282184
-validation loss: 0.044273448196522666
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.038806404765379374
+validation loss: 0.040936613310370386
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.0399368266357301
-validation loss: 0.04061521285420254
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.03444031274561481
+validation loss: 0.03605155777490804
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.034706815493414686
-validation loss: 0.035131767788039184
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.03095279765286066
+validation loss: 0.03246995995940976
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.03230037410049997
-validation loss: 0.032818114492456876
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.028464434587395365
+validation loss: 0.029980074765710636
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.030204630978771112
-validation loss: 0.03075994717978025
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.031036778698044037
+validation loss: 0.032137617399036644
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02867505462822806
-validation loss: 0.029354289042479442
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.034572503528078585
+validation loss: 0.03555409098001736
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.0272363023558407
-validation loss: 0.028030235617673694
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.024545265872141998
+validation loss: 0.025457461844135443
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.026951658076098957
-validation loss: 0.027892670679513322
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.024685328929546738
+validation loss: 0.02551814270083272
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.024598159128688995
-validation loss: 0.025538775643132505
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.023289823378228294
+validation loss: 0.024064408533328325
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.024267537393692105
-validation loss: 0.02499047144925625
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.023434125632232412
+validation loss: 0.02414589512685275
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02357567121206746
-validation loss: 0.024354587144251764
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.022181893244234398
+validation loss: 0.022737783880695618
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.03714766142247311
-validation loss: 0.03833710654557199
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.022277041611816893
+validation loss: 0.022815859781987257
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02318950380742391
-validation loss: 0.024017606072773933
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02132506367519659
+validation loss: 0.021815666087623736
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02237072107578994
-validation loss: 0.023185154902740153
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02176166139362095
+validation loss: 0.022324302387030998
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02245724423982977
-validation loss: 0.023215102033823605
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.021309184380303655
+validation loss: 0.021844835613073245
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.033143639493943736
-validation loss: 0.03419660429255339
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.021157016627628623
+validation loss: 0.021625259084025995
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.021474415700965744
-validation loss: 0.022212567421991524
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02064728068387713
+validation loss: 0.02097639916960614
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.021247588449375812
-validation loss: 0.02202029831209062
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.020671555989579597
+validation loss: 0.0210792579783988
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.021545062567968128
-validation loss: 0.022380656196893355
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02035735612674732
+validation loss: 0.020698841384685383
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02093616890945004
-validation loss: 0.021605510584275543
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02039829286980227
+validation loss: 0.020593104100937506
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02111994186583055
-validation loss: 0.02190067996435191
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.019569324643461578
+validation loss: 0.01990499659370245
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.021622228082966148
-validation loss: 0.02217775900007827
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01943934215848068
+validation loss: 0.019532641104369256
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.021191722447229014
-validation loss: 0.021715605043118195
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.020661828551333968
+validation loss: 0.02085803804042228
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02087653735554682
-validation loss: 0.021613050535225012
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.019171288801577244
+validation loss: 0.019463458586485023
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.020891245419023766
-validation loss: 0.02172556272398616
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.019361659715616878
+validation loss: 0.019510883767548504
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02055038897341134
-validation loss: 0.021211262862574548
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02092734734564943
+validation loss: 0.021427163145118007
 </pre></div>
 </div>
 <img alt="../_images/Neural-Network-Advection_46_30.png" src="../_images/Neural-Network-Advection_46_30.png" />
@@ -2206,87 +2222,87 @@ validation loss: 0.021211262862574548
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02799221292239812
-validation loss: 0.02764228684760195
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.025205799239880783
+validation loss: 0.02605341437089647
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.022915021107502695
-validation loss: 0.022953493495668314
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.023342574609494526
+validation loss: 0.024320108161125984
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.021397179010867396
-validation loss: 0.02186211597450618
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.020178610419795392
+validation loss: 0.02108534144492908
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01975794411271623
-validation loss: 0.02019998435144921
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01887705841641133
+validation loss: 0.019891467648422638
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.018867823369959777
-validation loss: 0.019179261576832703
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.017203970072323327
+validation loss: 0.018225146711063074
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.017546963841686386
-validation loss: 0.0178357991267851
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.016423393292029444
+validation loss: 0.01752882681934122
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.018052927843881173
-validation loss: 0.018361097690035466
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.016122666736142332
+validation loss: 0.017251431707456848
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.016830727856604614
-validation loss: 0.01724540005469708
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.016066153823354853
+validation loss: 0.01717233849987678
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.016452324730254243
-validation loss: 0.016746373818586336
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.015638288555146786
+validation loss: 0.016614382201736423
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01608476863225188
-validation loss: 0.01639853419249534
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01561100486394402
+validation loss: 0.016679431352993313
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01529236610778433
-validation loss: 0.015443712943662369
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.015548896507675894
+validation loss: 0.01641862812728754
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.015078758883255609
-validation loss: 0.01537226480457829
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.015017010425810778
+validation loss: 0.01598764592017731
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01491981781622424
-validation loss: 0.01529159297561232
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.015231321518418836
+validation loss: 0.01618462924022396
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.015415768982010036
-validation loss: 0.01577569736797867
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.014890344069023504
+validation loss: 0.015890485829498195
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.014795421785978317
-validation loss: 0.015135793284710278
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.014280048377794518
+validation loss: 0.015120233471170794
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.014940264315832699
-validation loss: 0.015228536548289234
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.014491681090287273
+validation loss: 0.015261428903805796
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.014308076525488714
-validation loss: 0.014526142427127683
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.015678743535778115
+validation loss: 0.016579663338851903
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01397249586061578
-validation loss: 0.014324450133253886
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.015182273849201683
+validation loss: 0.01608926614756056
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.014064585999168825
-validation loss: 0.01433593851025071
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.015144704055963649
+validation loss: 0.016071281312454725
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.013993480216486668
-validation loss: 0.014251556115802222
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.014525247028515298
+validation loss: 0.015418312029660302
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8fbafbeb80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f39c0c7e790&gt;
 </pre></div>
 </div>
 <img alt="../_images/Neural-Network-Advection_50_21.png" src="../_images/Neural-Network-Advection_50_21.png" />
@@ -2438,87 +2454,87 @@ validation loss: 0.014251556115802222
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 2.616116549190556
-validation loss: 2.6985928968780644
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 2.7856173702810887
+validation loss: 2.960224358023018
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.6877694891033823
-validation loss: 1.7779872553329887
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.8025285874720876
+validation loss: 1.9231066157924854
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.2920129646493603
-validation loss: 1.3395449528480632
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.4437906868708155
+validation loss: 1.5439334432750065
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.2168931380507284
-validation loss: 1.2585747186172818
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.3608328472319988
+validation loss: 1.4587604586603329
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.1472386453630141
-validation loss: 1.1918238683870253
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.370102774443482
+validation loss: 1.4388830659891516
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.1775234525240827
-validation loss: 1.226740581523912
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.1446165003731312
+validation loss: 1.241077672348741
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.0287109357581357
-validation loss: 1.0672272749258145
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.060922113962219
+validation loss: 1.1633206385792556
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.008957466750704
-validation loss: 1.0576306592352727
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.0132046703276631
+validation loss: 1.0940351265287223
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9805217875415032
-validation loss: 1.029907801922929
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.031653003310499
+validation loss: 1.10381584978318
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9599957256498698
-validation loss: 0.9949537842868917
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9563094073881949
+validation loss: 1.0446659833024787
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9500661515259765
-validation loss: 0.9874663689344846
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.0995289848789087
+validation loss: 1.1644770908228992
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9187834678834352
-validation loss: 0.9526811386139766
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9082928970732833
+validation loss: 0.9849820225531316
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.96208781956806
-validation loss: 1.007531529394233
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.0016342225668806
+validation loss: 1.0714778195041619
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.8909219070123185
-validation loss: 0.9306272304860075
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9306294060938665
+validation loss: 1.0138398594870799
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9639218360043937
-validation loss: 1.0017132038662837
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.8896808783074972
+validation loss: 0.9577136382972237
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9288019694779084
-validation loss: 0.9861054772497801
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9382997130704676
+validation loss: 1.0043155708989544
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9852024475832513
-validation loss: 1.0275871724373247
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.968022985158494
+validation loss: 1.0338019555282363
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.8839054480426377
-validation loss: 0.9263047287362223
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9542234936960163
+validation loss: 1.0196414966265928
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9009541046133313
-validation loss: 0.9447102826935364
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.0280133681442818
+validation loss: 1.0926473333426816
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9188574503846878
-validation loss: 0.9685466245038123
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.885248325314812
+validation loss: 0.9619427054642123
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8fbaef9340&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f39c1fb0790&gt;
 </pre></div>
 </div>
 <img alt="../_images/Neural-Network-Advection_55_21.png" src="../_images/Neural-Network-Advection_55_21.png" />
@@ -2649,204 +2665,204 @@ validation loss: 0.9685466245038123
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.35468745828876
-validation loss: 12.278927148905044
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.756780323647265
+validation loss: 12.0144112821936
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 10.277876178202813
-validation loss: 10.257843198812616
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 9.56801714146961
+validation loss: 10.121112812100995
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 9.480309599576511
-validation loss: 9.68682510327581
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 8.847884777266549
+validation loss: 9.339249131559244
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 8.69764965812036
-validation loss: 8.835458315479602
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 8.348884906802077
+validation loss: 8.783025895227297
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 8.19283431265086
-validation loss: 8.335554366120146
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.894061969004968
+validation loss: 8.348064580170321
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.89575684852908
-validation loss: 8.016761824664018
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.489214784114354
+validation loss: 7.961465961335671
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.8931165326944095
-validation loss: 8.045124591842981
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.603300300573958
+validation loss: 8.079520840993773
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.453276359373717
-validation loss: 7.695833981141762
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.273023576469318
+validation loss: 7.723162060091603
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.227340944957703
-validation loss: 7.403358319673687
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.122991211110367
+validation loss: 7.604636775190943
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.313339720894537
-validation loss: 7.547738306805281
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.9491799244353585
+validation loss: 7.458694913291323
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.416729714163057
-validation loss: 7.751564113794798
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.0743806758307715
+validation loss: 7.567724965553554
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.970633915730303
-validation loss: 7.307867110527883
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.785006213190021
+validation loss: 7.268651701186096
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.979117641368601
-validation loss: 7.284555209602111
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.8413596123261415
+validation loss: 7.429147162491144
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.657240776393988
-validation loss: 6.987164925679994
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.7813656308254995
+validation loss: 7.2956122618189365
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.315417268948647
-validation loss: 7.750818864517493
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.804120570554369
+validation loss: 7.324685151071418
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.502495057503131
-validation loss: 6.858581100866253
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.705841425624295
+validation loss: 7.202652653852719
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.714442124074412
-validation loss: 7.082320530244381
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.489516356800041
+validation loss: 7.0108632958787895
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.575639233540301
-validation loss: 6.922732731376387
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.799140222752098
+validation loss: 7.28702274932226
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.507995581674393
-validation loss: 6.94724689400441
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.586368419367358
+validation loss: 7.084859717229615
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.523135236958842
-validation loss: 6.984703434111171
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.753314430110552
+validation loss: 7.1794249398747665
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.46863417529794
-validation loss: 6.906127467059174
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.614648438493393
+validation loss: 7.076739211862764
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.846669369752108
-validation loss: 7.304615313279463
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.519677263511355
+validation loss: 6.993498954635027
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.460601972829063
-validation loss: 6.915035555530627
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.266716682986359
+validation loss: 6.822720590701796
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.35260593866643
-validation loss: 6.862321925079908
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.253819959601612
+validation loss: 6.80019492199717
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.329863394540016
-validation loss: 6.838783322978027
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.45673953043123
+validation loss: 7.080690331087351
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.871727970398152
-validation loss: 7.385780109353542
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.106303975589437
+validation loss: 6.660528272597787
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.319526174384261
-validation loss: 6.826101532177924
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.2762473357113135
+validation loss: 6.875065538980588
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.609198059741961
-validation loss: 7.159393957588817
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.740733373483314
+validation loss: 7.386307076075529
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.2863749694983655
-validation loss: 6.862878912981344
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.079829581619393
+validation loss: 6.578180456665516
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.291243594175588
-validation loss: 6.855965046962483
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.1237814357672455
+validation loss: 6.6954114714340545
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.282784402086812
-validation loss: 6.828934004013692
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.148903154995871
+validation loss: 6.605026773624891
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.289420414628237
-validation loss: 6.92558491855346
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.081902506833922
+validation loss: 6.686998354858302
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.252885301474214
-validation loss: 6.951559954947245
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.1274594496387245
+validation loss: 6.643104530118793
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.280043404148313
-validation loss: 6.852265586680429
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.096319809728255
+validation loss: 6.6290458409406785
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.210355625053251
-validation loss: 6.828562031889733
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.006372789338583
+validation loss: 6.5303664882167185
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.240661208926723
-validation loss: 6.826400172439738
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.002032992031882
+validation loss: 6.52224061929717
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.082604795106513
-validation loss: 6.731849726085495
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.004185079795084
+validation loss: 6.5092341875820905
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.139567785595719
-validation loss: 6.709223087039139
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.044148143009445
+validation loss: 6.612701974423302
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.233855558006014
-validation loss: 6.851821472908165
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.923754705891485
+validation loss: 6.455626623364795
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.257046250101569
-validation loss: 6.896572154297095
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.27926544851905
+validation loss: 6.787195442009624
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.319395280597041
-validation loss: 6.8676501862607635
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.937007726461382
+validation loss: 6.530025945887632
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.491624550183765
-validation loss: 7.103742541843522
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.055146664674563
+validation loss: 6.497643984311563
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.012629282470607
-validation loss: 6.618027972354264
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.841751052051414
+validation loss: 6.35988409073747
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.142627709046937
-validation loss: 6.721915857337388
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.960885168454781
+validation loss: 6.421702213699376
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.253109908885196
-validation loss: 6.893947775796309
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.949810577229657
+validation loss: 6.464673830148667
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.2447267276815115
-validation loss: 6.845191178490305
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.99649530322709
+validation loss: 6.528857090025906
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.275339503953689
-validation loss: 6.800313981173784
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.84420813569491
+validation loss: 6.383639258498892
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.010758748372752
-validation loss: 6.610383135428511
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.869690821359862
+validation loss: 6.361836216787781
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.853776462444072
-validation loss: 7.550968522339124
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.761756156104647
+validation loss: 6.274131625960287
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.007835415130366
-validation loss: 6.629656820133431
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.148559979573221
+validation loss: 6.55456929963334
 </pre></div>
 </div>
 <img alt="../_images/Neural-Network-Advection_61_50.png" src="../_images/Neural-Network-Advection_61_50.png" />
@@ -2954,204 +2970,204 @@ validation loss: 6.629656820133431
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 15.058631517683954
-validation loss: 14.95781038198003
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.81371419076009
+validation loss: 14.834479617873438
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 15.002452360167709
-validation loss: 14.794322067763574
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.613990673905306
+validation loss: 14.724715503141855
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.87782592472829
-validation loss: 14.763365943708795
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.615292693274545
+validation loss: 14.69917161185486
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.845032067751669
-validation loss: 14.714431931408509
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.613867244778357
+validation loss: 14.68280264793069
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.928093728146218
-validation loss: 14.713560316383067
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.642717115935772
+validation loss: 14.69026551569288
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.862448611716953
-validation loss: 14.696578289615797
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.586876263295352
+validation loss: 14.651134195465968
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.822472008918274
-validation loss: 14.679670990856579
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.534714232848648
+validation loss: 14.6363339315731
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.817231752339751
-validation loss: 14.675171864516003
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.516945933134163
+validation loss: 14.589840176467726
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.744271034897432
-validation loss: 14.60912817359621
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.446437275888234
+validation loss: 14.550925610240697
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.689985316941474
-validation loss: 14.55195263335088
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.671193050787792
+validation loss: 14.804910505046049
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.401179057833975
-validation loss: 14.2152875137829
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.03658831391995
+validation loss: 14.170707493881006
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.220286388291493
-validation loss: 14.123553424847165
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.127502862994543
+validation loss: 14.282990798410589
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 20.8551842580991
-validation loss: 20.760007052818864
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.674140573348382
+validation loss: 13.957194464805593
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.021197830389799
-validation loss: 13.924032746000114
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.65092274102966
+validation loss: 13.886007297152847
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.924015617814515
-validation loss: 13.77301724236042
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.567274804657135
+validation loss: 13.761093130891282
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.685457785029607
-validation loss: 13.61000752040178
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.086741224341447
+validation loss: 13.380529330213031
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.888618147960624
-validation loss: 13.799966224137231
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.545999021211674
+validation loss: 13.72083841282705
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.539863441678127
-validation loss: 13.444541517418017
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.007405343706967
+validation loss: 13.318501105852238
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.597103990387899
-validation loss: 13.479791227897351
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.53978911303729
+validation loss: 13.875577691502519
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.299290738901439
-validation loss: 14.244911942112441
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.861272733457003
+validation loss: 13.178014851455757
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.3902687411742
-validation loss: 13.293303332303287
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.177360696280198
+validation loss: 14.285192707927672
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.183390346715518
-validation loss: 13.160285371439352
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.632005483242446
+validation loss: 13.869307328633472
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.5829363071666
-validation loss: 13.555503256621304
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.684961614966332
+validation loss: 13.040867489730767
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.374810161597889
-validation loss: 13.237047250194163
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.742731072528736
+validation loss: 14.149138624026907
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.222991311602627
-validation loss: 13.179915734823656
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.64723598067191
+validation loss: 13.053735518180082
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.140467271443498
-validation loss: 13.10405270020554
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.100986255114389
+validation loss: 13.516899193186163
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.882378789998075
-validation loss: 14.724289170135098
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.580734365013672
+validation loss: 12.965182969199137
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 14.378496254058925
-validation loss: 14.273784504557963
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.13772568776209
+validation loss: 13.505751896185231
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.289756061613147
-validation loss: 13.3056646153296
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.65018387529491
+validation loss: 13.005102113258001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.131956805033855
-validation loss: 13.12277625288689
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.608795705402965
+validation loss: 13.041566899995535
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.945972759395522
-validation loss: 12.90542478820731
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.081247843243656
+validation loss: 13.381781517744482
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.709648495600439
-validation loss: 13.606014977803488
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.586496710414028
+validation loss: 13.035660150764903
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.060374170641916
-validation loss: 13.01824675600292
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.46738565874918
+validation loss: 12.878028969810325
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.02329469643551
-validation loss: 12.974846183776037
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.383842175403874
+validation loss: 13.763161451807482
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.908162565785398
-validation loss: 12.841411841487451
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.39981037417905
+validation loss: 12.785176028131339
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.335183575186097
-validation loss: 13.23328569569847
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.60106377100642
+validation loss: 12.949379952936184
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.511837820991516
-validation loss: 13.418047319487886
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.457149368207395
+validation loss: 12.837202504046612
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.658271204286935
-validation loss: 12.591541962950558
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.213352049607778
+validation loss: 12.667034870437439
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.971883087837151
-validation loss: 12.875683470785432
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.628145783875272
+validation loss: 13.050769608101316
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.104978470418896
-validation loss: 13.058294015615363
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.296705456888642
+validation loss: 12.699386098811171
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.87174475424512
-validation loss: 12.82501075181185
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.19597356832098
+validation loss: 13.551253435129066
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.748646405237224
-validation loss: 12.606015091144641
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.644076006333151
+validation loss: 12.97572160187598
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.802384949780258
-validation loss: 12.780839436357086
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.453692750888388
+validation loss: 13.774566049595549
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.886878821781528
-validation loss: 12.787319070824614
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.677887279227896
+validation loss: 13.070486448733067
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.688342259852698
-validation loss: 12.626720757147528
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.267909333103617
+validation loss: 12.68864278201779
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.886805523423703
-validation loss: 12.863205034141282
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.209449640583324
+validation loss: 12.590622229431954
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.855772859195124
-validation loss: 12.704158402546522
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 15.685023492576033
+validation loss: 15.606153131625158
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 15.730548743902173
-validation loss: 15.787847431773574
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.481076133440803
+validation loss: 12.837289317204291
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.91950874514277
-validation loss: 12.926590008754616
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.366194368993396
+validation loss: 12.745483629467454
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.458101119684056
-validation loss: 12.48039829553058
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.46308540313261
+validation loss: 12.843000229966202
 </pre></div>
 </div>
 <img alt="../_images/Neural-Network-Advection_65_50.png" src="../_images/Neural-Network-Advection_65_50.png" />

@@ -438,8 +438,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="analog-for-the-real-world">
 <h2>Analog for the real world<a class="headerlink" href="#analog-for-the-real-world" title="Permalink to this headline">¶</a></h2>
 <p>Lorenz, 1996, two time-scale equations, with accurate time-stepping (RK4 with sufficiently small <span class="math notranslate nohighlight">\(\Delta t\)</span>):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-badc1ecb-86db-4bac-bcec-14620a4e3e68">
-<span class="eqno">(1)<a class="headerlink" href="#equation-badc1ecb-86db-4bac-bcec-14620a4e3e68" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ec3ea4cc-e3d8-40de-9139-725eee0b63f8">
+<span class="eqno">(1)<a class="headerlink" href="#equation-ec3ea4cc-e3d8-40de-9139-725eee0b63f8" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
@@ -452,8 +452,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="tex2jax_ignore mathjax_ignore section" id="analog-for-gcm">
 <h1>Analog for  GCM<a class="headerlink" href="#analog-for-gcm" title="Permalink to this headline">¶</a></h1>
 <p>Lorenz, 1996, one time-scale equation, with inaccurate time-stepping (Euler-forward with only-just stable <span class="math notranslate nohighlight">\(\Delta t\)</span>) and an unknown parameterization of “unresolved processes), <span class="math notranslate nohighlight">\(P(X_k)\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-64a76032-f62e-4694-adfe-b97b3236821c">
-<span class="eqno">(2)<a class="headerlink" href="#equation-64a76032-f62e-4694-adfe-b97b3236821c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8d2a152b-c41c-4b13-ac6c-b15a83f2f0ab">
+<span class="eqno">(2)<a class="headerlink" href="#equation-8d2a152b-c41c-4b13-ac6c-b15a83f2f0ab" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - P\left( X_k \right)
 \end{align}\]</div>
@@ -522,8 +522,8 @@ Arnold et al., 2013, used <span class="math notranslate nohighlight">\(P(X_k)=b_
 <div class="tex2jax_ignore mathjax_ignore section" id="the-parametization-p-x-k">
 <h1>The parametization <span class="math notranslate nohighlight">\(P(X_k)\)</span><a class="headerlink" href="#the-parametization-p-x-k" title="Permalink to this headline">¶</a></h1>
 <p>With the “real world” in hand, we can “observe” the sub-grid forcing on the large scale.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0c5f1ca8-906a-4d1a-87b5-fd33dc5d791f">
-<span class="eqno">(3)<a class="headerlink" href="#equation-0c5f1ca8-906a-4d1a-87b5-fd33dc5d791f" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1ca5dff7-9033-4c00-9f6c-e4eb41e8d918">
+<span class="eqno">(3)<a class="headerlink" href="#equation-1ca5dff7-9033-4c00-9f6c-e4eb41e8d918" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \underbrace{ 
 \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
@@ -586,8 +586,8 @@ Arnold et al., 2013, used <span class="math notranslate nohighlight">\(P(X_k)=b_
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="the-model-gcm">
 <h1>The model “GCM”<a class="headerlink" href="#the-model-gcm" title="Permalink to this headline">¶</a></h1>
-<div class="amsmath math notranslate nohighlight" id="equation-1f012eb9-91a2-4a8c-bbb6-667b81138fc8">
-<span class="eqno">(4)<a class="headerlink" href="#equation-1f012eb9-91a2-4a8c-bbb6-667b81138fc8" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-02811c15-ec9b-42ec-910f-c37ca9f4c519">
+<span class="eqno">(4)<a class="headerlink" href="#equation-02811c15-ec9b-42ec-910f-c37ca9f4c519" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= \underbrace{- X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F}_{\dot{X}\text{ from eq. (1) of Lorenz '96}} - P(X_k)
 \end{align}\]</div>
