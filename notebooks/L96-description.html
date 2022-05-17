@@ -330,8 +330,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Equation 1 from <a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a> is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c2ace3ad-302e-465f-bce0-e8b7e0b98431">
-<span class="eqno">(4)<a class="headerlink" href="#equation-c2ace3ad-302e-465f-bce0-e8b7e0b98431" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-342a06b1-8d24-4567-8373-334ee52fa5fb">
+<span class="eqno">(4)<a class="headerlink" href="#equation-342a06b1-8d24-4567-8373-334ee52fa5fb" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k &amp;= - X_{k-2} X_{k-1} + X_{k-1} X_{k+1} - X_k + F
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(F\)</span> is a constant independent of <span class="math notranslate nohighlight">\(k=0,1,2,\ldots,K-1\)</span> (using python indexing starting at k=0). The <span class="math notranslate nohighlight">\(k\)</span> index is periodic so that, for example, <span class="math notranslate nohighlight">\(k=K\)</span> is referring to <span class="math notranslate nohighlight">\(k=0\)</span> and <span class="math notranslate nohighlight">\(k=-1\)</span> is referring to <span class="math notranslate nohighlight">\(k=K-1\)</span>.</p>
