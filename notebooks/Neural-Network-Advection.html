@@ -545,8 +545,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>We are only going to use the single equation model from <a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a>, or equation 3.1:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2608aee9-5b97-4536-bb55-1162a6e068e9">
-<span class="eqno">(17)<a class="headerlink" href="#equation-2608aee9-5b97-4536-bb55-1162a6e068e9" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b5e3aa04-d4ac-4166-a655-b88ad444c8f8">
+<span class="eqno">(17)<a class="headerlink" href="#equation-b5e3aa04-d4ac-4166-a655-b88ad444c8f8" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 = - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F
 \end{align}\]</div>
@@ -555,19 +555,19 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="building-a-1d-and-2d-version-of-the-single-equation-l96-model">
 <h2>Building a 1d and 2d version of the single-equation L96 model:<a class="headerlink" href="#building-a-1d-and-2d-version-of-the-single-equation-l96-model" title="Permalink to this headline">¶</a></h2>
 <p>The ‘1d’ in time, or advectionless version of L96 reduces to:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-698ed617-5795-4641-89ad-7cdfeb8e09c1">
-<span class="eqno">(18)<a class="headerlink" href="#equation-698ed617-5795-4641-89ad-7cdfeb8e09c1" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bfae4160-c611-41ea-9488-3adedbea6979">
+<span class="eqno">(18)<a class="headerlink" href="#equation-bfae4160-c611-41ea-9488-3adedbea6979" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 = - X_k + F,
 \end{align}\]</div>
 <p>the steady state solution is simply:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c086bee3-7657-4704-bed6-8e793fe038cd">
-<span class="eqno">(19)<a class="headerlink" href="#equation-c086bee3-7657-4704-bed6-8e793fe038cd" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-316d945a-d1af-4e53-95cc-c5969e4485a4">
+<span class="eqno">(19)<a class="headerlink" href="#equation-316d945a-d1af-4e53-95cc-c5969e4485a4" title="Permalink to this equation">¶</a></span>\[\begin{align}
 X_k=F,
 \end{align}\]</div>
 <p>and the time-dependent solution is an exponential:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9ba19d21-6034-4e28-8b24-9203d7ba355f">
-<span class="eqno">(20)<a class="headerlink" href="#equation-9ba19d21-6034-4e28-8b24-9203d7ba355f" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-aaa82047-3356-46d2-ad9a-696aa3ddc31f">
+<span class="eqno">(20)<a class="headerlink" href="#equation-aaa82047-3356-46d2-ad9a-696aa3ddc31f" title="Permalink to this equation">¶</a></span>\[\begin{align}
 X_k
 = \left(F- (F-X_k^0)\exp(-t) \right).
 \end{align}\]</div>
@@ -719,15 +719,15 @@ X_k
 <p>We are going to track the momentum and energy of L96 via the following metrics:</p>
 <div class="section" id="momentum">
 <h3>Momentum:<a class="headerlink" href="#momentum" title="Permalink to this headline">¶</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-58e59921-b48b-4ba3-8e26-fc72742029f4">
-<span class="eqno">(21)<a class="headerlink" href="#equation-58e59921-b48b-4ba3-8e26-fc72742029f4" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b817a6cd-37dd-44c4-b822-e38b787690b7">
+<span class="eqno">(21)<a class="headerlink" href="#equation-b817a6cd-37dd-44c4-b822-e38b787690b7" title="Permalink to this equation">¶</a></span>\[\begin{align}
 p = \sum_k X_k
 \end{align}\]</div>
 </div>
 <div class="section" id="energy">
 <h3>Energy:<a class="headerlink" href="#energy" title="Permalink to this headline">¶</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-b7c92f63-a6fe-48d7-92da-c8e0bd576d18">
-<span class="eqno">(22)<a class="headerlink" href="#equation-b7c92f63-a6fe-48d7-92da-c8e0bd576d18" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d169bf12-f32b-46ee-869a-e08537899df6">
+<span class="eqno">(22)<a class="headerlink" href="#equation-d169bf12-f32b-46ee-869a-e08537899df6" title="Permalink to this equation">¶</a></span>\[\begin{align}
 e = \sum_k X_k^2
 \end{align}\]</div>
 <p>These metrics are chosen to track the system.  We are looking for a conservative property of the L96 system.  It turns out in the single equation form of the L96 problem one of these two metrics is conserved by the advection process, which is the energy like term.</p>
