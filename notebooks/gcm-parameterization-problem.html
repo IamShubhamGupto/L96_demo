@@ -53,6 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Data Assimilation demo in the Lorenz 96 (L96) two time-scale model" href="DA_demo_L96.html" />
@@ -436,10 +438,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>Let’s call $Z(t)$ the trajectory of the full complexity physical system (say planet earth). Because in practice, for computational or observational reasons, we cannot afford describing and predicting $Z(t)$, we will only focus on a projection of $Z(t)$ in some lower dimension space. Let’s call this reduced dimension state $X(t)$.</p>
-<p>In our toy model,  $Z(t)=(X(t),Y(t))$ is the full complexity physical system while $X(t)$ is the lower dimension reduction. In real case situations, the lower dimension representation of the real system is usually a coarse-grained or a subsampled description of the full-scale system but this is not exclusive.</p>
-<p>Now, a GCM is simply a numerical machine which intends to predict the trajectory $X(t)$ from knowledge of $X(t=0)$ only. A GCM is generally built from first principle physical laws, by discretizing partial differential equations.</p>
-<p>In what follows, we therefore assume that we know a fraction of the terms that govern the evolution of $X$. We also assume that we do not know what governs the evolution of $Y$ nor how $Y$ may affect $X$.</p>
+<p>Let’s call <span class="math notranslate nohighlight">\(Z(t)\)</span> the trajectory of the full complexity physical system (say planet earth). Because in practice, for computational or observational reasons, we cannot afford describing and predicting <span class="math notranslate nohighlight">\(Z(t)\)</span>, we will only focus on a projection of <span class="math notranslate nohighlight">\(Z(t)\)</span> in some lower dimension space. Let’s call this reduced dimension state <span class="math notranslate nohighlight">\(X(t)\)</span>.</p>
+<p>In our toy model,  <span class="math notranslate nohighlight">\(Z(t)=(X(t),Y(t))\)</span> is the full complexity physical system while <span class="math notranslate nohighlight">\(X(t)\)</span> is the lower dimension reduction. In real case situations, the lower dimension representation of the real system is usually a coarse-grained or a subsampled description of the full-scale system but this is not exclusive.</p>
+<p>Now, a GCM is simply a numerical machine which intends to predict the trajectory <span class="math notranslate nohighlight">\(X(t)\)</span> from knowledge of <span class="math notranslate nohighlight">\(X(t=0)\)</span> only. A GCM is generally built from first principle physical laws, by discretizing partial differential equations.</p>
+<p>In what follows, we therefore assume that we know a fraction of the terms that govern the evolution of <span class="math notranslate nohighlight">\(X\)</span>. We also assume that we do not know what governs the evolution of <span class="math notranslate nohighlight">\(Y\)</span> nor how <span class="math notranslate nohighlight">\(Y\)</span> may affect <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># X0 - initial conditions, dt - time increment, nt - number of forward steps to take</span>
@@ -487,7 +489,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>There are several reasons why the above Model (ie GCM) differs from Truth (ie L96), cf section 5 of this notebook.</p>
-<p>One possibility to reduce differences in between Model and Truth, is to add a <em>parameterization</em> : an extra term to the rhs of the Model evolution operator in order to reduce the Model error as compared to Truth. It may account for missing processes, acting in Truth but not included in Model, eventually relating to subgrid physics, which is the case here, but not automatically. <em>Parameterizations</em> are also commonly refered to as <em>closures</em>, in particular when they encode explicit physical assumptions on how non-represented variables (e.g. $Y$) impact represented variables (e.g. $X$).</p>
+<p>One possibility to reduce differences in between Model and Truth, is to add a <em>parameterization</em> : an extra term to the rhs of the Model evolution operator in order to reduce the Model error as compared to Truth. It may account for missing processes, acting in Truth but not included in Model, eventually relating to subgrid physics, which is the case here, but not automatically. <em>Parameterizations</em> are also commonly refered to as <em>closures</em>, in particular when they encode explicit physical assumptions on how non-represented variables (e.g. <span class="math notranslate nohighlight">\(Y\)</span>) impact represented variables (e.g. <span class="math notranslate nohighlight">\(X\)</span>).</p>
 <p>Parameterizations usually involve free parameters that need to be adjusted. The form of the parameterization may be dictated by physical laws, but generally is unknown as well.</p>
 </div>
 <div class="section" id="gcm-with-parameterization">
@@ -559,8 +561,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="should-parameterizations-be-deterministic-or-stochastic">
 <h1>3. Should parameterizations  be deterministic or stochastic ?<a class="headerlink" href="#should-parameterizations-be-deterministic-or-stochastic" title="Permalink to this headline">¶</a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">naive_parameterization</span></code> above has no particular physical nor mathematical justification. Most importantly, it relies on a very strong assumption, that the time rate of change of $X$ at time $t$ is a function of $X(t)$. This assumption implies that the future evolution of the reduced dimension system $X(t)$ is <em>deterministically</em> related to the initial reduced dimension state $X(0)$.</p>
-<p>But this is not a good assumption because two identical reduced dimension state ($X$, macro-state) can be associated with very different fine scale states ($Y$, micro-state). Given the non-linearity of the evolution equation for $Z$, the two large scale trajectories will diverge at some point. Let’s illustrate that with L96 alone.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">naive_parameterization</span></code> above has no particular physical nor mathematical justification. Most importantly, it relies on a very strong assumption, that the time rate of change of <span class="math notranslate nohighlight">\(X\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> is a function of <span class="math notranslate nohighlight">\(X(t)\)</span>. This assumption implies that the future evolution of the reduced dimension system <span class="math notranslate nohighlight">\(X(t)\)</span> is <em>deterministically</em> related to the initial reduced dimension state <span class="math notranslate nohighlight">\(X(0)\)</span>.</p>
+<p>But this is not a good assumption because two identical reduced dimension state (<span class="math notranslate nohighlight">\(X\)</span>, macro-state) can be associated with very different fine scale states (<span class="math notranslate nohighlight">\(Y\)</span>, micro-state). Given the non-linearity of the evolution equation for <span class="math notranslate nohighlight">\(Z\)</span>, the two large scale trajectories will diverge at some point. Let’s illustrate that with L96 alone.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># - randomising the initial Ys</span>
@@ -602,13 +604,13 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../_images/gcm-parameterization-problem_22_0.png" src="../_images/gcm-parameterization-problem_22_0.png" />
 </div>
 </div>
-<p>So even very small uncertainties in the micro-state ($Y$) of L96 can lead to large scale changes (ie of the variable $X$) over short time…</p>
-<p>In a Model that does not know anything about micro-state $Y$, it is possible to introduce this uncertainty through a stochastic form in the parameterization.</p>
+<p>So even very small uncertainties in the micro-state (<span class="math notranslate nohighlight">\(Y\)</span>) of L96 can lead to large scale changes (ie of the variable <span class="math notranslate nohighlight">\(X\)</span>) over short time…</p>
+<p>In a Model that does not know anything about micro-state <span class="math notranslate nohighlight">\(Y\)</span>, it is possible to introduce this uncertainty through a stochastic form in the parameterization.</p>
 <p>In addition, with this illustration, we also highlight that there is a horizon after which pointwise comparisons of the model with the truth are meaningless, hence there is some needed discussion on how to measure the skill of a parameterization.</p>
 </div>
 <div class="section" id="how-to-measure-how-good-is-a-given-parameterization">
 <h1>4. How to measure how good is a given parameterization ?<a class="headerlink" href="#how-to-measure-how-good-is-a-given-parameterization" title="Permalink to this headline">¶</a></h1>
-<p>So, we would like to build our closure by systematically measuring their skills so that we can formulate inverse problems based on objective “skill scores”. The skill scores we are talking about here will measure the distance between  the evolution of the true state $X_{true}$ and the simulated state $X_{gcm}$.</p>
+<p>So, we would like to build our closure by systematically measuring their skills so that we can formulate inverse problems based on objective “skill scores”. The skill scores we are talking about here will measure the distance between  the evolution of the true state <span class="math notranslate nohighlight">\(X_{true}\)</span> and the simulated state <span class="math notranslate nohighlight">\(X_{gcm}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># - Let&#39;s define again our GCM</span>
@@ -651,7 +653,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3762/251060749.py:4: RuntimeWarning: Mean of empty slice.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4322/251060749.py:4: RuntimeWarning: Mean of empty slice.
   return np.sqrt(D**2).mean(axis=0)
 /usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/numpy/core/_methods.py:181: RuntimeWarning: invalid value encountered in true_divide
   ret = um.true_divide(
@@ -694,7 +696,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3762/4255757646.py:5: RuntimeWarning: Mean of empty slice.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4322/4255757646.py:5: RuntimeWarning: Mean of empty slice.
   return np.sqrt((_X1.mean(axis=0) - _X2.mean(axis=0)) ** 2)
 </pre></div>
 </div>
@@ -717,7 +719,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>After some time, this metric seems to converge to some non-trivial values which are probably indicative of how well our model captures the “climate” of the system.</p>
 <p>It is also very common to formulate closures based on databases of initial tendencies.  In the Large Eddy Simulation  community, this is refered to as <em>a priori</em> skill, because you don’t need to run the full model to compute it.</p>
-<p>This is the sort of game that several of us have been playing, trying for instance to estimate subgrid fluxes from knowledge of the large scale quantities  $$ \nabla\cdot \mathbf{s} =   \nabla\cdot\big(\overline{\mathbf{u},\Phi} - \overline{\mathbf{u}},\overline{\Phi}\big) \simeq f(\overline{\mathbf{u}},\overline{\Phi})$$</p>
+<p>This is the sort of game that several of us have been playing, trying for instance to estimate subgrid fluxes from knowledge of the large scale quantities  $<span class="math notranslate nohighlight">\( \nabla\cdot \mathbf{s} =   \nabla\cdot\big(\overline{\mathbf{u}\,\Phi} - \overline{\mathbf{u}}\,\overline{\Phi}\big) \simeq f(\overline{\mathbf{u}},\overline{\Phi})\)</span>$</p>
 <p>(Note that this is not exactly the same problem as the <em>a priori</em> LES problem, because of the interplay with time-discretization. Let’s neglect that for the moment.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -775,7 +777,7 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../_images/gcm-parameterization-problem_42_1.png" src="../_images/gcm-parameterization-problem_42_1.png" />
 </div>
 </div>
-<p>From this analysis, we see that the optimisation problem is probably well posed as the cost function appears pretty smooth. One can also see that the parameter $p_1$ is more important than $p_2$.</p>
+<p>From this analysis, we see that the optimisation problem is probably well posed as the cost function appears pretty smooth. One can also see that the parameter <span class="math notranslate nohighlight">\(p_1\)</span> is more important than <span class="math notranslate nohighlight">\(p_2\)</span>.</p>
 </div>
 <div class="section" id="how-other-sources-of-error-affect-the-parameterization-problem">
 <h1>5. How other sources of error affect the parameterization problem<a class="headerlink" href="#how-other-sources-of-error-affect-the-parameterization-problem" title="Permalink to this headline">¶</a></h1>

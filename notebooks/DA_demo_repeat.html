@@ -516,15 +516,15 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>The ‘real world” is the Lorenz ‘96 model:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-de330fe4-da70-4d32-a3a6-3757b2706d40">
-<span class="eqno">(10)<a class="headerlink" href="#equation-de330fe4-da70-4d32-a3a6-3757b2706d40" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-15024470-ed9e-44d9-97cb-a0a7acc9784b">
+<span class="eqno">(10)<a class="headerlink" href="#equation-15024470-ed9e-44d9-97cb-a0a7acc9784b" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
 \frac{d}{dt} Y_{j,k}
 &amp;= - cbY_{j+1,k} \left( Y_{j+2,k} - X_{j-1,k} \right) - c Y_{j,k} + \frac{hc}{b} X_k
 \end{align}\]</div>
-<p>The cell below spins-up a state and then records a series of $X$ and $Y$ at time $t$ in arrays <code class="docutils literal notranslate"><span class="pre">X_truth</span></code>, <code class="docutils literal notranslate"><span class="pre">Y_truth</span></code> and <code class="docutils literal notranslate"><span class="pre">t_truth</span></code> respectively. The initial state $X(t=0$ is recorded in <code class="docutils literal notranslate"><span class="pre">X_init</span></code> (and equal to <code class="docutils literal notranslate"><span class="pre">X_truth[0]</span></code>).</p>
+<p>The cell below spins-up a state and then records a series of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> in arrays <code class="docutils literal notranslate"><span class="pre">X_truth</span></code>, <code class="docutils literal notranslate"><span class="pre">Y_truth</span></code> and <code class="docutils literal notranslate"><span class="pre">t_truth</span></code> respectively. The initial state <span class="math notranslate nohighlight">\(X(t=0\)</span> is recorded in <code class="docutils literal notranslate"><span class="pre">X_init</span></code> (and equal to <code class="docutils literal notranslate"><span class="pre">X_truth[0]</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the &quot;truth&quot; 2-scale L96 model and generate initial conditions from a short spinup</span>
@@ -580,12 +580,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>We run the model in forward mode for 5000 steps to calculate the background covariance. The model is the “GCM” function defined above which integrates forward</p>
-<div class="amsmath math notranslate nohighlight" id="equation-efceb85e-d8e3-448b-9f39-f7249cb3f6ca">
-<span class="eqno">(11)<a class="headerlink" href="#equation-efceb85e-d8e3-448b-9f39-f7249cb3f6ca" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e26dc1fd-4e17-4edb-8ac8-b9e24470a8fc">
+<span class="eqno">(11)<a class="headerlink" href="#equation-e26dc1fd-4e17-4edb-8ac8-b9e24470a8fc" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F
 \end{align}\]</div>
-<p>The absence of the coupling term to the $Y$ equations makes this a model with “missing physics” that we hope the Ensemble Kalman Filter will correct.</p>
+<p>The absence of the coupling term to the <span class="math notranslate nohighlight">\(Y\)</span> equations makes this a model with “missing physics” that we hope the Ensemble Kalman Filter will correct.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate climatological background covariance for 1-scale L96 model</span>
@@ -819,7 +819,7 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../_images/DA_demo_repeat_14_0.png" src="../_images/DA_demo_repeat_14_0.png" />
 </div>
 </div>
-<p>Converting the increment <code class="docutils literal notranslate"><span class="pre">X_inc</span></code> into a tendency, we can examine the relationship between the $\dot{X}$ due to the missing physics and the state of the model at the beginning of each DA segment. If we are properly correcting the absence of the coupling term then this structure should look like the parameterization of the coupling term, as done in Wilks, 2005.</p>
+<p>Converting the increment <code class="docutils literal notranslate"><span class="pre">X_inc</span></code> into a tendency, we can examine the relationship between the <span class="math notranslate nohighlight">\(\dot{X}\)</span> due to the missing physics and the state of the model at the beginning of each DA segment. If we are properly correcting the absence of the coupling term then this structure should look like the parameterization of the coupling term, as done in Wilks, 2005.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X_inc_ave</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">1e-7</span>

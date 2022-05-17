@@ -53,6 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="&lt;no title&gt;" href="DA_demo_repeat.html" />
@@ -442,7 +444,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>At the beginning of a forecast segment, each ensemble member has it’s own separation from the ensemble mean, but if the spread is insufficient we artificially “inflate” it.</p>
-<p>Each ensemble member is integrated forward solving the model equations, i.e. without the correct coupling term to the $Y$ variables, which the model cannot resolve. The members, and ensemble mean, therefore tend to diverge from the truth.</p>
+<p>Each ensemble member is integrated forward solving the model equations, i.e. without the correct coupling term to the <span class="math notranslate nohighlight">\(Y\)</span> variables, which the model cannot resolve. The members, and ensemble mean, therefore tend to diverge from the truth.</p>
 <p>At the end of each forecast segment, the prior and observation (truth + error) are combined into a posterior. The change is assumed to be representative of the missing coupling term (“missing physics”).</p>
 
     <script type="text/x-thebe-config">

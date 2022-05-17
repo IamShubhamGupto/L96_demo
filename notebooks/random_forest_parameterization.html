@@ -53,6 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="&lt;no title&gt;" href="LRP-L96.html" />
@@ -527,7 +529,7 @@ the parameterization of the L96 model previously introduced.</p>
 </div>
 </div>
 </div>
-<p>First we split the data into training and test. Since the relation between $X_k$ and its associated subgrid tendency is not expected to depend on $k$, we transform the recorded history into a column vector before splitting.</p>
+<p>First we split the data into training and test. Since the relation between <span class="math notranslate nohighlight">\(X_k\)</span> and its associated subgrid tendency is not expected to depend on <span class="math notranslate nohighlight">\(k\)</span>, we transform the recorded history into a column vector before splitting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">xy_train</span><span class="p">,</span> <span class="n">xy_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
@@ -579,7 +581,7 @@ the parameterization of the L96 model previously introduced.</p>
 </div>
 <div class="section" id="fit-and-test-scores">
 <h3>Fit and test scores<a class="headerlink" href="#fit-and-test-scores" title="Permalink to this headline">¶</a></h3>
-<p>We can compute the $R^2$ score: $R^2 = 1 - \frac{\sum_{i}{(\hat{S}<em>i - S_i)^2}}{\sum</em>{i}{(S_i - S_\text{mean})^2}}$
+<p>We can compute the <span class="math notranslate nohighlight">\(R^2\)</span> score: <span class="math notranslate nohighlight">\(R^2 = 1 - \frac{\sum_{i}{(\hat{S}_i - S_i)^2}}{\sum_{i}{(S_i - S_\text{mean})^2}}\)</span>
 for both the training data (fit score) and test data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

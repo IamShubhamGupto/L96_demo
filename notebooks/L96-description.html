@@ -332,12 +332,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Equation 1 from <a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a> is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-de50581f-9d67-4cae-9de5-5c18c0aef840">
-<span class="eqno">(5)<a class="headerlink" href="#equation-de50581f-9d67-4cae-9de5-5c18c0aef840" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-50bcf923-f57e-4ece-92c4-61dcdeb88a98">
+<span class="eqno">(5)<a class="headerlink" href="#equation-50bcf923-f57e-4ece-92c4-61dcdeb88a98" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k &amp;= - X_{k-2} X_{k-1} + X_{k-1} X_{k+1} - X_k + F
 \end{align}\]</div>
-<p>where $F$ is a constant independent of $k=0,1,2,\ldots,K-1$ (using python indexing starting at k=0). The $k$ index is periodic so that, for example, $k=K$ is referring to $k=0$ and $k=-1$ is referring to $k=K-1$.</p>
-<p>The following function returns the rate of change $\frac{d}{dt} X_j$:</p>
+<p>where <span class="math notranslate nohighlight">\(F\)</span> is a constant independent of <span class="math notranslate nohighlight">\(k=0,1,2,\ldots,K-1\)</span> (using python indexing starting at k=0). The <span class="math notranslate nohighlight">\(k\)</span> index is periodic so that, for example, <span class="math notranslate nohighlight">\(k=K\)</span> is referring to <span class="math notranslate nohighlight">\(k=0\)</span> and <span class="math notranslate nohighlight">\(k=-1\)</span> is referring to <span class="math notranslate nohighlight">\(k=K-1\)</span>.</p>
+<p>The following function returns the rate of change <span class="math notranslate nohighlight">\(\frac{d}{dt} X_j\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">L96_model</span> <span class="kn">import</span> <span class="n">L96_eq1_xdot</span>
@@ -407,7 +407,7 @@ def L96_eq1_xdot(X, F, advect=True):
 </div>
 </div>
 </div>
-<p>To use the model we add a “time loop”, iterating over consecutive values of time instances, passing forward the model state from the $n$-th time instance to the $n+1$ time instance. We assume a fixed time step, $\Delta t$ so that $t(n) = n\Delta t$.</p>
+<p>To use the model we add a “time loop”, iterating over consecutive values of time instances, passing forward the model state from the <span class="math notranslate nohighlight">\(n\)</span>-th time instance to the <span class="math notranslate nohighlight">\(n+1\)</span> time instance. We assume a fixed time step, <span class="math notranslate nohighlight">\(\Delta t\)</span> so that <span class="math notranslate nohighlight">\(t(n) = n\Delta t\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">L96_model</span> <span class="kn">import</span> <span class="n">integrate_L96_1t</span>

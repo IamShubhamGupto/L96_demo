@@ -351,12 +351,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>The following function implements our complete model which is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a74e0314-43b3-4efd-8ba8-78e7e3e55634">
-<span class="eqno">(7)<a class="headerlink" href="#equation-a74e0314-43b3-4efd-8ba8-78e7e3e55634" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dcff3d79-ab47-4f4b-958f-61b86e4c2dec">
+<span class="eqno">(7)<a class="headerlink" href="#equation-dcff3d79-ab47-4f4b-958f-61b86e4c2dec" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{1}{\Delta t} \left( X_k^{n+1} - X_k^n \right)
 &amp;= - X_{k-1}^n \left( X_{k-2}^n - X_{k+1}^n \right) - X_k^n + F - P\left( X_k^n \right)
 \end{align}\]</div>
-<p>where $n$ is the discrete time level (time $t=n\Delta t$) and we’re using an Euler-forward integration method for simplicity and to ensure we have an imperfect model.</p>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is the discrete time level (time <span class="math notranslate nohighlight">\(t=n\Delta t\)</span>) and we’re using an Euler-forward integration method for simplicity and to ensure we have an imperfect model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># X0 - initial conditions, dt - time increment, nt - number of forward steps to take</span>

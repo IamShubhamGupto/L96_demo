@@ -316,7 +316,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-parametization-p-x-k">
-   The parametization $P(X_k)$
+   The parametization
+   <span class="math notranslate nohighlight">
+    \(P(X_k)\)
+   </span>
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -385,7 +388,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-parametization-p-x-k">
-   The parametization $P(X_k)$
+   The parametization
+   <span class="math notranslate nohighlight">
+    \(P(X_k)\)
+   </span>
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -431,42 +437,42 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>L96 analogs for this project<a class="headerlink" href="#l96-analogs-for-this-project" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="analog-for-the-real-world">
 <h2>Analog for the real world<a class="headerlink" href="#analog-for-the-real-world" title="Permalink to this headline">¶</a></h2>
-<p>Lorenz, 1996, two time-scale equations, with accurate time-stepping (RK4 with sufficiently small $\Delta t$):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c4cf5d69-e180-4c5e-9f66-e0b3dbee8cfa">
-<span class="eqno">(1)<a class="headerlink" href="#equation-c4cf5d69-e180-4c5e-9f66-e0b3dbee8cfa" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<p>Lorenz, 1996, two time-scale equations, with accurate time-stepping (RK4 with sufficiently small <span class="math notranslate nohighlight">\(\Delta t\)</span>):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-badc1ecb-86db-4bac-bcec-14620a4e3e68">
+<span class="eqno">(1)<a class="headerlink" href="#equation-badc1ecb-86db-4bac-bcec-14620a4e3e68" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
 \frac{d}{dt} Y_{j,k}
 &amp;= - cbY_{j+1,k} \left( Y_{j+2,k} - X_{j-1,k} \right) - c Y_{j,k} + \frac{hc}{b} X_k
 \end{align}\]</div>
-<p>We should agree and fix $F$, $J$ and $K$ for this purpose.</p>
+<p>We should agree and fix <span class="math notranslate nohighlight">\(F\)</span>, <span class="math notranslate nohighlight">\(J\)</span> and <span class="math notranslate nohighlight">\(K\)</span> for this purpose.</p>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="analog-for-gcm">
 <h1>Analog for  GCM<a class="headerlink" href="#analog-for-gcm" title="Permalink to this headline">¶</a></h1>
-<p>Lorenz, 1996, one time-scale equation, with inaccurate time-stepping (Euler-forward with only-just stable $\Delta t$) and an unknown parameterization of “unresolved processes), $P(X_k)$:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-70d6ac06-b2b8-437f-90ab-c06ae0c51e6b">
-<span class="eqno">(2)<a class="headerlink" href="#equation-70d6ac06-b2b8-437f-90ab-c06ae0c51e6b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<p>Lorenz, 1996, one time-scale equation, with inaccurate time-stepping (Euler-forward with only-just stable <span class="math notranslate nohighlight">\(\Delta t\)</span>) and an unknown parameterization of “unresolved processes), <span class="math notranslate nohighlight">\(P(X_k)\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-64a76032-f62e-4694-adfe-b97b3236821c">
+<span class="eqno">(2)<a class="headerlink" href="#equation-64a76032-f62e-4694-adfe-b97b3236821c" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - P\left( X_k \right)
 \end{align}\]</div>
-<p>Wilks, 2005, used $P(X_k)=b_0 + b_1 X_k + b_2 X_k^2 + b_3 X_k^3 + b_4 X_k^4 + e_k$ where $e_k$ is a stochastic component.
-Arnold et al., 2013, used $P(X_k)=b_0 + b_1 X_k + b_2 X_k^2 + b_3 X_k^3 + e_k$.</p>
+<p>Wilks, 2005, used <span class="math notranslate nohighlight">\(P(X_k)=b_0 + b_1 X_k + b_2 X_k^2 + b_3 X_k^3 + b_4 X_k^4 + e_k\)</span> where <span class="math notranslate nohighlight">\(e_k\)</span> is a stochastic component.
+Arnold et al., 2013, used <span class="math notranslate nohighlight">\(P(X_k)=b_0 + b_1 X_k + b_2 X_k^2 + b_3 X_k^3 + e_k\)</span>.</p>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="the-real-world">
 <h1>The real world<a class="headerlink" href="#the-real-world" title="Permalink to this headline">¶</a></h1>
 <p>Wilks, 2005 used</p>
 <ul class="simple">
-<li><p>$F=18$ or $20$</p></li>
-<li><p>$K=8$</p></li>
-<li><p>$J=32$</p></li>
+<li><p><span class="math notranslate nohighlight">\(F=18\)</span> or <span class="math notranslate nohighlight">\(20\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(K=8\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(J=32\)</span></p></li>
 </ul>
 <p>Traditional to use</p>
 <ul class="simple">
-<li><p>$h=1$</p></li>
-<li><p>$b=10$</p></li>
-<li><p>$c=10$</p></li>
+<li><p><span class="math notranslate nohighlight">\(h=1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b=10\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(c=10\)</span></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -514,17 +520,17 @@ Arnold et al., 2013, used $P(X_k)=b_0 + b_1 X_k + b_2 X_k^2 + b_3 X_k^3 + e_k$.<
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="the-parametization-p-x-k">
-<h1>The parametization $P(X_k)$<a class="headerlink" href="#the-parametization-p-x-k" title="Permalink to this headline">¶</a></h1>
+<h1>The parametization <span class="math notranslate nohighlight">\(P(X_k)\)</span><a class="headerlink" href="#the-parametization-p-x-k" title="Permalink to this headline">¶</a></h1>
 <p>With the “real world” in hand, we can “observe” the sub-grid forcing on the large scale.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3cb7951b-38f5-4316-9816-e02b30594f61">
-<span class="eqno">(3)<a class="headerlink" href="#equation-3cb7951b-38f5-4316-9816-e02b30594f61" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0c5f1ca8-906a-4d1a-87b5-fd33dc5d791f">
+<span class="eqno">(3)<a class="headerlink" href="#equation-0c5f1ca8-906a-4d1a-87b5-fd33dc5d791f" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \underbrace{ 
 \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 }_{=U_k}
 \end{align}\]</div>
-<p>Need to model actual coupling, $U_k$, with function $P(X_k)$.</p>
-<p>Note the sign of the slope of $P(X_k)$ determines sign of the feedback.</p>
+<p>Need to model actual coupling, <span class="math notranslate nohighlight">\(U_k\)</span>, with function <span class="math notranslate nohighlight">\(P(X_k)\)</span>.</p>
+<p>Note the sign of the slope of <span class="math notranslate nohighlight">\(P(X_k)\)</span> determines sign of the feedback.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> X, Y, t = W.run(0.05, 200.)
@@ -580,8 +586,8 @@ Arnold et al., 2013, used $P(X_k)=b_0 + b_1 X_k + b_2 X_k^2 + b_3 X_k^3 + e_k$.<
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="the-model-gcm">
 <h1>The model “GCM”<a class="headerlink" href="#the-model-gcm" title="Permalink to this headline">¶</a></h1>
-<div class="amsmath math notranslate nohighlight" id="equation-b2675bed-12f8-4a22-952b-05c445aa8ccf">
-<span class="eqno">(4)<a class="headerlink" href="#equation-b2675bed-12f8-4a22-952b-05c445aa8ccf" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1f012eb9-91a2-4a8c-bbb6-667b81138fc8">
+<span class="eqno">(4)<a class="headerlink" href="#equation-1f012eb9-91a2-4a8c-bbb6-667b81138fc8" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= \underbrace{- X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F}_{\dot{X}\text{ from eq. (1) of Lorenz '96}} - P(X_k)
 \end{align}\]</div>
@@ -652,22 +658,22 @@ Arnold et al., 2013, used $P(X_k)=b_0 + b_1 X_k + b_2 X_k^2 + b_3 X_k^3 + e_k$.<
 <ul class="simple">
 <li><p>Missing physics, or poorly parameterized unresolved physics</p>
 <ul>
-<li><p>$P_4 \rightarrow P_1$</p></li>
+<li><p><span class="math notranslate nohighlight">\(P_4 \rightarrow P_1\)</span></p></li>
 </ul>
 </li>
 <li><p>Unknown forcing</p>
 <ul>
-<li><p>$F \rightarrow F + error$</p></li>
+<li><p><span class="math notranslate nohighlight">\(F \rightarrow F + error\)</span></p></li>
 </ul>
 </li>
 <li><p>Numerical errors</p>
 <ul>
-<li><p>$\Delta t \rightarrow 10 \Delta t$</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta t \rightarrow 10 \Delta t\)</span></p></li>
 </ul>
 </li>
 <li><p>Initialization error</p>
 <ul>
-<li><p>$X(t=0) \rightarrow X(t=0) + error$</p></li>
+<li><p><span class="math notranslate nohighlight">\(X(t=0) \rightarrow X(t=0) + error\)</span></p></li>
 </ul>
 </li>
 </ul>
@@ -770,7 +776,7 @@ Arnold et al., 2013, used $P(X_k)=b_0 + b_1 X_k + b_2 X_k^2 + b_3 X_k^3 + e_k$.<
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>Used L96 two time-scale model to generate a real world, or “truth”, dataset</p></li>
-<li><p>Build a “GCM” with a rudimentary parameterization of coupling to unresolved processes ($\frac{hc}{b}\sum_{j=0}^{J-1} Y_{j,k}$)</p>
+<li><p>Build a “GCM” with a rudimentary parameterization of coupling to unresolved processes (<span class="math notranslate nohighlight">\(\frac{hc}{b}\sum_{j=0}^{J-1} Y_{j,k}\)</span>)</p>
 <ul>
 <li><p>Deliberately using low-order integration and longer time-step for non-trivial numerical model errors</p></li>
 </ul>
