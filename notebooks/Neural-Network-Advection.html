@@ -520,10 +520,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Using neural networks to parameterize advection in L96<a class="headerlink" href="#using-neural-networks-to-parameterize-advection-in-l96" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">math</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 <span class="kn">from</span> <span class="nn">L96_model</span> <span class="kn">import</span> <span class="p">(</span>
@@ -545,8 +542,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>We are only going to use the single equation model from <a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a>, or equation 3.1:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5e8fe37c-b4ed-4e3e-a698-d9d17dd3d662">
-<span class="eqno">(17)<a class="headerlink" href="#equation-5e8fe37c-b4ed-4e3e-a698-d9d17dd3d662" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-08517ac4-811e-4d1c-9682-0db5249135cc">
+<span class="eqno">(17)<a class="headerlink" href="#equation-08517ac4-811e-4d1c-9682-0db5249135cc" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 = - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F
 \end{align}\]</div>
@@ -555,19 +552,19 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="building-a-1d-and-2d-version-of-the-single-equation-l96-model">
 <h2>Building a 1d and 2d version of the single-equation L96 model:<a class="headerlink" href="#building-a-1d-and-2d-version-of-the-single-equation-l96-model" title="Permalink to this headline">¶</a></h2>
 <p>The ‘1d’ in time, or advectionless version of L96 reduces to:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-422eede5-8b0c-4d68-8229-5db6543bbe29">
-<span class="eqno">(18)<a class="headerlink" href="#equation-422eede5-8b0c-4d68-8229-5db6543bbe29" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-23ee1b9f-033b-4c54-b3a9-79196b2074bd">
+<span class="eqno">(18)<a class="headerlink" href="#equation-23ee1b9f-033b-4c54-b3a9-79196b2074bd" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 = - X_k + F,
 \end{align}\]</div>
 <p>the steady state solution is simply:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ec366504-7974-4c90-82bc-1523d6efd075">
-<span class="eqno">(19)<a class="headerlink" href="#equation-ec366504-7974-4c90-82bc-1523d6efd075" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-559f7559-487b-4333-877a-1d47009d1c1a">
+<span class="eqno">(19)<a class="headerlink" href="#equation-559f7559-487b-4333-877a-1d47009d1c1a" title="Permalink to this equation">¶</a></span>\[\begin{align}
 X_k=F,
 \end{align}\]</div>
 <p>and the time-dependent solution is an exponential:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9753da78-600d-4dad-9b9f-369000b35099">
-<span class="eqno">(20)<a class="headerlink" href="#equation-9753da78-600d-4dad-9b9f-369000b35099" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-129a6577-9c34-4944-8022-85dd222a9206">
+<span class="eqno">(20)<a class="headerlink" href="#equation-129a6577-9c34-4944-8022-85dd222a9206" title="Permalink to this equation">¶</a></span>\[\begin{align}
 X_k
 = \left(F- (F-X_k^0)\exp(-t) \right).
 \end{align}\]</div>
@@ -719,15 +716,15 @@ X_k
 <p>We are going to track the momentum and energy of L96 via the following metrics:</p>
 <div class="section" id="momentum">
 <h3>Momentum:<a class="headerlink" href="#momentum" title="Permalink to this headline">¶</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-3c159849-eb31-4a29-9fbc-bec692bf1dae">
-<span class="eqno">(21)<a class="headerlink" href="#equation-3c159849-eb31-4a29-9fbc-bec692bf1dae" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5c207b06-9079-40a4-aad8-4f8567c9aebc">
+<span class="eqno">(21)<a class="headerlink" href="#equation-5c207b06-9079-40a4-aad8-4f8567c9aebc" title="Permalink to this equation">¶</a></span>\[\begin{align}
 p = \sum_k X_k
 \end{align}\]</div>
 </div>
 <div class="section" id="energy">
 <h3>Energy:<a class="headerlink" href="#energy" title="Permalink to this headline">¶</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-4d6331ea-38f9-4e28-adf5-037b596dba40">
-<span class="eqno">(22)<a class="headerlink" href="#equation-4d6331ea-38f9-4e28-adf5-037b596dba40" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e5f1650c-0370-4046-92da-d4fe07f5953d">
+<span class="eqno">(22)<a class="headerlink" href="#equation-e5f1650c-0370-4046-92da-d4fe07f5953d" title="Permalink to this equation">¶</a></span>\[\begin{align}
 e = \sum_k X_k^2
 \end{align}\]</div>
 <p>These metrics are chosen to track the system.  We are looking for a conservative property of the L96 system.  It turns out in the single equation form of the L96 problem one of these two metrics is conserved by the advection process, which is the energy like term.</p>
@@ -759,6 +756,10 @@ e = \sum_k X_k^2
     <span class="n">F</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_10_0.png" src="../_images/Neural-Network-Advection_10_0.png" />
+<img alt="../_images/Neural-Network-Advection_10_1.png" src="../_images/Neural-Network-Advection_10_1.png" />
 </div>
 </div>
 </div>
@@ -820,6 +821,10 @@ e = \sum_k X_k^2
     <span class="n">F</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_12_0.png" src="../_images/Neural-Network-Advection_12_0.png" />
+<img alt="../_images/Neural-Network-Advection_12_1.png" src="../_images/Neural-Network-Advection_12_1.png" />
 </div>
 </div>
 </div>
@@ -992,6 +997,15 @@ e = \sum_k X_k^2
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Advection&#39;)
+</pre></div>
+</div>
+<img alt="../_images/Neural-Network-Advection_17_1.png" src="../_images/Neural-Network-Advection_17_1.png" />
+<img alt="../_images/Neural-Network-Advection_17_2.png" src="../_images/Neural-Network-Advection_17_2.png" />
+<img alt="../_images/Neural-Network-Advection_17_3.png" src="../_images/Neural-Network-Advection_17_3.png" />
+<img alt="../_images/Neural-Network-Advection_17_4.png" src="../_images/Neural-Network-Advection_17_4.png" />
+</div>
 </div>
 <p>Let’s now just assume that we knew the form of the advection term.  We now get something that looks like a 1:1 linear relationship between the observed advection term and the correct feature parameter.  It is not perfect because the values we are using for <span class="math notranslate nohighlight">\(X_k\)</span> are not consistent with the RK4 time stepping (if we used forward Euler we would get a perfit fit).</p>
 <div class="cell docutils container">
@@ -1021,6 +1035,12 @@ e = \sum_k X_k^2
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit (slope/bias):  [ 1.00358867 -0.08299533]
+</pre></div>
+</div>
+<img alt="../_images/Neural-Network-Advection_19_1.png" src="../_images/Neural-Network-Advection_19_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1114,6 +1134,10 @@ e = \sum_k X_k^2
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_22_0.png" src="../_images/Neural-Network-Advection_22_0.png" />
+<img alt="../_images/Neural-Network-Advection_22_1.png" src="../_images/Neural-Network-Advection_22_1.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1127,6 +1151,10 @@ e = \sum_k X_k^2
 <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_23_0.png" src="../_images/Neural-Network-Advection_23_0.png" />
+<img alt="../_images/Neural-Network-Advection_23_1.png" src="../_images/Neural-Network-Advection_23_1.png" />
 </div>
 </div>
 </div>
@@ -1148,6 +1176,9 @@ e = \sum_k X_k^2
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">FS</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">P_wrong</span><span class="p">,</span> <span class="n">FS</span><span class="p">),</span> <span class="s2">&quot;g-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;polynomial parameterization&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_25_0.png" src="../_images/Neural-Network-Advection_25_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1172,6 +1203,16 @@ e = \sum_k X_k^2
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2350/3080806922.py:3: RuntimeWarning: overflow encountered in multiply
+  param, -(np.roll(X, 2) - np.roll(X, -1) * np.roll(X, 1))
+/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/numpy/lib/polynomial.py:771: RuntimeWarning: invalid value encountered in multiply
+  y = y * x + p[i]
+</pre></div>
+</div>
+<img alt="../_images/Neural-Network-Advection_26_1.png" src="../_images/Neural-Network-Advection_26_1.png" />
+<img alt="../_images/Neural-Network-Advection_26_2.png" src="../_images/Neural-Network-Advection_26_2.png" />
+</div>
 </div>
 <p>Using the wrong feature gave us a very unstable model with advection that does not work.</p>
 <p>In the following, we will try to learn the advection from a neural network.  This result shows that we need to do something reasonable to have a stable system.</p>
@@ -1188,13 +1229,16 @@ We are instead just going to throw the information from the advection scheme to 
 <span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 <span class="kn">import</span> <span class="nn">torch.utils.data</span> <span class="k">as</span> <span class="nn">Data</span>
 <span class="kn">import</span> <span class="nn">torchvision</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
 <span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span><span class="p">,</span> <span class="n">optim</span>
 <span class="kn">from</span> <span class="nn">torch.autograd</span> <span class="kn">import</span> <span class="n">Variable</span>
-<span class="kn">from</span> <span class="nn">torch_lr_finder</span> <span class="kn">import</span> <span class="n">LRFinder</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>  <span class="c1"># For reproducibility</span>
 <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>  <span class="c1"># For reproducibility</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f66069044b0&gt;
 </pre></div>
 </div>
 </div>
@@ -1260,6 +1304,18 @@ We are instead just going to throw the information from the advection scheme to 
 <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Advection RMS: 28.834999051943235
+X RMS: 5.141364385174876
+Scaled Advection RMS: 0.28834999051943233
+Scaled X RMS: 0.5141364385174877
+N training data:  40000
+N testing data:  10000
+</pre></div>
+</div>
+<img alt="../_images/Neural-Network-Advection_31_1.png" src="../_images/Neural-Network-Advection_31_1.png" />
+<img alt="../_images/Neural-Network-Advection_31_2.png" src="../_images/Neural-Network-Advection_31_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1358,6 +1414,89 @@ We are instead just going to throw the information from the advection scheme to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.026657562625778158
+validation loss: 0.02861265834747777
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.015314873239193708
+validation loss: 0.01689833234852844
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.012392070843367924
+validation loss: 0.013728876573610774
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.011945625463886875
+validation loss: 0.012960387719453199
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01092126111218503
+validation loss: 0.011960138722769808
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.010592089118817122
+validation loss: 0.011739461710589587
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01080786508469939
+validation loss: 0.011673646684439277
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008737443882910683
+validation loss: 0.009558674820923761
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008516736780134846
+validation loss: 0.009218624291453753
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.009503839026039738
+validation loss: 0.010165388779910462
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.00846062807394856
+validation loss: 0.008883060973891426
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007898261676178643
+validation loss: 0.00846316083440712
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.009283581317833859
+validation loss: 0.009883790560357458
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007943605668694856
+validation loss: 0.008443553911142161
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007841254588648072
+validation loss: 0.008423262764648467
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007457368951708858
+validation loss: 0.007752076186401234
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.00781624950128797
+validation loss: 0.008159885212504846
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007133881537180679
+validation loss: 0.007669034858444027
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.0075381062943139805
+validation loss: 0.007867245884093902
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007276651648061516
+validation loss: 0.007582636906338001
+</pre></div>
+</div>
+<img alt="../_images/Neural-Network-Advection_34_20.png" src="../_images/Neural-Network-Advection_34_20.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1392,6 +1531,14 @@ We are instead just going to throw the information from the advection scheme to 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f66041750a0&gt;
+</pre></div>
+</div>
+<img alt="../_images/Neural-Network-Advection_35_1.png" src="../_images/Neural-Network-Advection_35_1.png" />
+<img alt="../_images/Neural-Network-Advection_35_2.png" src="../_images/Neural-Network-Advection_35_2.png" />
+<img alt="../_images/Neural-Network-Advection_35_3.png" src="../_images/Neural-Network-Advection_35_3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1451,6 +1598,10 @@ We are instead just going to throw the information from the advection scheme to 
 <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_37_0.png" src="../_images/Neural-Network-Advection_37_0.png" />
+<img alt="../_images/Neural-Network-Advection_37_1.png" src="../_images/Neural-Network-Advection_37_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1513,6 +1664,18 @@ We are instead just going to throw the information from the advection scheme to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Advection RMS: 28.834999051943235
+X RMS: 5.141364385174876
+Scaled Advection RMS: 0.18677197811788782
+Scaled X RMS: 0.40360273155776266
+N training data:  40000
+N testing data:  10000
+</pre></div>
+</div>
+<img alt="../_images/Neural-Network-Advection_38_1.png" src="../_images/Neural-Network-Advection_38_1.png" />
+<img alt="../_images/Neural-Network-Advection_38_2.png" src="../_images/Neural-Network-Advection_38_2.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1565,6 +1728,95 @@ We are instead just going to throw the information from the advection scheme to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01581342580139066
+validation loss: 0.017655049264194193
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.009983115928880298
+validation loss: 0.010882540702467572
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.008377367895948448
+validation loss: 0.009315635276029955
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007569838432503126
+validation loss: 0.008294643270860904
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007557194472527594
+validation loss: 0.008408204254665343
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006853542681819254
+validation loss: 0.007556242408404449
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.007047446861563595
+validation loss: 0.007748699269462247
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.0062077139230670274
+validation loss: 0.0069958935890534965
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.005747749486422089
+validation loss: 0.0065070548739274234
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006099427809865739
+validation loss: 0.006810666479730358
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.006113885119551575
+validation loss: 0.0068235495375270116
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.005392289361278055
+validation loss: 0.006051578569371918
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.0055656399083942485
+validation loss: 0.006225227025291533
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.0056557573888356616
+validation loss: 0.006234017154735475
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.005610663853140492
+validation loss: 0.0062903059098119805
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.005299673095866387
+validation loss: 0.005925568260768529
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.005862656636048914
+validation loss: 0.006429955419201115
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.005058314286954588
+validation loss: 0.005681243580689659
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.004904160909821758
+validation loss: 0.005517578282081526
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.004908899972977067
+validation loss: 0.005413276762675389
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f66041f5790&gt;
+</pre></div>
+</div>
+<img alt="../_images/Neural-Network-Advection_39_21.png" src="../_images/Neural-Network-Advection_39_21.png" />
+<img alt="../_images/Neural-Network-Advection_39_22.png" src="../_images/Neural-Network-Advection_39_22.png" />
+<img alt="../_images/Neural-Network-Advection_39_23.png" src="../_images/Neural-Network-Advection_39_23.png" />
+<img alt="../_images/Neural-Network-Advection_39_24.png" src="../_images/Neural-Network-Advection_39_24.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1584,6 +1836,10 @@ We are instead just going to throw the information from the advection scheme to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_40_0.png" src="../_images/Neural-Network-Advection_40_0.png" />
+<img alt="../_images/Neural-Network-Advection_40_1.png" src="../_images/Neural-Network-Advection_40_1.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1599,6 +1855,24 @@ We are instead just going to throw the information from the advection scheme to 
 <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2350/2792372065.py:25: RuntimeWarning: overflow encountered in square
+  a.plot(TN, np.sum(XN**2, axis=1), label=LN, linewidth=2)
+/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/numpy/core/fromnumeric.py:86: RuntimeWarning: overflow encountered in reduce
+  return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+/tmp/ipykernel_2350/2792372065.py:31: RuntimeWarning: overflow encountered in square
+  _Y.append(np.percentile(np.sum(XN[int(5 // dt) :] ** 2, axis=1), ii))
+/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/numpy/lib/function_base.py:4009: RuntimeWarning: invalid value encountered in subtract
+  diff_b_a = subtract(b, a)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/matplotlib/axes/_base.py:2924: RuntimeWarning: overflow encountered in double_scalars
+  x0, x1 = inverse_trans.transform([x0t - delta, x1t + delta])
+</pre></div>
+</div>
+<img alt="../_images/Neural-Network-Advection_41_2.png" src="../_images/Neural-Network-Advection_41_2.png" />
+<img alt="../_images/Neural-Network-Advection_41_3.png" src="../_images/Neural-Network-Advection_41_3.png" />
 </div>
 </div>
 </div>
@@ -1697,6 +1971,129 @@ We are instead just going to throw the information from the advection scheme to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.06653876426216279
+validation loss: 0.07217220777817202
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.057835875321841236
+validation loss: 0.06339254582879465
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.049368130716972256
+validation loss: 0.05456952225459734
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.043857337623261716
+validation loss: 0.048398302537641796
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.037879863306761366
+validation loss: 0.04223727382942437
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.03378462532698663
+validation loss: 0.03734462488853219
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.030789958387628286
+validation loss: 0.03371024251004548
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.028696927126881815
+validation loss: 0.03160129298968471
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.027590246497315445
+validation loss: 0.030103546522850265
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.026015945152264332
+validation loss: 0.028082033986509193
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.025183654811825856
+validation loss: 0.027284398653864072
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.024761262092719283
+validation loss: 0.02653171259032684
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.023295630496781315
+validation loss: 0.02491673632430976
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.024276397426243778
+validation loss: 0.026019918136053467
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02128594825025568
+validation loss: 0.022888191156688054
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02078674704513767
+validation loss: 0.022337463220734776
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02077543503503391
+validation loss: 0.02228802871766202
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.020114241605523994
+validation loss: 0.02165389769275749
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.019741689466098854
+validation loss: 0.02131146703671042
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02048417625029752
+validation loss: 0.021991316859158762
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.019431739605282234
+validation loss: 0.02094575352056312
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.019891660209909172
+validation loss: 0.021388281818877263
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.031485240752522875
+validation loss: 0.03330089018608493
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.019364360384980742
+validation loss: 0.020902739066123346
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.018702602389699965
+validation loss: 0.020217729326701673
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.018914437232733373
+validation loss: 0.02052198519743579
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.018832208470530548
+validation loss: 0.020196872161837992
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.018612758540508173
+validation loss: 0.020188742949824433
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01852473822931948
+validation loss: 0.019999004482521884
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01851799002565041
+validation loss: 0.020107778503038028
+</pre></div>
+</div>
+<img alt="../_images/Neural-Network-Advection_46_30.png" src="../_images/Neural-Network-Advection_46_30.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1731,6 +2128,12 @@ We are instead just going to throw the information from the advection scheme to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_47_0.png" src="../_images/Neural-Network-Advection_47_0.png" />
+<img alt="../_images/Neural-Network-Advection_47_1.png" src="../_images/Neural-Network-Advection_47_1.png" />
+<img alt="../_images/Neural-Network-Advection_47_2.png" src="../_images/Neural-Network-Advection_47_2.png" />
+<img alt="../_images/Neural-Network-Advection_47_3.png" src="../_images/Neural-Network-Advection_47_3.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1747,6 +2150,10 @@ We are instead just going to throw the information from the advection scheme to 
 <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_48_0.png" src="../_images/Neural-Network-Advection_48_0.png" />
+<img alt="../_images/Neural-Network-Advection_48_1.png" src="../_images/Neural-Network-Advection_48_1.png" />
 </div>
 </div>
 </div>
@@ -1805,6 +2212,95 @@ We are instead just going to throw the information from the advection scheme to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.025893680277973417
+validation loss: 0.02869510408008779
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.023210636883247007
+validation loss: 0.025956362058124995
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.021289201636554764
+validation loss: 0.023657700436818356
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.02088653948955774
+validation loss: 0.023225119889179354
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.019048831555234753
+validation loss: 0.021348243497611975
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.019352691073262207
+validation loss: 0.02170692237477933
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.018971787926203097
+validation loss: 0.02111744418185907
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01859022202283794
+validation loss: 0.02099515416921029
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.018344513094445947
+validation loss: 0.02058502851810212
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.018783184189457264
+validation loss: 0.020936912616345234
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01907323371301054
+validation loss: 0.02133064185378821
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01820909210034878
+validation loss: 0.02031230502853795
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.018374081113186967
+validation loss: 0.02040715505902535
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.018726248705160854
+validation loss: 0.021026254773336563
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01841776978857914
+validation loss: 0.020649151877057008
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.017630181074633853
+validation loss: 0.019832903675291357
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.017558806039156664
+validation loss: 0.019600723804189618
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.017510674602277492
+validation loss: 0.019569413848667526
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.01683877936726825
+validation loss: 0.019045866823418033
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.016778970179216274
+validation loss: 0.018737233421589807
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6604142190&gt;
+</pre></div>
+</div>
+<img alt="../_images/Neural-Network-Advection_50_21.png" src="../_images/Neural-Network-Advection_50_21.png" />
+<img alt="../_images/Neural-Network-Advection_50_22.png" src="../_images/Neural-Network-Advection_50_22.png" />
+<img alt="../_images/Neural-Network-Advection_50_23.png" src="../_images/Neural-Network-Advection_50_23.png" />
+<img alt="../_images/Neural-Network-Advection_50_24.png" src="../_images/Neural-Network-Advection_50_24.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1823,6 +2319,10 @@ We are instead just going to throw the information from the advection scheme to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_51_0.png" src="../_images/Neural-Network-Advection_51_0.png" />
+<img alt="../_images/Neural-Network-Advection_51_1.png" src="../_images/Neural-Network-Advection_51_1.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1839,6 +2339,10 @@ We are instead just going to throw the information from the advection scheme to 
 <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_52_0.png" src="../_images/Neural-Network-Advection_52_0.png" />
+<img alt="../_images/Neural-Network-Advection_52_1.png" src="../_images/Neural-Network-Advection_52_1.png" />
 </div>
 </div>
 </div>
@@ -1880,6 +2384,11 @@ We are instead just going to throw the information from the advection scheme to 
 <span class="n">loader_test</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span>
     <span class="n">dataset</span><span class="o">=</span><span class="n">torch_dataset_test</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40000
 </pre></div>
 </div>
 </div>
@@ -1934,6 +2443,95 @@ We are instead just going to throw the information from the advection scheme to 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 2.6138261922252557
+validation loss: 2.9082998026723077
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.7686425843340665
+validation loss: 1.9756384773086464
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.387874098448027
+validation loss: 1.567783786900979
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.2266651575642364
+validation loss: 1.4001127367932626
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.1291482608583865
+validation loss: 1.2976416877134158
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.0855078524058963
+validation loss: 1.2401641507509915
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 1.0250508620743832
+validation loss: 1.1603910210796422
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9661805840189114
+validation loss: 1.094977673307226
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9592283985269686
+validation loss: 1.087555688617724
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9675630465731425
+validation loss: 1.1007987759652562
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.89368901652599
+validation loss: 1.0138804123866987
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.9325333014509933
+validation loss: 1.0522922524991876
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.8708109698477488
+validation loss: 0.9920626343097358
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.7974097163970832
+validation loss: 0.9284359916766209
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.8324167488149611
+validation loss: 0.9606328524821726
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.7612835164211591
+validation loss: 0.8871714736283589
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.7692283395141815
+validation loss: 0.9020281249030463
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.7534729481264869
+validation loss: 0.895925438730363
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.7772457714018144
+validation loss: 0.9029327265134081
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 0.768439997626903
+validation loss: 0.8912941813269345
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6604180e20&gt;
+</pre></div>
+</div>
+<img alt="../_images/Neural-Network-Advection_55_21.png" src="../_images/Neural-Network-Advection_55_21.png" />
+<img alt="../_images/Neural-Network-Advection_55_22.png" src="../_images/Neural-Network-Advection_55_22.png" />
+<img alt="../_images/Neural-Network-Advection_55_23.png" src="../_images/Neural-Network-Advection_55_23.png" />
+<img alt="../_images/Neural-Network-Advection_55_24.png" src="../_images/Neural-Network-Advection_55_24.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1991,6 +2589,10 @@ We are instead just going to throw the information from the advection scheme to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_57_0.png" src="../_images/Neural-Network-Advection_57_0.png" />
+<img alt="../_images/Neural-Network-Advection_57_1.png" src="../_images/Neural-Network-Advection_57_1.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2008,6 +2610,10 @@ We are instead just going to throw the information from the advection scheme to 
 <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_58_0.png" src="../_images/Neural-Network-Advection_58_0.png" />
+<img alt="../_images/Neural-Network-Advection_58_1.png" src="../_images/Neural-Network-Advection_58_1.png" />
 </div>
 </div>
 </div>
@@ -2049,6 +2655,209 @@ We are instead just going to throw the information from the advection scheme to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 10.70915257521588
+validation loss: 11.798539187781659
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 8.801562626806792
+validation loss: 9.932450183305866
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 8.023615812169037
+validation loss: 9.193718526048219
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.207299769558597
+validation loss: 8.27034084727506
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 7.074919158697854
+validation loss: 8.102248354338828
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.695830291902061
+validation loss: 7.753854251982759
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.547232003369696
+validation loss: 7.535356890428969
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.476353492956439
+validation loss: 7.506732338462156
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.453058691262866
+validation loss: 7.471011890977733
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.162620560456192
+validation loss: 7.237492511324857
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.979824754733217
+validation loss: 7.038781446364837
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.986067527398456
+validation loss: 6.921124468672076
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.771649026119773
+validation loss: 6.674336150834949
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.605081057960051
+validation loss: 6.551872192156554
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 6.063857133908821
+validation loss: 7.234802687284554
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.822387774354091
+validation loss: 6.77169658998409
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.638416840811066
+validation loss: 6.675739379370088
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.523099525519738
+validation loss: 6.554042597971784
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.467929554937337
+validation loss: 6.500977671847035
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.789457955210031
+validation loss: 6.747226841159401
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.5188279324851575
+validation loss: 6.44649492603016
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.755585929872656
+validation loss: 6.678978614919265
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.588185237057263
+validation loss: 6.585421144339901
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.233603897462568
+validation loss: 6.146981819795042
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.365831751996339
+validation loss: 6.392171303131347
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.32843021570669
+validation loss: 6.285052709517366
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.294085936118169
+validation loss: 6.236552680977734
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.228302572589655
+validation loss: 6.228106545560925
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.511465471201445
+validation loss: 6.564200452176388
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.206659995610361
+validation loss: 6.137893476049952
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.105671278636192
+validation loss: 6.048196824003647
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.231079220046309
+validation loss: 6.094230962947866
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.170670157140305
+validation loss: 6.063762546352893
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.127832438602883
+validation loss: 6.0199708811673
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.360111296206233
+validation loss: 6.239466581970437
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.538977713400693
+validation loss: 6.4989709464457786
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.135241412013867
+validation loss: 6.076275153902726
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.1832827916484
+validation loss: 6.07721652358182
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.052615498542849
+validation loss: 5.910106599120451
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.03176094039773
+validation loss: 5.93208483843718
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 4.990737677134703
+validation loss: 5.8074127195548835
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.1658414188567345
+validation loss: 6.057008086766837
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.1932169097388305
+validation loss: 6.138396896733765
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.031785267722971
+validation loss: 5.911481984681201
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 4.911219416028598
+validation loss: 5.781029098435035
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 4.927777336581406
+validation loss: 5.859777882452482
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.503927775364284
+validation loss: 6.286899636152006
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.014342442737477
+validation loss: 5.994743264149209
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 4.99153258820748
+validation loss: 5.849641400700972
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 5.473784974904242
+validation loss: 6.434057196487632
+</pre></div>
+</div>
+<img alt="../_images/Neural-Network-Advection_61_50.png" src="../_images/Neural-Network-Advection_61_50.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2080,6 +2889,12 @@ We are instead just going to throw the information from the advection scheme to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_62_0.png" src="../_images/Neural-Network-Advection_62_0.png" />
+<img alt="../_images/Neural-Network-Advection_62_1.png" src="../_images/Neural-Network-Advection_62_1.png" />
+<img alt="../_images/Neural-Network-Advection_62_2.png" src="../_images/Neural-Network-Advection_62_2.png" />
+<img alt="../_images/Neural-Network-Advection_62_3.png" src="../_images/Neural-Network-Advection_62_3.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2094,6 +2909,10 @@ We are instead just going to throw the information from the advection scheme to 
 <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_63_0.png" src="../_images/Neural-Network-Advection_63_0.png" />
+<img alt="../_images/Neural-Network-Advection_63_1.png" src="../_images/Neural-Network-Advection_63_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2110,6 +2929,10 @@ We are instead just going to throw the information from the advection scheme to 
 <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_64_0.png" src="../_images/Neural-Network-Advection_64_0.png" />
+<img alt="../_images/Neural-Network-Advection_64_1.png" src="../_images/Neural-Network-Advection_64_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2136,6 +2959,209 @@ We are instead just going to throw the information from the advection scheme to 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.418436476519824
+validation loss: 14.555268823805
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.191659646498483
+validation loss: 14.420675083400392
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.23702462405723
+validation loss: 14.391390665894338
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.218794464012126
+validation loss: 14.363368774419381
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.13024205952886
+validation loss: 14.351893296579968
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.104534799518959
+validation loss: 14.351438501045914
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.131504416523294
+validation loss: 14.335464018662103
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.03878712686149
+validation loss: 14.293902201420366
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.049868734152446
+validation loss: 14.264036047655342
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.043676149977676
+validation loss: 14.193755318420354
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.840406712100489
+validation loss: 14.073199257234709
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.823635042184838
+validation loss: 14.059113122079856
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 13.027137342653457
+validation loss: 14.244523969922378
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.505392992206968
+validation loss: 13.77785716062696
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.638314645797319
+validation loss: 13.87926025185548
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.407081212751974
+validation loss: 13.585156721280494
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.188223808880107
+validation loss: 13.352707015694687
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.301249128485036
+validation loss: 13.502499172419183
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.174675857688154
+validation loss: 13.412991807761935
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.841627473680287
+validation loss: 13.96900528805529
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.20825324492721
+validation loss: 13.294858996508832
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.900806020281296
+validation loss: 13.074955256139413
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.028230788974584
+validation loss: 13.166758672857446
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.913467478324245
+validation loss: 13.09997913654648
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.930059320996266
+validation loss: 13.147168434475754
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.802544837184765
+validation loss: 12.972091952688015
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.149286947410934
+validation loss: 13.217386282504606
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.245538204147891
+validation loss: 13.375682787981614
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.979654678322593
+validation loss: 13.128227970755287
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.862474715543694
+validation loss: 13.096507215930123
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.798978078237855
+validation loss: 12.963215407579565
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.416395951331086
+validation loss: 13.514249358127461
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.138788033174354
+validation loss: 13.42909276404601
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.791080466203615
+validation loss: 12.942969364019955
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.746021726060116
+validation loss: 12.881208841500097
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.848186485202747
+validation loss: 12.910782951224286
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.691438390122974
+validation loss: 12.826613246624522
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.580164116712549
+validation loss: 12.811960712094868
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.468976859268585
+validation loss: 12.600781596336944
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.443605236579682
+validation loss: 13.720074098477866
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.568461220788155
+validation loss: 12.768134450417872
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.330442918436166
+validation loss: 12.453444887418316
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 12.200281531637305
+validation loss: 13.143578880551805
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.587829638115482
+validation loss: 12.719489919529163
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.385460843728293
+validation loss: 12.613581856735973
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.6097990547669
+validation loss: 12.847414935863918
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.450910042826658
+validation loss: 12.620316595204057
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.437271778999767
+validation loss: 12.627135141055886
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.795552593842459
+validation loss: 13.045644491305557
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 11.850143502573356
+validation loss: 12.842541531980256
+</pre></div>
+</div>
+<img alt="../_images/Neural-Network-Advection_65_50.png" src="../_images/Neural-Network-Advection_65_50.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2173,6 +3199,13 @@ We are instead just going to throw the information from the advection scheme to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_66_0.png" src="../_images/Neural-Network-Advection_66_0.png" />
+<img alt="../_images/Neural-Network-Advection_66_1.png" src="../_images/Neural-Network-Advection_66_1.png" />
+<img alt="../_images/Neural-Network-Advection_66_2.png" src="../_images/Neural-Network-Advection_66_2.png" />
+<img alt="../_images/Neural-Network-Advection_66_3.png" src="../_images/Neural-Network-Advection_66_3.png" />
+<img alt="../_images/Neural-Network-Advection_66_4.png" src="../_images/Neural-Network-Advection_66_4.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2196,6 +3229,10 @@ We are instead just going to throw the information from the advection scheme to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_68_0.png" src="../_images/Neural-Network-Advection_68_0.png" />
+<img alt="../_images/Neural-Network-Advection_68_1.png" src="../_images/Neural-Network-Advection_68_1.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2207,6 +3244,10 @@ We are instead just going to throw the information from the advection scheme to 
 <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_69_0.png" src="../_images/Neural-Network-Advection_69_0.png" />
+<img alt="../_images/Neural-Network-Advection_69_1.png" src="../_images/Neural-Network-Advection_69_1.png" />
 </div>
 </div>
 </div>
@@ -2294,6 +3335,10 @@ Let’s try moving the network inside the RHS that is passed to the RK4 algorith
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_72_0.png" src="../_images/Neural-Network-Advection_72_0.png" />
+<img alt="../_images/Neural-Network-Advection_72_1.png" src="../_images/Neural-Network-Advection_72_1.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2310,6 +3355,10 @@ Let’s try moving the network inside the RHS that is passed to the RK4 algorith
 <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural-Network-Advection_73_0.png" src="../_images/Neural-Network-Advection_73_0.png" />
+<img alt="../_images/Neural-Network-Advection_73_1.png" src="../_images/Neural-Network-Advection_73_1.png" />
 </div>
 </div>
 </div>
