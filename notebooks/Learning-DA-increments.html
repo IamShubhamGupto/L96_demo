@@ -125,7 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm-parameterization-problem.html">
-   Key aspects of GCMs parameterizations
+   1. Introducing the need for GCM parameterizations
   </a>
  </li>
 </ul>
@@ -182,11 +182,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  References
- </span>
-</p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../bibliography.html">
@@ -351,6 +346,19 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ensX&#39;,
+ &#39;X_inc&#39;,
+ &#39;t_obs&#39;,
+ &#39;l_obs&#39;,
+ &#39;t_inc&#39;,
+ &#39;X_truth&#39;,
+ &#39;Y_truth&#39;,
+ &#39;t_truth&#39;,
+ &#39;X_obs&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -381,6 +389,20 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable      Type       Data/Info
+----------------------------------
+X_tend        ndarray    400x8x50: 160000 elems, type `float64`, 1280000 bytes (1.220703125 Mb)
+da_interval   int        10
+dt            float64    0.005
+dt_inc        float64    0.05
+np            module     &lt;module &#39;numpy&#39; from &#39;/us&lt;...&gt;kages/numpy/__init__.py&#39;&gt;
+plt           module     &lt;module &#39;matplotlib.pyplo&lt;...&gt;es/matplotlib/pyplot.py&#39;&gt;
+torch         module     &lt;module &#39;torch&#39; from &#39;/us&lt;...&gt;kages/torch/__init__.py&#39;&gt;
+x_input       ndarray    400x8x50: 160000 elems, type `float64`, 1280000 bytes (1.220703125 Mb)
+</pre></div>
+</div>
+</div>
 </div>
 <p>As a sanity check, we look at the data for obvious structure. A polyfit to the data will compare well to Wilks, 2005, if the data is similar in distribution. We show Wilks, 2005, and the 4th order polyfit for reference, but neither are used or neededin the NN training.</p>
 <div class="cell docutils container">
@@ -395,6 +417,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Learning-DA-increments_6_0.png" src="../_images/Learning-DA-increments_6_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -416,6 +441,9 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Learning-DA-increments_7_0.png" src="../_images/Learning-DA-increments_7_0.png" />
+</div>
 </div>
 <p>Partition the dataset into “training” (seen by the network during optimization of the weights), and “validation” not seen by the network but used as an independent metric of fit (was called “test” in other notebook).</p>
 <div class="cell docutils container">
@@ -427,6 +455,11 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">Y_train</span> <span class="o">=</span> <span class="n">X_tend</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:</span><span class="n">train_size</span><span class="p">]</span>
 <span class="n">X_valid</span> <span class="o">=</span> <span class="n">x_input</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">train_size</span><span class="p">:]</span>
 <span class="n">Y_valid</span> <span class="o">=</span> <span class="n">X_tend</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">train_size</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set size =  112000  out of  160000
 </pre></div>
 </div>
 </div>
@@ -572,6 +605,81 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   1 Training loss = 16.231857522010504 	Validation loss = 16.50292818096277
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   2 Training loss = 16.100118044119586 	Validation loss = 16.351857089919438
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   3 Training loss = 16.06441217446005 	Validation loss = 16.31402544731543
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   4 Training loss = 16.02130276229772 	Validation loss = 16.235991521038216
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   5 Training loss = 16.02477320996643 	Validation loss = 16.27083743737868
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   6 Training loss = 16.01603349623693 	Validation loss = 16.262992246296857
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   7 Training loss = 16.02048661948046 	Validation loss = 16.25451250138794
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   8 Training loss = 16.00830021033671 	Validation loss = 16.252060668676272
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   9 Training loss = 15.99677016525215 	Validation loss = 16.22851400998368
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  10 Training loss = 16.006628835948504 	Validation loss = 16.239797519291887
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  11 Training loss = 16.00023407897172 	Validation loss = 16.26359618772389
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  12 Training loss = 16.02210961526845 	Validation loss = 16.23426080757524
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  13 Training loss = 16.01703171644895 	Validation loss = 16.25510219805524
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  14 Training loss = 16.00965054840733 	Validation loss = 16.22124458428904
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  15 Training loss = 16.00822134609912 	Validation loss = 16.232728921301284
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  16 Training loss = 15.998151830895104 	Validation loss = 16.216467532165996
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  17 Training loss = 16.01985106986266 	Validation loss = 16.228902989386718
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  18 Training loss = 15.993716541959973 	Validation loss = 16.248691346665506
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  19 Training loss = 15.987512626115414 	Validation loss = 16.246520058783318
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  20 Training loss = 15.987613274551125 	Validation loss = 16.241419900254872
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  21 Training loss = 16.011003427128617 	Validation loss = 16.22269644549999
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  22 Training loss = 15.996837923213269 	Validation loss = 16.265307255681126
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  23 Training loss = 15.991000336072473 	Validation loss = 16.227803372945612
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  24 Training loss = 16.032492521873102 	Validation loss = 16.23362595452647
+</pre></div>
+</div>
+<img alt="../_images/Learning-DA-increments_16_24.png" src="../_images/Learning-DA-increments_16_24.png" />
+</div>
 </div>
 <p>The NN has one input and one output, so we can plot it as a function, <span class="math notranslate nohighlight">\(nn(X)\)</span> (orange), and compare it to the polyfit (blue) and Wilks, 2005, polynomial (black dashed).</p>
 <div class="cell docutils container">
@@ -594,6 +702,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;NN fit&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Learning-DA-increments_18_0.png" src="../_images/Learning-DA-increments_18_0.png" />
 </div>
 </div>
 

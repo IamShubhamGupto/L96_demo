@@ -125,7 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm-parameterization-problem.html">
-   Key aspects of GCMs parameterizations
+   1. Introducing the need for GCM parameterizations
   </a>
  </li>
 </ul>
@@ -182,11 +182,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  References
- </span>
-</p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../bibliography.html">
@@ -337,8 +332,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Equation 1 from <a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a> is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-55ac5c9f-496c-4470-9fd3-0e1a95d3273a">
-<span class="eqno">(4)<a class="headerlink" href="#equation-55ac5c9f-496c-4470-9fd3-0e1a95d3273a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a0b51951-248f-4683-81ec-ecbfe2786bb3">
+<span class="eqno">(4)<a class="headerlink" href="#equation-a0b51951-248f-4683-81ec-ecbfe2786bb3" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k &amp;= - X_{k-2} X_{k-1} + X_{k-1} X_{k+1} - X_k + F
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(F\)</span> is a constant independent of <span class="math notranslate nohighlight">\(k=0,1,2,\ldots,K-1\)</span> (using python indexing starting at k=0). The <span class="math notranslate nohighlight">\(k\)</span> index is periodic so that, for example, <span class="math notranslate nohighlight">\(k=K\)</span> is referring to <span class="math notranslate nohighlight">\(k=0\)</span> and <span class="math notranslate nohighlight">\(k=-1\)</span> is referring to <span class="math notranslate nohighlight">\(k=K-1\)</span>.</p>

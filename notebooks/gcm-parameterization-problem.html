@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Key aspects of GCMs parameterizations &#8212; Lorenz 1996 two time-scale model for learning machine learning</title>
+    <title>1. Introducing the need for GCM parameterizations &#8212; Lorenz 1996 two time-scale model for learning machine learning</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -125,7 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Key aspects of GCMs parameterizations
+   1. Introducing the need for GCM parameterizations
   </a>
  </li>
 </ul>
@@ -182,11 +182,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  References
- </span>
-</p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../bibliography.html">
@@ -297,42 +292,42 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introducing-the-need-for-gcm-parameterizations">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
    1. Introducing the need for GCM parameterizations
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gcm-with-parameterization">
    2. GCM with parameterization
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#should-parameterizations-be-deterministic-or-stochastic">
    3. Should parameterizations  be deterministic or stochastic ?
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-to-measure-how-good-is-a-given-parameterization">
    4. How to measure how good is a given parameterization ?
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-other-sources-of-error-affect-the-parameterization-problem">
    5. How other sources of error affect the parameterization problem
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comparing-gcms-with-small-errors-in-the-forcing-f">
      5.1 Comparing GCMs with small errors in the forcing F
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comparing-gcm-solutions-with-slight-errors-in-the-resolved-initial-condition">
      5.2 Comparing GCM solutions with slight errors in the (resolved) initial condition
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comparing-gcms-with-identical-parameters-but-different-time-discretization">
      5.3 Comparing GCMs with identical parameters but different time discretization
     </a>
@@ -349,7 +344,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Key aspects of GCMs parameterizations</h1>
+                <h1>1. Introducing the need for GCM parameterizations</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -359,42 +354,42 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introducing-the-need-for-gcm-parameterizations">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
    1. Introducing the need for GCM parameterizations
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gcm-with-parameterization">
    2. GCM with parameterization
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#should-parameterizations-be-deterministic-or-stochastic">
    3. Should parameterizations  be deterministic or stochastic ?
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-to-measure-how-good-is-a-given-parameterization">
    4. How to measure how good is a given parameterization ?
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-other-sources-of-error-affect-the-parameterization-problem">
    5. How other sources of error affect the parameterization problem
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comparing-gcms-with-small-errors-in-the-forcing-f">
      5.1 Comparing GCMs with small errors in the forcing F
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comparing-gcm-solutions-with-slight-errors-in-the-resolved-initial-condition">
      5.2 Comparing GCM solutions with slight errors in the (resolved) initial condition
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comparing-gcms-with-identical-parameters-but-different-time-discretization">
      5.3 Comparing GCMs with identical parameters but different time discretization
     </a>
@@ -410,12 +405,10 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="key-aspects-of-gcms-parameterizations">
-<h1>Key aspects of GCMs parameterizations<a class="headerlink" href="#key-aspects-of-gcms-parameterizations" title="Permalink to this headline">¶</a></h1>
-<p>The objective of this notebook is to introduce some of the key aspects of parameterizations in GCMs, illustrating the deterministic vs stochastic approaches, the interplay with numerical errors and how to measure the skill of a parameterization.</p>
+  <p><em>The objective of this notebook is to introduce some of the key aspects of parameterizations in GCMs, illustrating the deterministic vs stochastic approaches, the interplay with numerical errors and how to measure the skill of a parameterization.</em></p>
 <div class="section" id="introducing-the-need-for-gcm-parameterizations">
-<h2>1. Introducing the need for GCM parameterizations<a class="headerlink" href="#introducing-the-need-for-gcm-parameterizations" title="Permalink to this headline">¶</a></h2>
-<p>Starting from where we stopped last time, let’s assume from now on that we are all familiar  with the <span id="id1">[<a class="reference internal" href="../bibliography.html#id7" title="E.N. Lorenz. Predictability: a problem partly solved. Seminar on Predictability, 1:1-18, 1995. URL: https://www.ecmwf.int/node/10829.">Lor95</a>]</span> two-time scale model and its pratical numerical implementation in the <code class="docutils literal notranslate"><span class="pre">L96_model</span></code> module.</p>
+<h1>1. Introducing the need for GCM parameterizations<a class="headerlink" href="#introducing-the-need-for-gcm-parameterizations" title="Permalink to this headline">¶</a></h1>
+<p>Starting from where we stopped last time, let’s assume from now on that we are all familiar  with the <a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a> two-time scale model and its pratical numerical implementation in the <code class="docutils literal notranslate"><span class="pre">L96_model</span></code> module.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -492,7 +485,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/gcm-parameterization-problem_12_0.png" src="../_images/gcm-parameterization-problem_12_0.png" />
+<img alt="../_images/gcm-parameterization-problem_11_0.png" src="../_images/gcm-parameterization-problem_11_0.png" />
 </div>
 </div>
 <p>There are several reasons why the above Model (ie GCM) differs from Truth (ie L96), cf section 5 of this notebook.</p>
@@ -500,7 +493,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Parameterizations usually involve free parameters that need to be adjusted. The form of the parameterization may be dictated by physical laws, but generally is unknown as well.</p>
 </div>
 <div class="section" id="gcm-with-parameterization">
-<h2>2. GCM with parameterization<a class="headerlink" href="#gcm-with-parameterization" title="Permalink to this headline">¶</a></h2>
+<h1>2. GCM with parameterization<a class="headerlink" href="#gcm-with-parameterization" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># - a GCM class including a parameterization in rhs of equation for tendency</span>
@@ -558,7 +551,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/gcm-parameterization-problem_17_0.png" src="../_images/gcm-parameterization-problem_17_0.png" />
+<img alt="../_images/gcm-parameterization-problem_16_0.png" src="../_images/gcm-parameterization-problem_16_0.png" />
 </div>
 </div>
 <p>Obviously, at this stage our GCM is still not very good at reproducing the true evolution of the full system. It also remains to find the most appropriate coefficients of the polynomial parameterization to make the Model as close as possible to the Truth.</p>
@@ -567,7 +560,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>But we are not only interested in learning the parameters of existing formulations. More generally, we would like to learn the formulation too.</p>
 </div>
 <div class="section" id="should-parameterizations-be-deterministic-or-stochastic">
-<h2>3. Should parameterizations  be deterministic or stochastic ?<a class="headerlink" href="#should-parameterizations-be-deterministic-or-stochastic" title="Permalink to this headline">¶</a></h2>
+<h1>3. Should parameterizations  be deterministic or stochastic ?<a class="headerlink" href="#should-parameterizations-be-deterministic-or-stochastic" title="Permalink to this headline">¶</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">naive_parameterization</span></code> above has no particular physical nor mathematical justification. Most importantly, it relies on a very strong assumption, that the time rate of change of <span class="math notranslate nohighlight">\(X\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> is a function of <span class="math notranslate nohighlight">\(X(t)\)</span>. This assumption implies that the future evolution of the reduced dimension system <span class="math notranslate nohighlight">\(X(t)\)</span> is <em>deterministically</em> related to the initial reduced dimension state <span class="math notranslate nohighlight">\(X(0)\)</span>.</p>
 <p>But this is not a good assumption because two identical reduced dimension state (<span class="math notranslate nohighlight">\(X\)</span>, macro-state) can be associated with very different fine scale states (<span class="math notranslate nohighlight">\(Y\)</span>, micro-state). Given the non-linearity of the evolution equation for <span class="math notranslate nohighlight">\(Z\)</span>, the two large scale trajectories will diverge at some point. Let’s illustrate that with L96 alone.</p>
 <div class="cell docutils container">
@@ -608,7 +601,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/gcm-parameterization-problem_23_0.png" src="../_images/gcm-parameterization-problem_23_0.png" />
+<img alt="../_images/gcm-parameterization-problem_22_0.png" src="../_images/gcm-parameterization-problem_22_0.png" />
 </div>
 </div>
 <p>So even very small uncertainties in the micro-state (<span class="math notranslate nohighlight">\(Y\)</span>) of L96 can lead to large scale changes (ie of the variable <span class="math notranslate nohighlight">\(X\)</span>) over short time…</p>
@@ -616,7 +609,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>In addition, with this illustration, we also highlight that there is a horizon after which pointwise comparisons of the model with the truth are meaningless, hence there is some needed discussion on how to measure the skill of a parameterization.</p>
 </div>
 <div class="section" id="how-to-measure-how-good-is-a-given-parameterization">
-<h2>4. How to measure how good is a given parameterization ?<a class="headerlink" href="#how-to-measure-how-good-is-a-given-parameterization" title="Permalink to this headline">¶</a></h2>
+<h1>4. How to measure how good is a given parameterization ?<a class="headerlink" href="#how-to-measure-how-good-is-a-given-parameterization" title="Permalink to this headline">¶</a></h1>
 <p>So, we would like to build our closure by systematically measuring their skills so that we can formulate inverse problems based on objective “skill scores”. The skill scores we are talking about here will measure the distance between  the evolution of the true state <span class="math notranslate nohighlight">\(X_{true}\)</span> and the simulated state <span class="math notranslate nohighlight">\(X_{gcm}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -638,7 +631,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/gcm-parameterization-problem_27_0.png" src="../_images/gcm-parameterization-problem_27_0.png" />
+<img alt="../_images/gcm-parameterization-problem_26_0.png" src="../_images/gcm-parameterization-problem_26_0.png" />
 </div>
 </div>
 <p>A first simple choice is to start with a point wise mean square error.</p>
@@ -660,7 +653,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2136/251060749.py:4: RuntimeWarning: Mean of empty slice.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2005/251060749.py:4: RuntimeWarning: Mean of empty slice.
   return np.sqrt(D**2).mean(axis=0)
 /usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/numpy/core/_methods.py:181: RuntimeWarning: invalid value encountered in true_divide
   ret = um.true_divide(
@@ -680,7 +673,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/gcm-parameterization-problem_31_0.png" src="../_images/gcm-parameterization-problem_31_0.png" />
+<img alt="../_images/gcm-parameterization-problem_30_0.png" src="../_images/gcm-parameterization-problem_30_0.png" />
 </div>
 </div>
 <p>Knowing from the above discussion that the system is not predictable after some time, we may as well decide to measure how well the model captures the mean states over some time window. With this we expect to measure the “climate” of the system instead of the “weather”.</p>
@@ -703,7 +696,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2136/4255757646.py:5: RuntimeWarning: Mean of empty slice.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2005/4255757646.py:5: RuntimeWarning: Mean of empty slice.
   return np.sqrt((_X1.mean(axis=0) - _X2.mean(axis=0)) ** 2)
 </pre></div>
 </div>
@@ -721,7 +714,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/gcm-parameterization-problem_35_0.png" src="../_images/gcm-parameterization-problem_35_0.png" />
+<img alt="../_images/gcm-parameterization-problem_34_0.png" src="../_images/gcm-parameterization-problem_34_0.png" />
 </div>
 </div>
 <p>After some time, this metric seems to converge to some non-trivial values which are probably indicative of how well our model captures the “climate” of the system.</p>
@@ -781,13 +774,13 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Score&#39;)
 </pre></div>
 </div>
-<img alt="../_images/gcm-parameterization-problem_43_1.png" src="../_images/gcm-parameterization-problem_43_1.png" />
+<img alt="../_images/gcm-parameterization-problem_42_1.png" src="../_images/gcm-parameterization-problem_42_1.png" />
 </div>
 </div>
 <p>From this analysis, we see that the optimisation problem is probably well posed as the cost function appears pretty smooth. One can also see that the parameter <span class="math notranslate nohighlight">\(p_1\)</span> is more important than <span class="math notranslate nohighlight">\(p_2\)</span>.</p>
 </div>
 <div class="section" id="how-other-sources-of-error-affect-the-parameterization-problem">
-<h2>5. How other sources of error affect the parameterization problem<a class="headerlink" href="#how-other-sources-of-error-affect-the-parameterization-problem" title="Permalink to this headline">¶</a></h2>
+<h1>5. How other sources of error affect the parameterization problem<a class="headerlink" href="#how-other-sources-of-error-affect-the-parameterization-problem" title="Permalink to this headline">¶</a></h1>
 <p>Here we illustrate how the parameterization problem depends on our a priori knowledge of the other sources of errors in our GCMs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -804,7 +797,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="comparing-gcms-with-small-errors-in-the-forcing-f">
-<h3>5.1 Comparing GCMs with small errors in the forcing F<a class="headerlink" href="#comparing-gcms-with-small-errors-in-the-forcing-f" title="Permalink to this headline">¶</a></h3>
+<h2>5.1 Comparing GCMs with small errors in the forcing F<a class="headerlink" href="#comparing-gcms-with-small-errors-in-the-forcing-f" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_relative_error</span> <span class="o">=</span> <span class="mf">0.01</span>
@@ -837,12 +830,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/gcm-parameterization-problem_51_0.png" src="../_images/gcm-parameterization-problem_51_0.png" />
+<img alt="../_images/gcm-parameterization-problem_50_0.png" src="../_images/gcm-parameterization-problem_50_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="comparing-gcm-solutions-with-slight-errors-in-the-resolved-initial-condition">
-<h3>5.2 Comparing GCM solutions with slight errors in the (resolved) initial condition<a class="headerlink" href="#comparing-gcm-solutions-with-slight-errors-in-the-resolved-initial-condition" title="Permalink to this headline">¶</a></h3>
+<h2>5.2 Comparing GCM solutions with slight errors in the (resolved) initial condition<a class="headerlink" href="#comparing-gcm-solutions-with-slight-errors-in-the-resolved-initial-condition" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">relative_error</span> <span class="o">=</span> <span class="mf">0.01</span>
@@ -871,13 +864,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/gcm-parameterization-problem_54_0.png" src="../_images/gcm-parameterization-problem_54_0.png" />
+<img alt="../_images/gcm-parameterization-problem_53_0.png" src="../_images/gcm-parameterization-problem_53_0.png" />
 </div>
 </div>
 <p>The above two experiments illustrate that the definition of our distance metrics should take into account the other sources of errors in our GCMs : errors on the parameters, on the forcing and on the initial conditions.</p>
 </div>
 <div class="section" id="comparing-gcms-with-identical-parameters-but-different-time-discretization">
-<h3>5.3 Comparing GCMs with identical parameters but different time discretization<a class="headerlink" href="#comparing-gcms-with-identical-parameters-but-different-time-discretization" title="Permalink to this headline">¶</a></h3>
+<h2>5.3 Comparing GCMs with identical parameters but different time discretization<a class="headerlink" href="#comparing-gcms-with-identical-parameters-but-different-time-discretization" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">18</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">10.0</span>
@@ -907,12 +900,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/gcm-parameterization-problem_58_0.png" src="../_images/gcm-parameterization-problem_58_0.png" />
+<img alt="../_images/gcm-parameterization-problem_57_0.png" src="../_images/gcm-parameterization-problem_57_0.png" />
 </div>
 </div>
 <p>This last experiment illustrates that depending in the numerical schemes of the GCM, the distance between the model prediction and the true state can be substantial. There again, we have an additional constraint on the definition of our distance metrics.</p>
 <p>More generally, this also suggests that the optimal closures we will find will probably depend on the numerical schemes that are used in our GCMs, or more generally on the structural uncertainties of our GCMs, which are difficult to quantify…</p>
-</div>
 </div>
 </div>
 
