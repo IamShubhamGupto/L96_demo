@@ -351,19 +351,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ensX&#39;,
- &#39;X_inc&#39;,
- &#39;t_obs&#39;,
- &#39;l_obs&#39;,
- &#39;t_inc&#39;,
- &#39;X_truth&#39;,
- &#39;Y_truth&#39;,
- &#39;t_truth&#39;,
- &#39;X_obs&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -394,20 +381,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable      Type       Data/Info
-----------------------------------
-X_tend        ndarray    400x8x50: 160000 elems, type `float64`, 1280000 bytes (1.220703125 Mb)
-da_interval   int        10
-dt            float64    0.005
-dt_inc        float64    0.05
-np            module     &lt;module &#39;numpy&#39; from &#39;/us&lt;...&gt;kages/numpy/__init__.py&#39;&gt;
-plt           module     &lt;module &#39;matplotlib.pyplo&lt;...&gt;es/matplotlib/pyplot.py&#39;&gt;
-torch         module     &lt;module &#39;torch&#39; from &#39;/us&lt;...&gt;kages/torch/__init__.py&#39;&gt;
-x_input       ndarray    400x8x50: 160000 elems, type `float64`, 1280000 bytes (1.220703125 Mb)
-</pre></div>
-</div>
-</div>
 </div>
 <p>As a sanity check, we look at the data for obvious structure. A polyfit to the data will compare well to Wilks, 2005, if the data is similar in distribution. We show Wilks, 2005, and the 4th order polyfit for reference, but neither are used or neededin the NN training.</p>
 <div class="cell docutils container">
@@ -422,9 +395,6 @@ x_input       ndarray    400x8x50: 160000 elems, type `float64`, 1280000 bytes (
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/Learning-DA-increments_6_0.png" src="../_images/Learning-DA-increments_6_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -446,9 +416,6 @@ x_input       ndarray    400x8x50: 160000 elems, type `float64`, 1280000 bytes (
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/Learning-DA-increments_7_0.png" src="../_images/Learning-DA-increments_7_0.png" />
-</div>
 </div>
 <p>Partition the dataset into “training” (seen by the network during optimization of the weights), and “validation” not seen by the network but used as an independent metric of fit (was called “test” in other notebook).</p>
 <div class="cell docutils container">
@@ -460,11 +427,6 @@ x_input       ndarray    400x8x50: 160000 elems, type `float64`, 1280000 bytes (
 <span class="n">Y_train</span> <span class="o">=</span> <span class="n">X_tend</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:</span><span class="n">train_size</span><span class="p">]</span>
 <span class="n">X_valid</span> <span class="o">=</span> <span class="n">x_input</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">train_size</span><span class="p">:]</span>
 <span class="n">Y_valid</span> <span class="o">=</span> <span class="n">X_tend</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">train_size</span><span class="p">:]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set size =  112000  out of  160000
 </pre></div>
 </div>
 </div>
@@ -610,81 +572,6 @@ x_input       ndarray    400x8x50: 160000 elems, type `float64`, 1280000 bytes (
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   1 Training loss = 16.092780907398133 	Validation loss = 16.073621611180656
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   2 Training loss = 15.974832307495097 	Validation loss = 15.89085857206767
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   3 Training loss = 15.942056964592679 	Validation loss = 15.876918425489988
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   4 Training loss = 15.890125338845563 	Validation loss = 15.783930018667162
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   5 Training loss = 15.914511214353912 	Validation loss = 15.827824159431637
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   6 Training loss = 15.884382999299813 	Validation loss = 15.783212221842284
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   7 Training loss = 15.889736919040228 	Validation loss = 15.792761192655087
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   8 Training loss = 15.881701745864785 	Validation loss = 15.785758998730698
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   9 Training loss = 15.868686259963685 	Validation loss = 15.766581757429437
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  10 Training loss = 15.879902560288855 	Validation loss = 15.770508001620831
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  11 Training loss = 15.873992531805055 	Validation loss = 15.787486883524785
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  12 Training loss = 15.906932320007908 	Validation loss = 15.770572705848036
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  13 Training loss = 15.910325488662314 	Validation loss = 15.789143978586388
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  14 Training loss = 15.878145100199108 	Validation loss = 15.75340286769451
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  15 Training loss = 15.880733764844917 	Validation loss = 15.759858384608926
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  16 Training loss = 15.873003595214522 	Validation loss = 15.750280287665378
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  17 Training loss = 15.88581725299295 	Validation loss = 15.760479983307993
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  18 Training loss = 15.88162734308402 	Validation loss = 15.796354481606638
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  19 Training loss = 15.86061434944673 	Validation loss = 15.772009258325852
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  20 Training loss = 15.860272194096236 	Validation loss = 15.77227098359434
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  21 Training loss = 15.889292209741436 	Validation loss = 15.75817016468205
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  22 Training loss = 15.868647765256467 	Validation loss = 15.80051249565191
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  23 Training loss = 15.868245992265086 	Validation loss = 15.760784146969929
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  24 Training loss = 15.908209716438261 	Validation loss = 15.773750947528303
-</pre></div>
-</div>
-<img alt="../_images/Learning-DA-increments_16_24.png" src="../_images/Learning-DA-increments_16_24.png" />
-</div>
 </div>
 <p>The NN has one input and one output, so we can plot it as a function, <span class="math notranslate nohighlight">\(nn(X)\)</span> (orange), and compare it to the polyfit (blue) and Wilks, 2005, polynomial (black dashed).</p>
 <div class="cell docutils container">
@@ -707,9 +594,6 @@ x_input       ndarray    400x8x50: 160000 elems, type `float64`, 1280000 bytes (
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;NN fit&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/Learning-DA-increments_18_0.png" src="../_images/Learning-DA-increments_18_0.png" />
 </div>
 </div>
 
