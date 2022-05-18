@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="gcm-analog-demo.html" />
+    <link rel="next" title="1. Copy / pasting from gcm-parameterization-problem notebook" href="estimating-gcm-parameters.html" />
     <link rel="prev" title="&lt;no title&gt;" href="L96-description.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -125,7 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm-parameterization-problem.html">
-   1. Introducing the need for GCM parameterizations
+   Key aspects of GCMs parameterizations
   </a>
  </li>
 </ul>
@@ -177,16 +177,16 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Neural-Network-Advection-FwdEuler.html">
-   Using neural networks to parameterize advection in L96
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="Neural-Network-Advection.html">
    Using neural networks to parameterize advection in L96
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../bibliography.html">
@@ -337,8 +337,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p><a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a> describes a “two time-scale” model in two equations (2 and 3) which are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b00b30f6-fa28-43ec-9088-a4d0aa2acccc">
-<span class="eqno">(5)<a class="headerlink" href="#equation-b00b30f6-fa28-43ec-9088-a4d0aa2acccc" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ef0e56f6-76cc-4df0-8d35-96bacd941a0d">
+<span class="eqno">(5)<a class="headerlink" href="#equation-ef0e56f6-76cc-4df0-8d35-96bacd941a0d" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
@@ -707,10 +707,10 @@ class L96(builtins.object)
             <p class="prev-next-title">&lt;no title&gt;</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="gcm-analog-demo.html" title="next page">
+    <a class='right-next' id="next-link" href="estimating-gcm-parameters.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">1. Copy / pasting from gcm-parameterization-problem notebook</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
