@@ -677,7 +677,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2576/251060749.py:4: RuntimeWarning: Mean of empty slice.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2387/251060749.py:4: RuntimeWarning: Mean of empty slice.
   return np.sqrt(D**2).mean(axis=0)
 /usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/numpy/core/_methods.py:181: RuntimeWarning: invalid value encountered in true_divide
   ret = um.true_divide(
@@ -720,8 +720,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2576/4255757646.py:5: RuntimeWarning: Mean of empty slice.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2387/4255757646.py:5: RuntimeWarning: Mean of empty slice.
   return np.sqrt((_X1.mean(axis=0) - _X2.mean(axis=0)) ** 2)
+/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/numpy/core/_methods.py:181: RuntimeWarning: invalid value encountered in true_divide
+  ret = um.true_divide(
 </pre></div>
 </div>
 </div>
@@ -795,10 +797,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2387/2842640369.py:1: MatplotlibDeprecationWarning: shading=&#39;flat&#39; when X and Y have the same dimensions as C is deprecated since 3.3.  Either specify the corners of the quadrilaterals with X and Y, or pass shading=&#39;auto&#39;, &#39;nearest&#39; or &#39;gouraud&#39;, or set rcParams[&#39;pcolor.shading&#39;].  This will become an error two minor releases later.
+  plt.pcolormesh(xp1, yp2, score)
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Score&#39;)
 </pre></div>
 </div>
-<img alt="../_images/gcm-parameterization-problem_43_1.png" src="../_images/gcm-parameterization-problem_43_1.png" />
+<img alt="../_images/gcm-parameterization-problem_43_2.png" src="../_images/gcm-parameterization-problem_43_2.png" />
 </div>
 </div>
 <p>From this analysis, we see that the optimisation problem is probably well posed as the cost function appears pretty smooth. One can also see that the parameter <span class="math notranslate nohighlight">\(p_1\)</span> is more important than <span class="math notranslate nohighlight">\(p_2\)</span>.</p>

@@ -1,0 +1,110 @@
+Traceback (most recent call last):
+  File "/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/share/miniconda/envs/L96M2lines/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import torch
+import torch.nn as nn
+import torch.nn.functional as FF
+
+
+class Net_ANN(nn.Module):
+    def __init__(self):
+        super(Net_ANN, self).__init__()
+        self.linear1 = nn.Linear(8, 16)  # 8 inputs, 16 neurons for first hidden layer
+        self.linear2 = nn.Linear(16, 16)  # 16 neurons for second hidden layer
+        self.linear3 = nn.Linear(16, 8)  # 8 outputs
+
+    #         self.lin_drop = nn.Dropout(0.1) #regularization method to prevent overfitting.
+
+    def forward(self, x):
+        x = FF.relu(self.linear1(x))
+        x = FF.relu(self.linear2(x))
+        x = self.linear3(x)
+        return x
+
+
+# - a GCM class including a neural network parameterization in rhs of equation for tendency
+class GCM_network:
+    def __init__(self, F, network, time_stepping=RK4):
+        self.F = F
+        self.network = network
+        self.time_stepping = time_stepping
+
+    def rhs(self, X, param):
+        if self.network.linear1.in_features == 1:
+            X_torch = torch.from_numpy(X).double()
+            X_torch = torch.unsqueeze(X_torch, 1)
+        else:
+            X_torch = torch.from_numpy(np.expand_dims(X, 0)).double()
+        return L96_eq1_xdot(X, self.F) + np.squeeze(
+            self.network(X_torch).data.numpy()
+        )  # Adding NN parameterization
+
+    def __call__(self, X0, dt, nt, param=[0]):
+        # X0 - initial conditions, dt - time increment, nt - number of forward steps to take
+        # param - parameters of our closure
+        time, hist, X = (
+            dt * np.arange(nt + 1),
+            np.zeros((nt + 1, len(X0))) * np.nan,
+            X0.copy(),
+        )
+        hist[0] = X
+
+        for n in range(nt):
+            X = self.time_stepping(self.rhs, dt, X, param)
+            hist[n + 1], time[n + 1] = X, dt * (n + 1)
+        return hist, time
+
+
+# Load network
+path_load = "network_3_layers_100_epoches.pth"
+nn_3l = Net_ANN().double()
+nn_3l.load_state_dict(torch.load(path_load))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Input [0;32mIn [59][0m, in [0;36m<cell line: 58>[0;34m()[0m
+[1;32m     56[0m path_load [38;5;241m=[39m [38;5;124m"[39m[38;5;124mnetwork_3_layers_100_epoches.pth[39m[38;5;124m"[39m
+[1;32m     57[0m nn_3l [38;5;241m=[39m Net_ANN()[38;5;241m.[39mdouble()
+[0;32m---> 58[0m nn_3l[38;5;241m.[39mload_state_dict([43mtorch[49m[38;5;241;43m.[39;49m[43mload[49m[43m([49m[43mpath_load[49m[43m)[49m)
+
+File [0;32m/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/torch/serialization.py:581[0m, in [0;36mload[0;34m(f, map_location, pickle_module, **pickle_load_args)[0m
+[1;32m    578[0m [38;5;28;01mif[39;00m [38;5;124m'[39m[38;5;124mencoding[39m[38;5;124m'[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m pickle_load_args[38;5;241m.[39mkeys():
+[1;32m    579[0m     pickle_load_args[[38;5;124m'[39m[38;5;124mencoding[39m[38;5;124m'[39m] [38;5;241m=[39m [38;5;124m'[39m[38;5;124mutf-8[39m[38;5;124m'[39m
+[0;32m--> 581[0m [38;5;28;01mwith[39;00m [43m_open_file_like[49m[43m([49m[43mf[49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrb[39;49m[38;5;124;43m'[39;49m[43m)[49m [38;5;28;01mas[39;00m opened_file:
+[1;32m    582[0m     [38;5;28;01mif[39;00m _is_zipfile(opened_file):
+[1;32m    583[0m         [38;5;66;03m# The zipfile reader is going to advance the current file position.[39;00m
+[1;32m    584[0m         [38;5;66;03m# If we want to actually tail call to torch.jit.load, we need to[39;00m
+[1;32m    585[0m         [38;5;66;03m# reset back to the original position.[39;00m
+[1;32m    586[0m         orig_position [38;5;241m=[39m opened_file[38;5;241m.[39mtell()
+
+File [0;32m/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/torch/serialization.py:230[0m, in [0;36m_open_file_like[0;34m(name_or_buffer, mode)[0m
+[1;32m    228[0m [38;5;28;01mdef[39;00m [38;5;21m_open_file_like[39m(name_or_buffer, mode):
+[1;32m    229[0m     [38;5;28;01mif[39;00m _is_path(name_or_buffer):
+[0;32m--> 230[0m         [38;5;28;01mreturn[39;00m [43m_open_file[49m[43m([49m[43mname_or_buffer[49m[43m,[49m[43m [49m[43mmode[49m[43m)[49m
+[1;32m    231[0m     [38;5;28;01melse[39;00m:
+[1;32m    232[0m         [38;5;28;01mif[39;00m [38;5;124m'[39m[38;5;124mw[39m[38;5;124m'[39m [38;5;129;01min[39;00m mode:
+
+File [0;32m/usr/share/miniconda/envs/L96M2lines/lib/python3.9/site-packages/torch/serialization.py:211[0m, in [0;36m_open_file.__init__[0;34m(self, name, mode)[0m
+[1;32m    210[0m [38;5;28;01mdef[39;00m [38;5;21m__init__[39m([38;5;28mself[39m, name, mode):
+[0;32m--> 211[0m     [38;5;28msuper[39m(_open_file, [38;5;28mself[39m)[38;5;241m.[39m[38;5;21m__init__[39m([38;5;28;43mopen[39;49m[43m([49m[43mname[49m[43m,[49m[43m [49m[43mmode[49m[43m)[49m)
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'network_3_layers_100_epoches.pth'
+FileNotFoundError: [Errno 2] No such file or directory: 'network_3_layers_100_epoches.pth'
+
