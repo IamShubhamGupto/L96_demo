@@ -829,8 +829,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p><a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a> describes a “two time-scale” model in two equations (2 and 3) which are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b44466db-b850-4418-a32c-35d58bbfd643">
-<span class="eqno">(5)<a class="headerlink" href="#equation-b44466db-b850-4418-a32c-35d58bbfd643" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-69de5b2b-4a68-404f-8b3b-498b7f35b6db">
+<span class="eqno">(5)<a class="headerlink" href="#equation-69de5b2b-4a68-404f-8b3b-498b7f35b6db" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
@@ -1192,15 +1192,15 @@ After backward pass:
 </div>
 <div class="section" id="the-effective-value-of-the-gradient-v-at-step-t-in-sgd-with-momentum-beta">
 <h3>The  effective value of the gradient (V) at step t in SGD with momentum (<span class="math notranslate nohighlight">\(\beta\)</span>):<a class="headerlink" href="#the-effective-value-of-the-gradient-v-at-step-t-in-sgd-with-momentum-beta" title="Permalink to this headline">¶</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-3cba7859-0bbf-4d83-a2d8-dc244b8004d9">
-<span class="eqno">(6)<a class="headerlink" href="#equation-3cba7859-0bbf-4d83-a2d8-dc244b8004d9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cef66ce4-3a6f-47d5-8fc8-f3c9e4b2e92a">
+<span class="eqno">(6)<a class="headerlink" href="#equation-cef66ce4-3a6f-47d5-8fc8-f3c9e4b2e92a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 V_t = \beta V_{t-1} + (1-\beta) \nabla_w L(W,X,y)
 \end{equation}\]</div>
 </div>
 <div class="section" id="and-the-updates-to-the-weights-will-be">
 <h3>and the updates to the weights will be:<a class="headerlink" href="#and-the-updates-to-the-weights-will-be" title="Permalink to this headline">¶</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-603c2cf4-848f-43ef-b689-08e03f172575">
-<span class="eqno">(7)<a class="headerlink" href="#equation-603c2cf4-848f-43ef-b689-08e03f172575" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e30fa804-8cb7-4e34-85ee-435f745c965b">
+<span class="eqno">(7)<a class="headerlink" href="#equation-e30fa804-8cb7-4e34-85ee-435f745c965b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w^{new} = w^{old} - LR * V_t
 \end{equation}\]</div>
 </div>
