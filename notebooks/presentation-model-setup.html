@@ -125,7 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm-parameterization-problem.html">
-   1. Introducing the need for GCM parameterizations
+   Key aspects of GCMs parameterizations
   </a>
  </li>
 </ul>
@@ -177,16 +177,16 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Neural-Network-Advection-FwdEuler.html">
-   Using neural networks to parameterize advection in L96
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="Neural-Network-Advection.html">
    Using neural networks to parameterize advection in L96
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../bibliography.html">
@@ -435,8 +435,8 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Analog for the real world<a class="headerlink" href="#analog-for-the-real-world" title="Permalink to this headline">¶</a></h2>
 <p>In 1996, Lorenz proposed a two-time scale dynamical system, referred to as the Lorenz-96 model, whose bahvaior mimics the non-linear bahvior of the extratropical atmosphere with simplified representation of multiscale interactions and nonlinear advection <a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a>. The lorenz-96 model consists of a set of equations coupling two scales of variables evolving over slow and fast timescales and arranged around a latitude circle as shown in Fig. 1.</p>
 <p>More precisely, the Lorenz-96 model includes <span class="math notranslate nohighlight">\(K\)</span> slow (or low-frequency) variables, noted <span class="math notranslate nohighlight">\(X_k\)</span>, <span class="math notranslate nohighlight">\(k=1,\ldots,K\)</span> and each slow variable <span class="math notranslate nohighlight">\(X_k\)</span> is coupled with <span class="math notranslate nohighlight">\(J\)</span> fast (or high-frequency) variables <span class="math notranslate nohighlight">\(Y_{j,k}\)</span> , <span class="math notranslate nohighlight">\(j=1,\ldots,J\)</span>. Therefore, the Lorenz-96 model is described with the following <span class="math notranslate nohighlight">\(K+JK\)</span> equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d400318c-bf49-4eec-b0a9-885c5a29585a">
-<span class="eqno">(1)<a class="headerlink" href="#equation-d400318c-bf49-4eec-b0a9-885c5a29585a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2fc8a89d-8850-4bc2-884d-659a6ac4dff2">
+<span class="eqno">(1)<a class="headerlink" href="#equation-2fc8a89d-8850-4bc2-884d-659a6ac4dff2" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k} \ ,
 \\
@@ -486,8 +486,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.14 s, sys: 49.9 ms, total: 4.19 s
-Wall time: 4.15 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.78 s, sys: 36.3 ms, total: 2.81 s
+Wall time: 2.81 s
 </pre></div>
 </div>
 <img alt="../_images/presentation-model-setup_3_1.png" src="../_images/presentation-model-setup_3_1.png" />
@@ -527,8 +527,8 @@ Wall time: 4.15 s
 <div class="tex2jax_ignore mathjax_ignore section" id="analog-for-gcm">
 <h1>Analog for  GCM<a class="headerlink" href="#analog-for-gcm" title="Permalink to this headline">¶</a></h1>
 <p>In this study, the two-scale Lorenz-96 system introduced above is treated as the “truth” or “real-world” model which we aim to forecast or simulate. The physical equations of motion of the system describing the atmosphere dynamics are known. However, it is not feasible to explicitley solve them within Global Climate Models (GCM) due to the unresolved smallest scales and limited computational resources. Given this constraint for GCM, the Lorenz-96 system is commonly treated as the full (or “truth”) model, while a forecast (or an approximate) model is constructed by replacing the coupling terms between the slow and fast variables (<span class="math notranslate nohighlight">\(\left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}\)</span>) with a sub-grid parameterization tendency that we note <span class="math notranslate nohighlight">\(U_k\)</span>, <span class="math notranslate nohighlight">\(k=1,\ldots,k\)</span>. The one time-scale Lorenz-96 equation corresponding to such an approxiamte model can be expressed as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa3321ef-987a-4909-9182-1670b3e978e2">
-<span class="eqno">(2)<a class="headerlink" href="#equation-fa3321ef-987a-4909-9182-1670b3e978e2" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9a02bd81-581d-4b6a-9e3d-f9c604f69c92">
+<span class="eqno">(2)<a class="headerlink" href="#equation-9a02bd81-581d-4b6a-9e3d-f9c604f69c92" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \underbrace{ 
 \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
@@ -538,8 +538,8 @@ Wall time: 4.15 s
 <div class="tex2jax_ignore mathjax_ignore section" id="the-parametization-p-x-k">
 <h1>The parametization <span class="math notranslate nohighlight">\(P(X_k)\)</span><a class="headerlink" href="#the-parametization-p-x-k" title="Permalink to this headline">¶</a></h1>
 <p>We consider the particular choice of modeling the unknown parameterization of the “unresolved processes” with a plynomial approximation such that the one time-scale equation of the Lorenz-96 model can be written as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b14a2ea3-9b72-4749-8388-db1efacc6817">
-<span class="eqno">(3)<a class="headerlink" href="#equation-b14a2ea3-9b72-4749-8388-db1efacc6817" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cf491342-5196-49f6-a511-84fa7e87991a">
+<span class="eqno">(3)<a class="headerlink" href="#equation-cf491342-5196-49f6-a511-84fa7e87991a" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - P\left( X_k \right) \ .
 \end{align}\]</div>
@@ -556,8 +556,8 @@ Wall time: 4.15 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 14.4 s, sys: 27.8 ms, total: 14.5 s
-Wall time: 14.4 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9.42 s, sys: 22.5 ms, total: 9.44 s
+Wall time: 9.27 s
 </pre></div>
 </div>
 </div>
@@ -783,16 +783,16 @@ Wall time: 14.4 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 10s, sys: 15.1 ms, total: 1min 10s
-Wall time: 1min 10s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 46 s, sys: 6.81 ms, total: 46 s
+Wall time: 46 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.18 s, sys: 48.1 ms, total: 3.23 s
-Wall time: 3.18 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.65 s, sys: 19.5 ms, total: 1.67 s
+Wall time: 1.67 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.15 s, sys: 31.1 ms, total: 4.19 s
-Wall time: 4.15 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.49 s, sys: 173 ms, total: 2.66 s
+Wall time: 2.41 s
 </pre></div>
 </div>
 </div>
@@ -852,8 +852,8 @@ std:   4.679   4.375   4.524
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.52 s, sys: 3.98 ms, total: 5.52 s
-Wall time: 5.51 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.06 s, sys: 24.1 ms, total: 3.08 s
+Wall time: 3.06 s
 
 
        Truth      P1      P4  P4+stoch
