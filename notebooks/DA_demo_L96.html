@@ -165,6 +165,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Offline DA Increments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning-DA-increments.html">
+   Learning Data Assimilation Increments
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Different ML Models
  </span>
 </p>
@@ -417,8 +429,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="tex2jax_ignore mathjax_ignore section" id="recap-of-l96-and-notation">
 <h1>Recap of L96 and notation<a class="headerlink" href="#recap-of-l96-and-notation" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a> describes a “two time-scale” model in two equations (2 and 3) which are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-21ff17b3-1529-451d-aeb3-897ad39b0eb8">
-<span class="eqno">(4)<a class="headerlink" href="#equation-21ff17b3-1529-451d-aeb3-897ad39b0eb8" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-aa06ffce-859c-4276-a284-7b54405af90e">
+<span class="eqno">(4)<a class="headerlink" href="#equation-aa06ffce-859c-4276-a284-7b54405af90e" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
@@ -478,8 +490,9 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="k">def</span> <span class="nf">GCM</span><span class="p">(</span><span class="n">X0</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">nt</span><span class="p">,</span> <span class="n">param</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    2 time-scale model with a parameterised coupling term to represent the interaction</span>
-<span class="sd">    between the observed coarse scale processes (X) and unobserved fine scale processes (Y).</span>
+<span class="sd">    A toy &quot;General Circulation Model&quot; (GCM) that uses the single time-scale Lorenz 1996 model with</span>
+<span class="sd">    a parameterised coupling term to represent the interaction between the observed coarse scale</span>
+<span class="sd">    processes (X) and unobserved fine scale processes (Y) of the two time-scale model.</span>
 <span class="sd">    Inputs:</span>
 <span class="sd">        X0: Initial conditions of X (vector of length config[&#39;K&#39;])</span>
 <span class="sd">        F: Forcing (scalar)</span>
@@ -753,7 +766,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f479f540100&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2ce6535fa0&gt;
 </pre></div>
 </div>
 <img alt="../_images/DA_demo_L96_8_1.png" src="../_images/DA_demo_L96_8_1.png" />
@@ -937,7 +950,7 @@ covariance over model (K x K)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time to complete DA:  12.11  (s)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time to complete DA:  12.2  (s)
 </pre></div>
 </div>
 </div>

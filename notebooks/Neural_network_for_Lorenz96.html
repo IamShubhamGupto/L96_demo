@@ -165,6 +165,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Offline DA Increments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning-DA-increments.html">
+   Learning Data Assimilation Increments
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Different ML Models
  </span>
 </p>
@@ -817,8 +829,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p><a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a> describes a “two time-scale” model in two equations (2 and 3) which are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d62150e6-20ba-4014-938e-a8bfe3cdda11">
-<span class="eqno">(5)<a class="headerlink" href="#equation-d62150e6-20ba-4014-938e-a8bfe3cdda11" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9549451a-8385-4bfe-851e-c2131e822b54">
+<span class="eqno">(5)<a class="headerlink" href="#equation-9549451a-8385-4bfe-851e-c2131e822b54" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
@@ -1180,15 +1192,15 @@ After backward pass:
 </div>
 <div class="section" id="the-effective-value-of-the-gradient-v-at-step-t-in-sgd-with-momentum-beta">
 <h3>The  effective value of the gradient (V) at step t in SGD with momentum (<span class="math notranslate nohighlight">\(\beta\)</span>):<a class="headerlink" href="#the-effective-value-of-the-gradient-v-at-step-t-in-sgd-with-momentum-beta" title="Permalink to this headline">¶</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-3426e6ad-6aee-4253-97eb-232a05ab1f47">
-<span class="eqno">(6)<a class="headerlink" href="#equation-3426e6ad-6aee-4253-97eb-232a05ab1f47" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5eb6c00c-2e20-4b28-99f2-ef270c98bfc8">
+<span class="eqno">(6)<a class="headerlink" href="#equation-5eb6c00c-2e20-4b28-99f2-ef270c98bfc8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 V_t = \beta V_{t-1} + (1-\beta) \nabla_w L(W,X,y)
 \end{equation}\]</div>
 </div>
 <div class="section" id="and-the-updates-to-the-weights-will-be">
 <h3>and the updates to the weights will be:<a class="headerlink" href="#and-the-updates-to-the-weights-will-be" title="Permalink to this headline">¶</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-9e8e66f6-80a8-4c34-a94c-9d0795c16f53">
-<span class="eqno">(7)<a class="headerlink" href="#equation-9e8e66f6-80a8-4c34-a94c-9d0795c16f53" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-674e23c8-fa62-4cab-8130-319e617e5fc4">
+<span class="eqno">(7)<a class="headerlink" href="#equation-674e23c8-fa62-4cab-8130-319e617e5fc4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w^{new} = w^{old} - LR * V_t
 \end{equation}\]</div>
 </div>

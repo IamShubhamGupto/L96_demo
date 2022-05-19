@@ -165,6 +165,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Offline DA Increments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning-DA-increments.html">
+   Learning Data Assimilation Increments
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Different ML Models
  </span>
 </p>
@@ -460,8 +472,8 @@ The values for the parameters <span class="math notranslate nohighlight">\(F\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.41 s, sys: 40.4 ms, total: 3.45 s
-Wall time: 3.45 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.32 s, sys: 28 ms, total: 3.35 s
+Wall time: 3.35 s
 </pre></div>
 </div>
 <img alt="../_images/presentation-model-setup_3_1.png" src="../_images/presentation-model-setup_3_1.png" />
@@ -501,8 +513,8 @@ Wall time: 3.45 s
 <div class="tex2jax_ignore mathjax_ignore section" id="analog-for-gcm">
 <h1>Analog for  GCM<a class="headerlink" href="#analog-for-gcm" title="Permalink to this headline">¶</a></h1>
 <p>In this study, the two-scale Lorenz-96 system introduced above is treated as the “truth” or “real-world” model which we aim to forecast or simulate. The physical equations of motion of the system describing the atmosphere dynamics are known. However, it is not feasible to explicitley solve them within Global Climate Models (GCM) due to the unresolved smallest scales and limited computational resources. Given this constraint for GCM, the Lorenz-96 system is commonly treated as the full (or “truth”) model, while a forecast (or an approximate) model is constructed by replacing the coupling terms between the slow and fast variables (<span class="math notranslate nohighlight">\(\left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}\)</span>) with a sub-grid parameterization tendency that we note <span class="math notranslate nohighlight">\(U_k\)</span>, <span class="math notranslate nohighlight">\(k=1,\ldots,k\)</span>. The one time-scale Lorenz-96 equation corresponding to such an approxiamte model can be expressed as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2603d718-dc91-4365-a159-a6a99e10a271">
-<span class="eqno">(1)<a class="headerlink" href="#equation-2603d718-dc91-4365-a159-a6a99e10a271" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-850e7019-921f-4150-b238-ab2ee87300b9">
+<span class="eqno">(1)<a class="headerlink" href="#equation-850e7019-921f-4150-b238-ab2ee87300b9" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \underbrace{ 
 \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
@@ -512,8 +524,8 @@ Wall time: 3.45 s
 <div class="tex2jax_ignore mathjax_ignore section" id="the-parametization-p-x-k">
 <h1>The parametization <span class="math notranslate nohighlight">\(P(X_k)\)</span><a class="headerlink" href="#the-parametization-p-x-k" title="Permalink to this headline">¶</a></h1>
 <p>We consider the particular choice of modeling the unknown parameterization of the “unresolved processes” with a plynomial approximation such that the one time-scale equation of the Lorenz-96 model can be written as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-485bd7f1-d846-4338-8e87-593d5f2b2136">
-<span class="eqno">(2)<a class="headerlink" href="#equation-485bd7f1-d846-4338-8e87-593d5f2b2136" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8843b874-9dda-468f-940f-378d691ef8a4">
+<span class="eqno">(2)<a class="headerlink" href="#equation-8843b874-9dda-468f-940f-378d691ef8a4" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - P\left( X_k \right) \ .
 \end{align}\]</div>
@@ -530,8 +542,8 @@ Wall time: 3.45 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 11.8 s, sys: 50 ms, total: 11.8 s
-Wall time: 11.6 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 11.4 s, sys: 37.2 ms, total: 11.5 s
+Wall time: 11.3 s
 </pre></div>
 </div>
 </div>
@@ -757,16 +769,16 @@ Wall time: 11.6 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 56 s, sys: 10.2 ms, total: 56 s
-Wall time: 56 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 57.5 s, sys: 34.9 ms, total: 57.5 s
+Wall time: 57.5 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.89 s, sys: 7.96 ms, total: 1.89 s
-Wall time: 1.89 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.02 s, sys: 8 ms, total: 2.02 s
+Wall time: 2.02 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.6 s, sys: 12 ms, total: 2.62 s
-Wall time: 2.61 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.72 s, sys: 28 ms, total: 2.75 s
+Wall time: 2.74 s
 </pre></div>
 </div>
 </div>
@@ -826,8 +838,8 @@ std:   4.679   4.375   4.524
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.53 s, sys: 7.99 ms, total: 3.54 s
-Wall time: 3.53 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.76 s, sys: 3.99 ms, total: 3.77 s
+Wall time: 3.76 s
 
 
        Truth      P1      P4  P4+stoch
