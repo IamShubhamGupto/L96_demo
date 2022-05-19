@@ -530,8 +530,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>The ‘real world” is the Lorenz ‘96 model:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ebda9875-4d29-4ec1-878b-b4c2156bd58e">
-<span class="eqno">(8)<a class="headerlink" href="#equation-ebda9875-4d29-4ec1-878b-b4c2156bd58e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0b31e9b9-2af2-4864-98b2-1e7606cf7df0">
+<span class="eqno">(8)<a class="headerlink" href="#equation-0b31e9b9-2af2-4864-98b2-1e7606cf7df0" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
@@ -594,8 +594,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>We run the model in forward mode for 5000 steps to calculate the background covariance. The model is the “GCM” function defined above which integrates forward</p>
-<div class="amsmath math notranslate nohighlight" id="equation-57b6fe32-f5e0-4e5b-b312-c55ca62e31ab">
-<span class="eqno">(9)<a class="headerlink" href="#equation-57b6fe32-f5e0-4e5b-b312-c55ca62e31ab" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-264cf0d4-37a4-418a-8392-755b1f418df5">
+<span class="eqno">(9)<a class="headerlink" href="#equation-264cf0d4-37a4-418a-8392-755b1f418df5" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F
 \end{align}\]</div>
@@ -1024,12 +1024,12 @@ B_corr1         ndarray           8x8: 64 elems, type `float64`, 512 bytes
 B_ens           ndarray           8x8: 64 elems, type `float64`, 512 bytes
 B_ens_loc       ndarray           8x8: 64 elems, type `float64`, 512 bytes
 DA_methods      module            &lt;module &#39;DA_methods&#39; from&lt;...&gt;notebooks/DA_methods.py&#39;&gt;
-GCM             function          &lt;function GCM at 0x7fbdfdd14310&gt;
+GCM             function          &lt;function GCM at 0x7f8354123310&gt;
 H               ndarray           8x8: 64 elems, type `float64`, 512 bytes
 L96             type              &lt;class &#39;L96_model.L96&#39;&gt;
-L96_eq1_xdot    CPUDispatcher     CPUDispatcher(&lt;function L&lt;...&gt;_xdot at 0x7fbdfdd14670&gt;)
+L96_eq1_xdot    CPUDispatcher     CPUDispatcher(&lt;function L&lt;...&gt;_xdot at 0x7f8354123670&gt;)
 M_truth         L96               L96: K=8 J=32 F=18 h=1 b=&lt;...&gt;967575 -0.05045295]\n t=0
-ObsOp           function          &lt;function ObsOp at 0x7fbdfdc5bca0&gt;
+ObsOp           function          &lt;function ObsOp at 0x7f835406bca0&gt;
 R               ndarray           8x8: 64 elems, type `float64`, 512 bytes
 W               ndarray           8x8: 64 elems, type `float64`, 512 bytes
 W_clim          ndarray           8x8: 64 elems, type `float64`, 512 bytes
@@ -1043,10 +1043,10 @@ X_tend          ndarray           400x8x50: 160000 elems, type `float64`, 128000
 X_truth         ndarray           4001x8: 32008 elems, type `float64`, 256064 bytes (250.0625 kb)
 Y_truth         ndarray           4001x256: 1024256 elems, type `float64`, 8194048 bytes (7.814453125 Mb)
 axes            ndarray           2x3: 6 elems, type `object`, 48 bytes
-ch              QuadContourSet    &lt;matplotlib.contour.QuadC&lt;...&gt;object at 0x7fbdfc669fd0&gt;
-clim            float64           1.5719985803821555
+ch              QuadContourSet    &lt;matplotlib.contour.QuadC&lt;...&gt;object at 0x7f83540a8eb0&gt;
+clim            float64           1.5039963859476781
 config          dict              n=20
-cov_loc         function          &lt;function cov_loc at 0x7fbdfdc5bd30&gt;
+cov_loc         function          &lt;function cov_loc at 0x7f835406bd30&gt;
 cycle           int64             399
 da_interval     int               10
 dt              float64           0.005
@@ -1055,9 +1055,9 @@ e               int               19
 ensX            ndarray           4001x8x50: 1600400 elems, type `float64`, 12803200 bytes (12.2100830078125 Mb)
 ensX_fcst       ndarray           11x8x50: 4400 elems, type `float64`, 35200 bytes
 fig             Figure            Figure(1080x720)
-find_obs        function          &lt;function find_obs at 0x7fbdfdc5be50&gt;
-gaspari_cohn    function          &lt;function gaspari_cohn at 0x7fbdfdc5bdc0&gt;
-get_dist        function          &lt;function get_dist at 0x7fbdfdc5baf0&gt;
+find_obs        function          &lt;function find_obs at 0x7f835406be50&gt;
+gaspari_cohn    function          &lt;function gaspari_cohn at 0x7f835406bdc0&gt;
+get_dist        function          &lt;function get_dist at 0x7f835406baf0&gt;
 i               int               7
 i_t             int               4000
 j               int               7
@@ -1077,8 +1077,8 @@ plot_start_DA   int               20
 plot_x          int               0
 plt             module            &lt;module &#39;matplotlib.pyplo&lt;...&gt;es/matplotlib/pyplot.py&#39;&gt;
 rng             Generator         Generator(PCG64)
-running_ave     function          &lt;function running_ave at 0x7fbdfdc5bee0&gt;
-s               function          &lt;function s at 0x7fbdfdc5b9d0&gt;
+running_ave     function          &lt;function running_ave at 0x7f835406bee0&gt;
+s               function          &lt;function s at 0x7f835406ba60&gt;
 si              int               10
 t_DA            ndarray           400: 400 elems, type `float64`, 3200 bytes
 t_inc           ndarray           400: 400 elems, type `float64`, 3200 bytes
@@ -1295,76 +1295,76 @@ xl              tuple             n=2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   1 Training loss = 16.323171629780166 	Validation loss = 16.553340377862785
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   1 Training loss = 16.068603370494987 	Validation loss = 15.861484054657467
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   2 Training loss = 16.2352933851056 	Validation loss = 16.43034874510496
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   2 Training loss = 15.941931458824522 	Validation loss = 15.69129108103556
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   3 Training loss = 16.174369209516584 	Validation loss = 16.368927558193768
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   3 Training loss = 15.906772460443307 	Validation loss = 15.67337407082715
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   4 Training loss = 16.129932730056286 	Validation loss = 16.31467372212467
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   4 Training loss = 15.8599951519202 	Validation loss = 15.58635783914898
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   5 Training loss = 16.114584075030322 	Validation loss = 16.305666448348962
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   5 Training loss = 15.876048836320436 	Validation loss = 15.613150634941348
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   6 Training loss = 16.1083477286245 	Validation loss = 16.30198665352899
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   6 Training loss = 15.848906897937253 	Validation loss = 15.578873563137755
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   7 Training loss = 16.108658509975953 	Validation loss = 16.292177450428976
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   7 Training loss = 15.8574153631885 	Validation loss = 15.597478312720911
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   8 Training loss = 16.102520867651943 	Validation loss = 16.309524373065745
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   8 Training loss = 15.846642780145736 	Validation loss = 15.596840465207995
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   9 Training loss = 16.08939711647252 	Validation loss = 16.275710627258434
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   9 Training loss = 15.835816745827518 	Validation loss = 15.565989146724966
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  10 Training loss = 16.109390951064725 	Validation loss = 16.292593721660666
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  10 Training loss = 15.85222032443768 	Validation loss = 15.570163272003327
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  11 Training loss = 16.104833642706847 	Validation loss = 16.317421204362763
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  11 Training loss = 15.840040907862347 	Validation loss = 15.603382886640361
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  12 Training loss = 16.120232815295434 	Validation loss = 16.300412086367448
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  12 Training loss = 15.86189456419949 	Validation loss = 15.568786979386687
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  13 Training loss = 16.14891968293162 	Validation loss = 16.335277830999146
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  13 Training loss = 15.87396021127482 	Validation loss = 15.595520025286474
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  14 Training loss = 16.109436533172303 	Validation loss = 16.276295180269962
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  14 Training loss = 15.851821920044495 	Validation loss = 15.562897100572348
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  15 Training loss = 16.102649641137507 	Validation loss = 16.282569714263865
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  15 Training loss = 15.850068973175782 	Validation loss = 15.566496801633354
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  16 Training loss = 16.092736760381264 	Validation loss = 16.27692021132908
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  16 Training loss = 15.835588073447497 	Validation loss = 15.559010134780182
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  17 Training loss = 16.117249811953307 	Validation loss = 16.28621965443738
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  17 Training loss = 15.858096181262638 	Validation loss = 15.566617828675948
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  18 Training loss = 16.1016304545585 	Validation loss = 16.310062368010914
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  18 Training loss = 15.843864532566206 	Validation loss = 15.593322191840087
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  19 Training loss = 16.081901259034108 	Validation loss = 16.290479440096206
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  19 Training loss = 15.833253970755067 	Validation loss = 15.58280680166953
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  20 Training loss = 16.082242395192914 	Validation loss = 16.28688644666182
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  20 Training loss = 15.836466953158743 	Validation loss = 15.596431590959766
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  21 Training loss = 16.11181933794345 	Validation loss = 16.276451118878438
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  21 Training loss = 15.851705987466861 	Validation loss = 15.560036442924197
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  22 Training loss = 16.093115418537167 	Validation loss = 16.314745217924475
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  22 Training loss = 15.844477789073878 	Validation loss = 15.610051369356805
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  23 Training loss = 16.08887604574174 	Validation loss = 16.29960858486785
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  23 Training loss = 15.832328753919388 	Validation loss = 15.572978565346268
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  24 Training loss = 16.10875143499556 	Validation loss = 16.288997163538568
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  24 Training loss = 15.878563404075425 	Validation loss = 15.572326243649227
 </pre></div>
 </div>
 <img alt="../_images/Learning-DA-increments_34_24.png" src="../_images/Learning-DA-increments_34_24.png" />
