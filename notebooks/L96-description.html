@@ -55,8 +55,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="L96-two-scale-description.html" />
-    <link rel="prev" title="L96 analogs for this project" href="presentation-model-setup.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,7 +106,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="presentation-model-setup.html">
-   L96 analogs for this project
+   L96 analogs for this project: the real world and the GCM with parameterization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L96-two-scale-description.html">
+   L96 two-timescale model description
   </a>
  </li>
 </ul>
@@ -337,8 +340,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Equation 1 from <a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a> is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dce71d01-c4df-4d36-9660-824c372756ff">
-<span class="eqno">(4)<a class="headerlink" href="#equation-dce71d01-c4df-4d36-9660-824c372756ff" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-db602a80-6341-48d0-abf6-6a35c8dcd545">
+<span class="eqno">()<a class="headerlink" href="#equation-db602a80-6341-48d0-abf6-6a35c8dcd545" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k &amp;= - X_{k-2} X_{k-1} + X_{k-1} X_{k+1} - X_k + F
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(F\)</span> is a constant independent of <span class="math notranslate nohighlight">\(k=0,1,2,\ldots,K-1\)</span> (using python indexing starting at k=0). The <span class="math notranslate nohighlight">\(k\)</span> index is periodic so that, for example, <span class="math notranslate nohighlight">\(k=K\)</span> is referring to <span class="math notranslate nohighlight">\(k=0\)</span> and <span class="math notranslate nohighlight">\(k=-1\)</span> is referring to <span class="math notranslate nohighlight">\(k=K-1\)</span>.</p>
@@ -615,21 +618,7 @@ def L96_eq1_xdot(X, F, advect=True):
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="presentation-model-setup.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">L96 analogs for this project</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="L96-two-scale-description.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+<div class='prev-next-area'>
 </div>
             
         </div>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>L96 analogs for this project &#8212; Lorenz 1996 two time-scale model for learning machine learning</title>
+    <title>L96 analogs for this project: the real world and the GCM with parameterization &#8212; Lorenz 1996 two time-scale model for learning machine learning</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="L96-description.html" />
+    <link rel="next" title="L96 two-timescale model description" href="L96-two-scale-description.html" />
     <link rel="prev" title="Lorenz 1996 two time-scale model for learning machine learning" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -108,7 +108,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   L96 analogs for this project
+   L96 analogs for this project: the real world and the GCM with parameterization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L96-two-scale-description.html">
+   L96 two-timescale model description
   </a>
  </li>
 </ul>
@@ -299,15 +304,8 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   L96 analogs for this project
+   L96 analogs for this project: the real world and the GCM with parameterization
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analog-for-the-real-world">
-     Analog for the real world
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-real-world">
@@ -352,7 +350,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>L96 analogs for this project</h1>
+                <h1>L96 analogs for this project: the real world and the GCM with parameterization</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -364,15 +362,8 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   L96 analogs for this project
+   L96 analogs for this project: the real world and the GCM with parameterization
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analog-for-the-real-world">
-     Analog for the real world
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-real-world">
@@ -429,30 +420,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="l96-analogs-for-this-project">
-<h1>L96 analogs for this project<a class="headerlink" href="#l96-analogs-for-this-project" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="analog-for-the-real-world">
-<h2>Analog for the real world<a class="headerlink" href="#analog-for-the-real-world" title="Permalink to this headline">¶</a></h2>
-<p>In 1996, Lorenz proposed a two-time scale dynamical system, referred to as the Lorenz-96 model, whose bahvaior mimics the non-linear bahvior of the extratropical atmosphere with simplified representation of multiscale interactions and nonlinear advection <a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a>. The lorenz-96 model consists of a set of equations coupling two scales of variables evolving over slow and fast timescales and arranged around a latitude circle as shown in Fig. 1.</p>
-<p>More precisely, the Lorenz-96 model includes <span class="math notranslate nohighlight">\(K\)</span> slow (or low-frequency) variables, noted <span class="math notranslate nohighlight">\(X_k\)</span>, <span class="math notranslate nohighlight">\(k=1,\ldots,K\)</span> and each slow variable <span class="math notranslate nohighlight">\(X_k\)</span> is coupled with <span class="math notranslate nohighlight">\(J\)</span> fast (or high-frequency) variables <span class="math notranslate nohighlight">\(Y_{j,k}\)</span> , <span class="math notranslate nohighlight">\(j=1,\ldots,J\)</span>. Therefore, the Lorenz-96 model is described with the following <span class="math notranslate nohighlight">\(K+JK\)</span> equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2e85d041-a6ec-48ba-b785-00e7f719d1e7">
-<span class="eqno">(1)<a class="headerlink" href="#equation-2e85d041-a6ec-48ba-b785-00e7f719d1e7" title="Permalink to this equation">¶</a></span>\[\begin{align}
-\frac{d}{dt} X_k
-&amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k} \ ,
-\\
-\frac{d}{dt} Y_{j,k}
-&amp;= - cbY_{j+1,k} \left( Y_{j+2,k} - Y_{j-1,k} \right) - c Y_{j,k} + \frac{hc}{b} X_k \ .
-\end{align}\]</div>
-<p>In this model, the slow variables <span class="math notranslate nohighlight">\(X_k\)</span>, <span class="math notranslate nohighlight">\(k=1,\ldots,K\)</span> represent the resolved-scale variables in a climate model, while the fast variables <span class="math notranslate nohighlight">\(Y_{j,k}\)</span>, <span class="math notranslate nohighlight">\(j=1,\ldots,J\)</span>, <span class="math notranslate nohighlight">\(k=1,\ldots,K\)</span> represent the unresolved variables (for instance variables representing cloud convection in a climate model).</p>
-<p>The model equations are coupled via the mean term <span class="math notranslate nohighlight">\(\sum_{j=0}^{J-1} Y_{j,k}\)</span>, and the coupling depends on three key parameters: <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span> and <span class="math notranslate nohighlight">\(h\)</span>. The parametr <span class="math notranslate nohighlight">\(b\)</span> determines the magnitude of the nonlinear interactions among the fast variables. The parameter <span class="math notranslate nohighlight">\(c\)</span> controls how rapidly the fast variables fluctuate compared to the slow variables. Finally, the parameter <span class="math notranslate nohighlight">\(h\)</span> governs the strengh of the coupling between the slow and fast variables.</p>
-<p>The chaotic dynamical system Lorenz-96 is very useful for testing different numerical methods in atmospheric modeling thanks to its transparency, computational cheapness and simplicity compared to Global Climate Models (GCM) including a full general circulation modeling. The interaction between variables of different scales makes the Lorenz-96 model of particular interest when evaluating new parameterization methodologies. As such, it was used in assessing different techniques that were later incorporated into GCMs (<a class="reference external" href="https://journals.ametsoc.org/view/journals/atsc/65/8/2008jas2566.1.xml">Crommeling (2008)</a>, <a class="reference external" href="https://royalsocietypublishing.org/doi/10.1098/rsta.2012.0374">Dorrestijn (2013)</a>).</p>
-<p>The Lorenz-96 model has been extensively used as a test bed in various studies including data assimilation approaches (<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0167278915002766?via%3Dihub">Law (2016)</a>, <a class="reference external" href="https://journals.ametsoc.org/view/journals/mwre/146/1/mwr-d-17-0132.1.xml">Hatfield (2018)</a>), stochastic parameterization schemes (<a class="reference external" href="https://royalsocietypublishing.org/doi/10.1098/rsta.2011.0384">Kwasniok (2012)</a>, <a class="reference external" href="https://royalsocietypublishing.org/doi/full/10.1098/rsta.2011.0479">Arnold (2013)</a>, <a class="reference external" href="https://www.pnas.org/doi/10.1073/pnas.1512080112">Chorin (2015)</a>)  and Machine Learning-based parameterization methodologies (<a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/10.1002/2017GL076101">Schneider (2017)</a>, <a class="reference external" href="https://gmd.copernicus.org/articles/11/3999/2018/">Dueben (2018)</a>, <a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018MS001597">Watson (2019)</a>, <a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019MS001896">GagneII (2020)</a>).</p>
-<p><img src="https://www.researchgate.net/publication/319201436/figure/fig1/AS:869115023589376@1584224577926/Visualisation-of-a-two-scale-Lorenz-96-system-with-J-8-and-K-6-Global-scale-values.png" width=400> <em>Fig. 1: Visualisation of a two-scale Lorenz ‘96 system with J = 8 and K = 6. Global-scale variables (<span class="math notranslate nohighlight">\(X_k\)</span>) are updated based on neighbouring variables and on the local-scale variables (<span class="math notranslate nohighlight">\(Y_{j,k}\)</span>) associated with the corresponding global-scale variable. Local-scale variabless are updated based on neighbouring variables and the associated global-scale variable. The neighbourhood topology of both local and global-scale variables is circular. Image from <a class="reference external" href="https://www.researchgate.net/figure/Visualisation-of-a-two-scale-Lorenz-96-system-with-J-8-and-K-6-Global-scale-values_fig1_319201436">Exploiting the chaotic behaviour of atmospheric models with reconfigurable architectures - Scientific Figure on ResearchGate.</a></em></p>
-</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="l96-analogs-for-this-project-the-real-world-and-the-gcm-with-parameterization">
+<h1>L96 analogs for this project: the real world and the GCM with parameterization<a class="headerlink" href="#l96-analogs-for-this-project-the-real-world-and-the-gcm-with-parameterization" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="the-real-world">
 <h1>The real world<a class="headerlink" href="#the-real-world" title="Permalink to this headline">¶</a></h1>
-<p>The values for the parameters <span class="math notranslate nohighlight">\(F\)</span>, <span class="math notranslate nohighlight">\(J\)</span> and <span class="math notranslate nohighlight">\(K\)</span> are fixed based on <a class="reference external" href="https://rmets.onlinelibrary.wiley.com/doi/abs/10.1256/qj.04.03">Wilks (2005)</a> such that:</p>
+<p>We will now describe experiments with the “two time-scale” model equations 1 and 2 of the previous notebook
+The values for the parameters <span class="math notranslate nohighlight">\(F\)</span>, <span class="math notranslate nohighlight">\(J\)</span> and <span class="math notranslate nohighlight">\(K\)</span> are fixed based on <a class="reference external" href="https://rmets.onlinelibrary.wiley.com/doi/abs/10.1256/qj.04.03">Wilks (2005)</a> such that:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(F=18\)</span> or <span class="math notranslate nohighlight">\(20\)</span> ,</p></li>
 <li><p><span class="math notranslate nohighlight">\(K=8\)</span> ,</p></li>
@@ -486,8 +460,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.87 s, sys: 16 ms, total: 2.88 s
-Wall time: 2.88 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.41 s, sys: 40.4 ms, total: 3.45 s
+Wall time: 3.45 s
 </pre></div>
 </div>
 <img alt="../_images/presentation-model-setup_3_1.png" src="../_images/presentation-model-setup_3_1.png" />
@@ -527,8 +501,8 @@ Wall time: 2.88 s
 <div class="tex2jax_ignore mathjax_ignore section" id="analog-for-gcm">
 <h1>Analog for  GCM<a class="headerlink" href="#analog-for-gcm" title="Permalink to this headline">¶</a></h1>
 <p>In this study, the two-scale Lorenz-96 system introduced above is treated as the “truth” or “real-world” model which we aim to forecast or simulate. The physical equations of motion of the system describing the atmosphere dynamics are known. However, it is not feasible to explicitley solve them within Global Climate Models (GCM) due to the unresolved smallest scales and limited computational resources. Given this constraint for GCM, the Lorenz-96 system is commonly treated as the full (or “truth”) model, while a forecast (or an approximate) model is constructed by replacing the coupling terms between the slow and fast variables (<span class="math notranslate nohighlight">\(\left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}\)</span>) with a sub-grid parameterization tendency that we note <span class="math notranslate nohighlight">\(U_k\)</span>, <span class="math notranslate nohighlight">\(k=1,\ldots,k\)</span>. The one time-scale Lorenz-96 equation corresponding to such an approxiamte model can be expressed as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-df038961-737e-48d5-841a-5f1f3df6493e">
-<span class="eqno">(2)<a class="headerlink" href="#equation-df038961-737e-48d5-841a-5f1f3df6493e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2603d718-dc91-4365-a159-a6a99e10a271">
+<span class="eqno">(1)<a class="headerlink" href="#equation-2603d718-dc91-4365-a159-a6a99e10a271" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \underbrace{ 
 \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
@@ -538,8 +512,8 @@ Wall time: 2.88 s
 <div class="tex2jax_ignore mathjax_ignore section" id="the-parametization-p-x-k">
 <h1>The parametization <span class="math notranslate nohighlight">\(P(X_k)\)</span><a class="headerlink" href="#the-parametization-p-x-k" title="Permalink to this headline">¶</a></h1>
 <p>We consider the particular choice of modeling the unknown parameterization of the “unresolved processes” with a plynomial approximation such that the one time-scale equation of the Lorenz-96 model can be written as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2ac22580-1601-4457-ba89-4201f5ab15b5">
-<span class="eqno">(3)<a class="headerlink" href="#equation-2ac22580-1601-4457-ba89-4201f5ab15b5" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-485bd7f1-d846-4338-8e87-593d5f2b2136">
+<span class="eqno">(2)<a class="headerlink" href="#equation-485bd7f1-d846-4338-8e87-593d5f2b2136" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - P\left( X_k \right) \ .
 \end{align}\]</div>
@@ -556,8 +530,8 @@ Wall time: 2.88 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9.53 s, sys: 29.7 ms, total: 9.56 s
-Wall time: 9.4 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 11.8 s, sys: 50 ms, total: 11.8 s
+Wall time: 11.6 s
 </pre></div>
 </div>
 </div>
@@ -625,7 +599,7 @@ Wall time: 9.4 s
 <p>Next, we compare the predictions obtained with the different models:</p>
 <ul class="simple">
 <li><p>“Real world”: corresponding to the “truth” model goverened by the full two time-scale Lorenz-96 system.</p></li>
-<li><p>GCM w/o parameterization: corresponding to the one time-scale Lorenz-96 system without any the coupling term.</p></li>
+<li><p>GCM w/o parameterization: corresponding to the one time-scale Lorenz-96 system without any the coupling term. We use a forward-Euler scheme to integrate the model forward.</p></li>
 <li><p>GCM with our parameterization: corresponding to the one time-scale Lorenz-96 system with the linear polynomial approximation of the coupling terms as obtained above.</p></li>
 <li><p>GCM with <a class="reference external" href="https://rmets.onlinelibrary.wiley.com/doi/abs/10.1256/qj.04.03">Wilks (2005)’</a> parameterization: corresponding to the one time-scale Lorenz-96 system with a third-order polynomial approximation of the coupling terms.</p></li>
 </ul>
@@ -783,16 +757,16 @@ Wall time: 9.4 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 46.3 s, sys: 6.7 ms, total: 46.3 s
-Wall time: 46.3 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 56 s, sys: 10.2 ms, total: 56 s
+Wall time: 56 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.63 s, sys: 3.38 ms, total: 1.63 s
-Wall time: 1.63 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.89 s, sys: 7.96 ms, total: 1.89 s
+Wall time: 1.89 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.41 s, sys: 161 ms, total: 2.57 s
-Wall time: 2.35 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.6 s, sys: 12 ms, total: 2.62 s
+Wall time: 2.61 s
 </pre></div>
 </div>
 </div>
@@ -852,8 +826,8 @@ std:   4.679   4.375   4.524
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.01 s, sys: 8.06 ms, total: 3.02 s
-Wall time: 3.01 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.53 s, sys: 7.99 ms, total: 3.54 s
+Wall time: 3.53 s
 
 
        Truth      P1      P4  P4+stoch
@@ -929,10 +903,10 @@ std:   4.679   4.375   4.524   4.537
             <p class="prev-next-title">Lorenz 1996 two time-scale model for learning machine learning</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="L96-description.html" title="next page">
+    <a class='right-next' id="next-link" href="L96-two-scale-description.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">L96 two-timescale model description</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

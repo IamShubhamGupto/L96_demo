@@ -108,7 +108,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="presentation-model-setup.html">
-   L96 analogs for this project
+   L96 analogs for this project: the real world and the GCM with parameterization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L96-two-scale-description.html">
+   L96 two-timescale model description
   </a>
  </li>
 </ul>
@@ -521,8 +526,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>The ‘real world” is the Lorenz ‘96 model:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4c4f49ef-5210-41a1-80b6-9256bb4331fe">
-<span class="eqno">(10)<a class="headerlink" href="#equation-4c4f49ef-5210-41a1-80b6-9256bb4331fe" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d175954e-4c35-4f4a-9162-35c45c70083d">
+<span class="eqno">(8)<a class="headerlink" href="#equation-d175954e-4c35-4f4a-9162-35c45c70083d" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
@@ -585,8 +590,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>We run the model in forward mode for 5000 steps to calculate the background covariance. The model is the “GCM” function defined above which integrates forward</p>
-<div class="amsmath math notranslate nohighlight" id="equation-64261fe6-1d3a-499a-b27b-9f12ddaec299">
-<span class="eqno">(11)<a class="headerlink" href="#equation-64261fe6-1d3a-499a-b27b-9f12ddaec299" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-300659fe-ba68-4b03-b4c4-c6de7ecbda20">
+<span class="eqno">(9)<a class="headerlink" href="#equation-300659fe-ba68-4b03-b4c4-c6de7ecbda20" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F
 \end{align}\]</div>
