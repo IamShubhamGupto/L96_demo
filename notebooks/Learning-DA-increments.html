@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learning Data Assimilation Increments &#8212; Lorenz 1996 two time-scale model for learning machine learning</title>
+    <title>Learning Data Assimilation Increments &#8212; Learning Machine Learning with Lorenz-96</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -85,7 +85,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/newlogo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lorenz 1996 two time-scale model for learning machine learning</h1>
+      <h1 class="site-logo" id="site-title">Learning Machine Learning with Lorenz-96</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -96,36 +96,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Lorenz 1996 two time-scale model for learning machine learning
+   Introduction
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Intro
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="presentation-model-setup.html">
-   L96 analogs for this project: the real world and the GCM with parameterization
-  </a>
- </li>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="L96-two-scale-description.html">
-   L96 two-timescale model description
+   The Lorenz-96 Two-Timescale System
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Type of Parametrization
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="estimating-gcm-parameters.html">
-   1. Copy / pasting from gcm-parameterization-problem notebook
+  <a class="reference internal" href="presentation-model-setup.html">
+   The Lorenz-96 GCM Analog
   </a>
  </li>
  <li class="toctree-l1">
@@ -133,25 +116,16 @@ const thebe_selector_output = ".output, .cell_output"
    Key aspects of GCMs parameterizations
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data Assimilation
- </span>
-</p>
-<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="estimating-gcm-parameters.html">
+   Tuning GCM Parameterizations
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="DA_demo_L96.html">
    Data Assimilation demo in the Lorenz 96 (L96) two time-scale model
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Subgrid Patermetrization
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Neural_network_for_Lorenz96.html">
    Using neural networks for L96 parameterization
@@ -162,49 +136,26 @@ const thebe_selector_output = ".output, .cell_output"
    Neural networks
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Offline DA Increments
- </span>
-</p>
-<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Learning Data Assimilation Increments
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Different ML Models
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="random_forest_parameterization.html">
    Random Forest
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Implementation
- </span>
-</p>
-<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="LRP-L96.html">
+   LRP
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Neural-Network-Advection.html">
    Using neural networks to parameterize advection in L96
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  References
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../bibliography.html">
    References
@@ -530,8 +481,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>The ‘real world” is the Lorenz ‘96 model:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9376142a-c9cd-4ee9-92b6-e34b21cc3034">
-<span class="eqno">(8)<a class="headerlink" href="#equation-9376142a-c9cd-4ee9-92b6-e34b21cc3034" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a165f66c-ae8d-45a6-a445-436dd62e3827">
+<span class="eqno">(8)<a class="headerlink" href="#equation-a165f66c-ae8d-45a6-a445-436dd62e3827" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
@@ -594,8 +545,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>We run the model in forward mode for 5000 steps to calculate the background covariance. The model is the “GCM” function defined above which integrates forward</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73608529-7911-4187-a97f-fc90d99d0a98">
-<span class="eqno">(9)<a class="headerlink" href="#equation-73608529-7911-4187-a97f-fc90d99d0a98" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0bcbcf12-e463-4dc7-8541-63b3e7523c76">
+<span class="eqno">(9)<a class="headerlink" href="#equation-0bcbcf12-e463-4dc7-8541-63b3e7523c76" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F
 \end{align}\]</div>
@@ -1024,12 +975,12 @@ B_corr1         ndarray           8x8: 64 elems, type `float64`, 512 bytes
 B_ens           ndarray           8x8: 64 elems, type `float64`, 512 bytes
 B_ens_loc       ndarray           8x8: 64 elems, type `float64`, 512 bytes
 DA_methods      module            &lt;module &#39;DA_methods&#39; from&lt;...&gt;notebooks/DA_methods.py&#39;&gt;
-GCM             function          &lt;function GCM at 0x7fb879ed8310&gt;
+GCM             function          &lt;function GCM at 0x7f15238f45e0&gt;
 H               ndarray           8x8: 64 elems, type `float64`, 512 bytes
 L96             type              &lt;class &#39;L96_model.L96&#39;&gt;
-L96_eq1_xdot    CPUDispatcher     CPUDispatcher(&lt;function L&lt;...&gt;_xdot at 0x7fb879f0be50&gt;)
+L96_eq1_xdot    CPUDispatcher     CPUDispatcher(&lt;function L&lt;...&gt;_xdot at 0x7f152385cdc0&gt;)
 M_truth         L96               L96: K=8 J=32 F=18 h=1 b=&lt;...&gt;967575 -0.05045295]\n t=0
-ObsOp           function          &lt;function ObsOp at 0x7fb879ed8550&gt;
+ObsOp           function          &lt;function ObsOp at 0x7f1523827310&gt;
 R               ndarray           8x8: 64 elems, type `float64`, 512 bytes
 W               ndarray           8x8: 64 elems, type `float64`, 512 bytes
 W_clim          ndarray           8x8: 64 elems, type `float64`, 512 bytes
@@ -1043,10 +994,10 @@ X_tend          ndarray           400x8x50: 160000 elems, type `float64`, 128000
 X_truth         ndarray           4001x8: 32008 elems, type `float64`, 256064 bytes (250.0625 kb)
 Y_truth         ndarray           4001x256: 1024256 elems, type `float64`, 8194048 bytes (7.814453125 Mb)
 axes            ndarray           2x3: 6 elems, type `object`, 48 bytes
-ch              QuadContourSet    &lt;matplotlib.contour.QuadC&lt;...&gt;object at 0x7fb86f93e2e0&gt;
-clim            float64           1.557872282014566
+ch              QuadContourSet    &lt;matplotlib.contour.QuadC&lt;...&gt;object at 0x7f151825f220&gt;
+clim            float64           1.5495534973424885
 config          dict              n=20
-cov_loc         function          &lt;function cov_loc at 0x7fb879ed85e0&gt;
+cov_loc         function          &lt;function cov_loc at 0x7f15238273a0&gt;
 cycle           int64             399
 da_interval     int               10
 dt              float64           0.005
@@ -1055,9 +1006,9 @@ e               int               19
 ensX            ndarray           4001x8x50: 1600400 elems, type `float64`, 12803200 bytes (12.2100830078125 Mb)
 ensX_fcst       ndarray           11x8x50: 4400 elems, type `float64`, 35200 bytes
 fig             Figure            Figure(1080x720)
-find_obs        function          &lt;function find_obs at 0x7fb879ed8700&gt;
-gaspari_cohn    function          &lt;function gaspari_cohn at 0x7fb879ed8670&gt;
-get_dist        function          &lt;function get_dist at 0x7fb879ed84c0&gt;
+find_obs        function          &lt;function find_obs at 0x7f15238274c0&gt;
+gaspari_cohn    function          &lt;function gaspari_cohn at 0x7f1523827430&gt;
+get_dist        function          &lt;function get_dist at 0x7f1523827280&gt;
 i               int               7
 i_t             int               4000
 j               int               7
@@ -1077,8 +1028,8 @@ plot_start_DA   int               20
 plot_x          int               0
 plt             module            &lt;module &#39;matplotlib.pyplo&lt;...&gt;es/matplotlib/pyplot.py&#39;&gt;
 rng             Generator         Generator(PCG64)
-running_ave     function          &lt;function running_ave at 0x7fb879ed8790&gt;
-s               function          &lt;function s at 0x7fb879ed8430&gt;
+running_ave     function          &lt;function running_ave at 0x7f1523827550&gt;
+s               function          &lt;function s at 0x7f15238271f0&gt;
 si              int               10
 t_DA            ndarray           400: 400 elems, type `float64`, 3200 bytes
 t_inc           ndarray           400: 400 elems, type `float64`, 3200 bytes
@@ -1295,76 +1246,76 @@ xl              tuple             n=2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   1 Training loss = 16.127904711242696 	Validation loss = 16.00358366780967
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   1 Training loss = 16.03742080099071 	Validation loss = 15.959677837441726
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   2 Training loss = 16.011166480814833 	Validation loss = 15.83316972988354
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   2 Training loss = 15.905618146312555 	Validation loss = 15.780771721457466
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   3 Training loss = 15.980404347212756 	Validation loss = 15.809877150352717
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   3 Training loss = 15.87187559780293 	Validation loss = 15.750762768461108
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   4 Training loss = 15.927591726348192 	Validation loss = 15.718290793287082
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   4 Training loss = 15.819335979699403 	Validation loss = 15.675516861240789
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   5 Training loss = 15.947012289975664 	Validation loss = 15.743902871579099
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   5 Training loss = 15.857406575204022 	Validation loss = 15.726212174736421
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   6 Training loss = 15.92147899124159 	Validation loss = 15.715237496043677
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   6 Training loss = 15.824065764201086 	Validation loss = 15.683797718850757
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   7 Training loss = 15.937516052213347 	Validation loss = 15.730413920989598
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   7 Training loss = 15.842965560044286 	Validation loss = 15.705614322883468
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   8 Training loss = 15.917474137955598 	Validation loss = 15.726002578040795
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   8 Training loss = 15.811061561281619 	Validation loss = 15.679118856452066
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   9 Training loss = 15.904305833043328 	Validation loss = 15.697574107324956
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =   9 Training loss = 15.798030757336416 	Validation loss = 15.653025252670236
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  10 Training loss = 15.922532268072672 	Validation loss = 15.704273454227293
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  10 Training loss = 15.812941421778579 	Validation loss = 15.655769861758365
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  11 Training loss = 15.908474688626544 	Validation loss = 15.72352921330038
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  11 Training loss = 15.801081162847703 	Validation loss = 15.679731865038287
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  12 Training loss = 15.937332431087919 	Validation loss = 15.718474986694158
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  12 Training loss = 15.847964061575546 	Validation loss = 15.681881376846698
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  13 Training loss = 15.9392117639946 	Validation loss = 15.730753617402302
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  13 Training loss = 15.831142209305897 	Validation loss = 15.686760378885747
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  14 Training loss = 15.917344771797213 	Validation loss = 15.700266909868253
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  14 Training loss = 15.814443180240048 	Validation loss = 15.638730374180515
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  15 Training loss = 15.922223540130595 	Validation loss = 15.707338223305022
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  15 Training loss = 15.813846499589527 	Validation loss = 15.645925788870077
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  16 Training loss = 15.909359650503792 	Validation loss = 15.700583106707173
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  16 Training loss = 15.811115733247917 	Validation loss = 15.648530320210442
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  17 Training loss = 15.921580315515097 	Validation loss = 15.702218109655531
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  17 Training loss = 15.814712876382764 	Validation loss = 15.644640815860289
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  18 Training loss = 15.910478098137087 	Validation loss = 15.732233191648612
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  18 Training loss = 15.808356360746966 	Validation loss = 15.681408333641043
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  19 Training loss = 15.899919510950353 	Validation loss = 15.742193750386342
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  19 Training loss = 15.78943807095709 	Validation loss = 15.657856919107315
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  20 Training loss = 15.913465805048107 	Validation loss = 15.736603766614008
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  20 Training loss = 15.793103271833392 	Validation loss = 15.664092619157627
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  21 Training loss = 15.924993719056635 	Validation loss = 15.702882135420083
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  21 Training loss = 15.813245048444237 	Validation loss = 15.651039146115872
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  22 Training loss = 15.909207047011753 	Validation loss = 15.73336961901465
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  22 Training loss = 15.800472612707491 	Validation loss = 15.680779871125075
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  23 Training loss = 15.906241766885163 	Validation loss = 15.711717545210385
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  23 Training loss = 15.79751911778213 	Validation loss = 15.658437181367796
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  24 Training loss = 15.961373450938156 	Validation loss = 15.721275511209127
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch =  24 Training loss = 15.835492365170555 	Validation loss = 15.662539025247838
 </pre></div>
 </div>
 <img alt="../_images/Learning-DA-increments_34_24.png" src="../_images/Learning-DA-increments_34_24.png" />

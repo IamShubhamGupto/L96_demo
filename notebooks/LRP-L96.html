@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Lorenz 1996 two time-scale model for learning machine learning</title>
+    <title>LRP &#8212; Learning Machine Learning with Lorenz-96</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -83,7 +83,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/newlogo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lorenz 1996 two time-scale model for learning machine learning</h1>
+      <h1 class="site-logo" id="site-title">Learning Machine Learning with Lorenz-96</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -94,36 +94,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Lorenz 1996 two time-scale model for learning machine learning
+   Introduction
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Intro
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="presentation-model-setup.html">
-   L96 analogs for this project: the real world and the GCM with parameterization
-  </a>
- </li>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="L96-two-scale-description.html">
-   L96 two-timescale model description
+   The Lorenz-96 Two-Timescale System
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Type of Parametrization
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="estimating-gcm-parameters.html">
-   1. Copy / pasting from gcm-parameterization-problem notebook
+  <a class="reference internal" href="presentation-model-setup.html">
+   The Lorenz-96 GCM Analog
   </a>
  </li>
  <li class="toctree-l1">
@@ -131,25 +114,16 @@ const thebe_selector_output = ".output, .cell_output"
    Key aspects of GCMs parameterizations
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data Assimilation
- </span>
-</p>
-<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="estimating-gcm-parameters.html">
+   Tuning GCM Parameterizations
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="DA_demo_L96.html">
    Data Assimilation demo in the Lorenz 96 (L96) two time-scale model
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Subgrid Patermetrization
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Neural_network_for_Lorenz96.html">
    Using neural networks for L96 parameterization
@@ -160,49 +134,26 @@ const thebe_selector_output = ".output, .cell_output"
    Neural networks
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Offline DA Increments
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Learning-DA-increments.html">
    Learning Data Assimilation Increments
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Different ML Models
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="random_forest_parameterization.html">
    Random Forest
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Implementation
- </span>
-</p>
-<ul class="nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   LRP
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Neural-Network-Advection.html">
    Using neural networks to parameterize advection in L96
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  References
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../bibliography.html">
    References
@@ -307,14 +258,6 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -322,26 +265,20 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><no title></h1>
+                <h1>LRP</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="cell docutils container">
+  <div class="tex2jax_ignore mathjax_ignore section" id="lrp">
+<h1>LRP<a class="headerlink" href="#lrp" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import math</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -355,7 +292,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f29943e39d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7fdf584a29d0&gt;
 </pre></div>
 </div>
 </div>
@@ -555,7 +492,7 @@ linear3.bias
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/LRP-L96_8_0.png" src="../_images/LRP-L96_8_0.png" />
+<img alt="../_images/LRP-L96_9_0.png" src="../_images/LRP-L96_9_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -636,7 +573,7 @@ linear3.bias
  4.65432827 4.49010761]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2338/746810049.py:17: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2298/746810049.py:17: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
   model(torch.tensor(inputs + perturb)) - model(inputs)
 </pre></div>
 </div>
@@ -670,7 +607,8 @@ linear3.bias
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/LRP-L96_14_0.png" src="../_images/LRP-L96_14_0.png" />
+<img alt="../_images/LRP-L96_15_0.png" src="../_images/LRP-L96_15_0.png" />
+</div>
 </div>
 </div>
 

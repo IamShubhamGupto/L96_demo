@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Assimilation demo in the Lorenz 96 (L96) two time-scale model &#8212; Lorenz 1996 two time-scale model for learning machine learning</title>
+    <title>Data Assimilation demo in the Lorenz 96 (L96) two time-scale model &#8212; Learning Machine Learning with Lorenz-96</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Using neural networks for L96 parameterization" href="Neural_network_for_Lorenz96.html" />
-    <link rel="prev" title="Key aspects of GCMs parameterizations" href="gcm-parameterization-problem.html" />
+    <link rel="prev" title="Tuning GCM Parameterizations" href="estimating-gcm-parameters.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -85,7 +85,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/newlogo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lorenz 1996 two time-scale model for learning machine learning</h1>
+      <h1 class="site-logo" id="site-title">Learning Machine Learning with Lorenz-96</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -96,36 +96,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Lorenz 1996 two time-scale model for learning machine learning
+   Introduction
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Intro
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="presentation-model-setup.html">
-   L96 analogs for this project: the real world and the GCM with parameterization
-  </a>
- </li>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="L96-two-scale-description.html">
-   L96 two-timescale model description
+   The Lorenz-96 Two-Timescale System
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Type of Parametrization
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="estimating-gcm-parameters.html">
-   1. Copy / pasting from gcm-parameterization-problem notebook
+  <a class="reference internal" href="presentation-model-setup.html">
+   The Lorenz-96 GCM Analog
   </a>
  </li>
  <li class="toctree-l1">
@@ -133,25 +116,16 @@ const thebe_selector_output = ".output, .cell_output"
    Key aspects of GCMs parameterizations
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data Assimilation
- </span>
-</p>
-<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="estimating-gcm-parameters.html">
+   Tuning GCM Parameterizations
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Data Assimilation demo in the Lorenz 96 (L96) two time-scale model
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Subgrid Patermetrization
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Neural_network_for_Lorenz96.html">
    Using neural networks for L96 parameterization
@@ -162,49 +136,26 @@ const thebe_selector_output = ".output, .cell_output"
    Neural networks
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Offline DA Increments
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Learning-DA-increments.html">
    Learning Data Assimilation Increments
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Different ML Models
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="random_forest_parameterization.html">
    Random Forest
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Implementation
- </span>
-</p>
-<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="LRP-L96.html">
+   LRP
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Neural-Network-Advection.html">
    Using neural networks to parameterize advection in L96
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  References
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../bibliography.html">
    References
@@ -429,8 +380,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="tex2jax_ignore mathjax_ignore section" id="recap-of-l96-and-notation">
 <h1>Recap of L96 and notation<a class="headerlink" href="#recap-of-l96-and-notation" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a> describes a “two time-scale” model in two equations (2 and 3) which are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5eb1b4bc-dee9-4843-99e5-516ec8fd065e">
-<span class="eqno">(4)<a class="headerlink" href="#equation-5eb1b4bc-dee9-4843-99e5-516ec8fd065e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e3073191-24b4-4f59-975f-925dfdb98f8d">
+<span class="eqno">(4)<a class="headerlink" href="#equation-e3073191-24b4-4f59-975f-925dfdb98f8d" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
@@ -766,7 +717,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f5decea77c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f1e8819df70&gt;
 </pre></div>
 </div>
 <img alt="../_images/DA_demo_L96_8_1.png" src="../_images/DA_demo_L96_8_1.png" />
@@ -950,7 +901,7 @@ covariance over model (K x K)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time to complete DA:  14.87  (s)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time to complete DA:  10.55  (s)
 </pre></div>
 </div>
 </div>
@@ -1203,11 +1154,11 @@ covariance over model (K x K)</p>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="gcm-parameterization-problem.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="estimating-gcm-parameters.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Key aspects of GCMs parameterizations</p>
+            <p class="prev-next-title">Tuning GCM Parameterizations</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="Neural_network_for_Lorenz96.html" title="next page">
