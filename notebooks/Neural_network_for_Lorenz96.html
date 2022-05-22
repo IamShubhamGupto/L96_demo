@@ -147,8 +147,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="LRP-L96.html">
-   LRP
+  <a class="reference internal" href="Neural-Network-Saliency-Maps.html">
+   Generating saliency maps for neural networks trained on L96
   </a>
  </li>
  <li class="toctree-l1">
@@ -780,8 +780,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p><a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a> describes a “two time-scale” model in two equations (2 and 3) which are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9bbfb5c8-216c-41f1-9b13-f8f04dfe1963">
-<span class="eqno">(5)<a class="headerlink" href="#equation-9bbfb5c8-216c-41f1-9b13-f8f04dfe1963" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-18af3c77-ed8c-4aa7-8c72-c99b62419497">
+<span class="eqno">(5)<a class="headerlink" href="#equation-18af3c77-ed8c-4aa7-8c72-c99b62419497" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
@@ -1143,15 +1143,15 @@ After backward pass:
 </div>
 <div class="section" id="the-effective-value-of-the-gradient-v-at-step-t-in-sgd-with-momentum-beta">
 <h3>The  effective value of the gradient (V) at step t in SGD with momentum (<span class="math notranslate nohighlight">\(\beta\)</span>):<a class="headerlink" href="#the-effective-value-of-the-gradient-v-at-step-t-in-sgd-with-momentum-beta" title="Permalink to this headline">¶</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-d8ef4a88-7188-4ba4-87b1-de3ffedc369a">
-<span class="eqno">(6)<a class="headerlink" href="#equation-d8ef4a88-7188-4ba4-87b1-de3ffedc369a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d1d688e9-58bc-4c4a-ad97-752c00e650a3">
+<span class="eqno">(6)<a class="headerlink" href="#equation-d1d688e9-58bc-4c4a-ad97-752c00e650a3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 V_t = \beta V_{t-1} + (1-\beta) \nabla_w L(W,X,y)
 \end{equation}\]</div>
 </div>
 <div class="section" id="and-the-updates-to-the-weights-will-be">
 <h3>and the updates to the weights will be:<a class="headerlink" href="#and-the-updates-to-the-weights-will-be" title="Permalink to this headline">¶</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-7b88ed15-4a6e-4f49-86b9-09ee7dbf7afa">
-<span class="eqno">(7)<a class="headerlink" href="#equation-7b88ed15-4a6e-4f49-86b9-09ee7dbf7afa" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e4344bbf-9b8b-4697-a3c1-beea89b1bb7d">
+<span class="eqno">(7)<a class="headerlink" href="#equation-e4344bbf-9b8b-4697-a3c1-beea89b1bb7d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w^{new} = w^{old} - LR * V_t
 \end{equation}\]</div>
 </div>
@@ -1238,11 +1238,15 @@ w^{new} = w^{old} - LR * V_t
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 3.999864900758534
-validation loss: 4.029444259149283
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>validation loss: 4.029444259149283
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train loss: 4.012311896769768
-validation loss: 4.013189358764803
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>validation loss: 4.013189358764803
 </pre></div>
 </div>
 </div>
