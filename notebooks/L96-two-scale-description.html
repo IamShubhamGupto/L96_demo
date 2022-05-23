@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The Lorenz-96 GCM Analog" href="presentation-model-setup.html" />
+    <link rel="next" title="The Lorenz-96 GCM Analog" href="gcm-analogue.html" />
     <link rel="prev" title="Introduction" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -107,7 +107,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="presentation-model-setup.html">
+  <a class="reference internal" href="gcm-analogue.html">
    The Lorenz-96 GCM Analog
   </a>
  </li>
@@ -318,8 +318,8 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>The Lorenz-96 Two-Timescale System<a class="headerlink" href="#the-lorenz-96-two-timescale-system" title="Permalink to this headline">¶</a></h1>
 <p>In 1996, Lorenz proposed a two-time scale dynamical system, referred to as the Lorenz-96 model (L96), whose behavior mimics the non-linear dynamics of the extratropical atmosphere with simplified representation of multiscale interactions and nonlinear advection <a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a>. The L96 model consists of a set of equations coupling two scales of variables evolving over slow and fast timescales and arranged around a latitude circle as shown in Fig. 1.
 <a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a> describes the “two time-scale” model in a set of equations (1 and 2) given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0b110956-c528-4131-9836-cb4e1d1c1453">
-<span class="eqno">(1)<a class="headerlink" href="#equation-0b110956-c528-4131-9836-cb4e1d1c1453" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-79145119-4bc9-4c68-b2a5-7cbb0f360331">
+<span class="eqno">(1)<a class="headerlink" href="#equation-79145119-4bc9-4c68-b2a5-7cbb0f360331" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
@@ -732,7 +732,7 @@ class L96(builtins.object)
             <p class="prev-next-title">Introduction</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="presentation-model-setup.html" title="next page">
+    <a class='right-next' id="next-link" href="gcm-analogue.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">The Lorenz-96 GCM Analog</p>

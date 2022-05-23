@@ -202,7 +202,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/presentation-model-setup.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notebooks/gcm-analogue.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -222,7 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/m2lines/L96_demo/issues/new?title=Issue%20on%20page%20%2Fnotebooks/presentation-model-setup.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/m2lines/L96_demo/issues/new?title=Issue%20on%20page%20%2Fnotebooks/gcm-analogue.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -243,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/m2lines/L96_demo/main?urlpath=tree/notebooks/presentation-model-setup.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/m2lines/L96_demo/main?urlpath=tree/notebooks/gcm-analogue.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -271,8 +271,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analog-for-gcm">
-   Analog for  GCM
+  <a class="reference internal nav-link" href="#analog-for-a-general-circulation-model-gcm">
+   Analog for a general circulation model (GCM)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -324,8 +324,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analog-for-gcm">
-   Analog for  GCM
+  <a class="reference internal nav-link" href="#analog-for-a-general-circulation-model-gcm">
+   Analog for a general circulation model (GCM)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -362,6 +362,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="the-lorenz-96-gcm-analog">
 <h1>The Lorenz-96 GCM Analog<a class="headerlink" href="#the-lorenz-96-gcm-analog" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook we bring together the two time-scale model and the single time-scale model, using the latter as an analog for how we use general circulation models to model the climate system at a finite resolution with incomplete numerical models.</p>
 <div class="section" id="the-real-world">
 <h2>The real world<a class="headerlink" href="#the-real-world" title="Permalink to this headline">¶</a></h2>
 <p>We will now describe experiments with the “two time-scale” model equations 1 and 2 from <a class="reference internal" href="L96-two-scale-description.html"><span class="doc">The Lorenz-96 Two-Timescale System</span></a>.
@@ -399,11 +400,11 @@ The values for the parameters <span class="math notranslate nohighlight">\(F\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.55 s, sys: 19.4 ms, total: 2.57 s
-Wall time: 2.57 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.77 s, sys: 36.2 ms, total: 2.8 s
+Wall time: 2.8 s
 </pre></div>
 </div>
-<img alt="../_images/presentation-model-setup_2_1.png" src="../_images/presentation-model-setup_2_1.png" />
+<img alt="../_images/gcm-analogue_1_1.png" src="../_images/gcm-analogue_1_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -418,7 +419,7 @@ Wall time: 2.57 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/presentation-model-setup_3_0.png" src="../_images/presentation-model-setup_3_0.png" />
+<img alt="../_images/gcm-analogue_2_0.png" src="../_images/gcm-analogue_2_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -433,15 +434,15 @@ Wall time: 2.57 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/presentation-model-setup_4_0.png" src="../_images/presentation-model-setup_4_0.png" />
+<img alt="../_images/gcm-analogue_3_0.png" src="../_images/gcm-analogue_3_0.png" />
 </div>
 </div>
 </div>
-<div class="section" id="analog-for-gcm">
-<h2>Analog for  GCM<a class="headerlink" href="#analog-for-gcm" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="analog-for-a-general-circulation-model-gcm">
+<h2>Analog for a general circulation model (GCM)<a class="headerlink" href="#analog-for-a-general-circulation-model-gcm" title="Permalink to this headline">¶</a></h2>
 <p>In this study, the two-scale Lorenz-96 system introduced above is treated as the “truth” or “real-world” model which we aim to forecast or simulate. The physical equations of motion of the system describing the atmosphere dynamics are known. However, it is not feasible to explicitley solve them within Global Climate Models (GCM) due to the unresolved smallest scales and limited computational resources. Given this constraint for GCM, the Lorenz-96 system is commonly treated as the full (or “truth”) model, while a forecast (or an approximate) model is constructed by replacing the coupling terms between the slow and fast variables (<span class="math notranslate nohighlight">\(\left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}\)</span>) with a sub-grid parameterization tendency that we note <span class="math notranslate nohighlight">\(U_k\)</span>, <span class="math notranslate nohighlight">\(k=1,\ldots,k\)</span>. The one time-scale Lorenz-96 equation corresponding to such an approxiamte model can be expressed as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d798db0f-a9ea-4699-ad51-64e88e363241">
-<span class="eqno">(2)<a class="headerlink" href="#equation-d798db0f-a9ea-4699-ad51-64e88e363241" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-20375317-74c8-40d5-8872-ed7f72088f5d">
+<span class="eqno">(2)<a class="headerlink" href="#equation-20375317-74c8-40d5-8872-ed7f72088f5d" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \underbrace{ 
 \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
@@ -451,8 +452,8 @@ Wall time: 2.57 s
 <div class="section" id="the-parametization-p-x-k">
 <h2>The parametization <span class="math notranslate nohighlight">\(P(X_k)\)</span><a class="headerlink" href="#the-parametization-p-x-k" title="Permalink to this headline">¶</a></h2>
 <p>We consider the particular choice of modeling the unknown parameterization of the “unresolved processes” with a plynomial approximation such that the one time-scale equation of the Lorenz-96 model can be written as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b48d611-3a3d-4684-9c4a-26185201ec7c">
-<span class="eqno">(3)<a class="headerlink" href="#equation-4b48d611-3a3d-4684-9c4a-26185201ec7c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3b690696-3ddc-433c-a78c-1132a3ecca64">
+<span class="eqno">(3)<a class="headerlink" href="#equation-3b690696-3ddc-433c-a78c-1132a3ecca64" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - P\left( X_k \right) \ .
 \end{align}\]</div>
@@ -469,8 +470,8 @@ Wall time: 2.57 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9.05 s, sys: 45.9 ms, total: 9.09 s
-Wall time: 8.95 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9.49 s, sys: 43.5 ms, total: 9.53 s
+Wall time: 9.33 s
 </pre></div>
 </div>
 </div>
@@ -506,7 +507,7 @@ Wall time: 8.95 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/presentation-model-setup_10_0.png" src="../_images/presentation-model-setup_10_0.png" />
+<img alt="../_images/gcm-analogue_9_0.png" src="../_images/gcm-analogue_9_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -529,7 +530,7 @@ Wall time: 8.95 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/presentation-model-setup_11_0.png" src="../_images/presentation-model-setup_11_0.png" />
+<img alt="../_images/gcm-analogue_10_0.png" src="../_images/gcm-analogue_10_0.png" />
 </div>
 </div>
 </div>
@@ -540,7 +541,7 @@ Wall time: 8.95 s
 <li><p>“Real world”: corresponding to the “truth” model goverened by the full two time-scale Lorenz-96 system.</p></li>
 <li><p>GCM w/o parameterization: corresponding to the one time-scale Lorenz-96 system without any the coupling term. We use a forward-Euler scheme to integrate the model forward.</p></li>
 <li><p>GCM with our parameterization: corresponding to the one time-scale Lorenz-96 system with the linear polynomial approximation of the coupling terms as obtained above.</p></li>
-<li><p>GCM with <a class="reference external" href="https://rmets.onlinelibrary.wiley.com/doi/abs/10.1256/qj.04.03">Wilks (2005)’</a> parameterization: corresponding to the one time-scale Lorenz-96 system with a third-order polynomial approximation of the coupling terms.</p></li>
+<li><p>GCM with <a class="reference external" href="https://rmets.onlinelibrary.wiley.com/doi/abs/10.1256/qj.04.03">Wilks (2005)</a> parameterization: corresponding to the one time-scale Lorenz-96 system with a third-order polynomial approximation of the coupling terms.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -597,7 +598,7 @@ Wall time: 8.95 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/presentation-model-setup_14_0.png" src="../_images/presentation-model-setup_14_0.png" />
+<img alt="../_images/gcm-analogue_13_0.png" src="../_images/gcm-analogue_13_0.png" />
 </div>
 </div>
 <p>The next plot shows the temporal evolution of the variable <span class="math notranslate nohighlight">\(X_3\)</span> obtained with the four models listed above.</p>
@@ -617,7 +618,7 @@ Wall time: 8.95 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/presentation-model-setup_16_0.png" src="../_images/presentation-model-setup_16_0.png" />
+<img alt="../_images/gcm-analogue_15_0.png" src="../_images/gcm-analogue_15_0.png" />
 </div>
 </div>
 </div>
@@ -678,7 +679,7 @@ Wall time: 8.95 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/presentation-model-setup_18_0.png" src="../_images/presentation-model-setup_18_0.png" />
+<img alt="../_images/gcm-analogue_17_0.png" src="../_images/gcm-analogue_17_0.png" />
 </div>
 </div>
 <p>For this particular set of parameter values, the removal of the coupling term results in the highest error. The second and third sources of error correspond to the numerical error (introduced by increasing the time-step) and to the error resulting form poorly parameterized unresolved physics (modeled by consideing a first-order polynomial approximation of the coupling terms) respectively.</p>
@@ -696,16 +697,16 @@ Wall time: 8.95 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 47.9 s, sys: 2.05 ms, total: 47.9 s
-Wall time: 47.9 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 46.3 s, sys: 9.42 ms, total: 46.3 s
+Wall time: 46.3 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.78 s, sys: 28.1 ms, total: 1.81 s
-Wall time: 1.78 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.64 s, sys: 7.54 ms, total: 1.65 s
+Wall time: 1.65 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.42 s, sys: 48.1 ms, total: 2.47 s
-Wall time: 2.42 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.44 s, sys: 137 ms, total: 2.57 s
+Wall time: 2.35 s
 </pre></div>
 </div>
 </div>
@@ -732,7 +733,7 @@ mean:  3.741   2.926   3.750
 std:   4.679   4.375   4.524
 </pre></div>
 </div>
-<img alt="../_images/presentation-model-setup_23_1.png" src="../_images/presentation-model-setup_23_1.png" />
+<img alt="../_images/gcm-analogue_22_1.png" src="../_images/gcm-analogue_22_1.png" />
 </div>
 </div>
 <p>As expected, the <a class="reference external" href="https://rmets.onlinelibrary.wiley.com/doi/abs/10.1256/qj.04.03">Wilks (2005)</a>’ parameterization gives a mean value of the slow variables that is closer to the one obtained with the “truth” model compared to the model with linear parameterization since <a class="reference external" href="https://rmets.onlinelibrary.wiley.com/doi/abs/10.1256/qj.04.03">Wilks (2005)’</a> coupling term is modeled with a third-order polynomial.</p>
@@ -765,8 +766,8 @@ std:   4.679   4.375   4.524
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.91 s, sys: 16 ms, total: 2.93 s
-Wall time: 2.92 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.03 s, sys: 24.1 ms, total: 3.05 s
+Wall time: 3.02 s
 
 
        Truth      P1      P4  P4+stoch
@@ -791,7 +792,7 @@ std:   4.679   4.375   4.524   4.537
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/presentation-model-setup_27_0.png" src="../_images/presentation-model-setup_27_0.png" />
+<img alt="../_images/gcm-analogue_26_0.png" src="../_images/gcm-analogue_26_0.png" />
 </div>
 </div>
 </div>

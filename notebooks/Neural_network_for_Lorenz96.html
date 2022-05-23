@@ -107,7 +107,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="presentation-model-setup.html">
+  <a class="reference internal" href="gcm-analogue.html">
    The Lorenz-96 GCM Analog
   </a>
  </li>
@@ -780,8 +780,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p><a class="reference external" href="https://www.ecmwf.int/en/elibrary/10829-predictability-problem-partly-solved">Lorenz (1996)</a> describes a “two time-scale” model in two equations (2 and 3) which are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6dcffdb2-bea7-45e1-8433-7465453c5764">
-<span class="eqno">(5)<a class="headerlink" href="#equation-6dcffdb2-bea7-45e1-8433-7465453c5764" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-52328350-e701-4bcf-8a5a-062f3561f4b1">
+<span class="eqno">(5)<a class="headerlink" href="#equation-52328350-e701-4bcf-8a5a-062f3561f4b1" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt} X_k
 &amp;= - X_{k-1} \left( X_{k-2} - X_{k+1} \right) - X_k + F - \left( \frac{hc}{b} \right) \sum_{j=0}^{J-1} Y_{j,k}
 \\
@@ -1143,15 +1143,15 @@ After backward pass:
 </div>
 <div class="section" id="the-effective-value-of-the-gradient-v-at-step-t-in-sgd-with-momentum-beta">
 <h3>The  effective value of the gradient (V) at step t in SGD with momentum (<span class="math notranslate nohighlight">\(\beta\)</span>):<a class="headerlink" href="#the-effective-value-of-the-gradient-v-at-step-t-in-sgd-with-momentum-beta" title="Permalink to this headline">¶</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-49780e05-3ff9-417b-bb82-39a6afeed139">
-<span class="eqno">(6)<a class="headerlink" href="#equation-49780e05-3ff9-417b-bb82-39a6afeed139" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2b0bd559-b20b-4560-8722-81b4e55148e5">
+<span class="eqno">(6)<a class="headerlink" href="#equation-2b0bd559-b20b-4560-8722-81b4e55148e5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 V_t = \beta V_{t-1} + (1-\beta) \nabla_w L(W,X,y)
 \end{equation}\]</div>
 </div>
 <div class="section" id="and-the-updates-to-the-weights-will-be">
 <h3>and the updates to the weights will be:<a class="headerlink" href="#and-the-updates-to-the-weights-will-be" title="Permalink to this headline">¶</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-da8f91bb-5e8e-4b45-92f4-adb93784f9df">
-<span class="eqno">(7)<a class="headerlink" href="#equation-da8f91bb-5e8e-4b45-92f4-adb93784f9df" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ca30e1a4-577f-460a-9ac3-cf8a33d39e3b">
+<span class="eqno">(7)<a class="headerlink" href="#equation-ca30e1a4-577f-460a-9ac3-cf8a33d39e3b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w^{new} = w^{old} - LR * V_t
 \end{equation}\]</div>
 </div>
